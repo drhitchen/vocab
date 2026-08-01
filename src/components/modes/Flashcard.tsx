@@ -15,14 +15,14 @@ export default function Flashcard({ words, onAnswer, onSessionEnd }: Props) {
 
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
-      if (e.code === 'Space' && !flipped) {
+      if (e.code === 'Space') {
         e.preventDefault();
-        setFlipped(true);
+        setFlipped(f => !f);
       }
     }
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [flipped]);
+  }, []);
 
   function answer(correct: boolean) {
     onAnswer(word.id, correct);
@@ -39,9 +39,9 @@ export default function Flashcard({ words, onAnswer, onSessionEnd }: Props) {
       <p className="text-slate-500 text-sm">{index + 1} / {words.length}</p>
 
       <div
-        onClick={() => !flipped && setFlipped(true)}
+        onClick={() => setFlipped(f => !f)}
         className={`w-full min-h-48 rounded-2xl border flex items-center justify-center p-8 text-center cursor-pointer transition-colors
-          ${flipped ? 'border-slate-600 bg-slate-800' : 'border-indigo-700 bg-indigo-950 hover:bg-indigo-900'}`}
+          ${flipped ? 'border-slate-600 bg-slate-800 hover:bg-slate-750' : 'border-indigo-700 bg-indigo-950 hover:bg-indigo-900'}`}
       >
         {flipped ? (
           <p className="text-slate-200 text-lg leading-relaxed">{word.definition}</p>
@@ -50,9 +50,9 @@ export default function Flashcard({ words, onAnswer, onSessionEnd }: Props) {
         )}
       </div>
 
-      {!flipped && (
-        <p className="text-slate-600 text-sm">Click or press Space to reveal</p>
-      )}
+      <p className="text-slate-600 text-sm">
+        {flipped ? 'Click card to flip back · Space to toggle' : 'Click card or press Space to reveal'}
+      </p>
 
       {flipped && (
         <div className="flex gap-4 w-full">
@@ -60,13 +60,13 @@ export default function Flashcard({ words, onAnswer, onSessionEnd }: Props) {
             onClick={() => answer(false)}
             className="flex-1 py-3 rounded-xl border border-red-800 bg-red-950 text-red-300 font-semibold hover:bg-red-900 transition-colors"
           >
-            Hard
+            Again
           </button>
           <button
             onClick={() => answer(true)}
             className="flex-1 py-3 rounded-xl border border-emerald-700 bg-emerald-950 text-emerald-300 font-semibold hover:bg-emerald-900 transition-colors"
           >
-            Easy
+            Got it
           </button>
         </div>
       )}

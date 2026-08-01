@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { AppScreen, SessionConfig, SessionResult, Word } from './types';
 import { loadWords } from './data/vocab';
 import { useProgress } from './hooks/useProgress';
-import { getWordsForSession } from './utils/srs';
+import { getWordsForSession, getWordsFromBuckets } from './utils/srs';
 import Header from './components/Header';
 import Home from './components/Home';
 import SessionWrapper from './components/SessionWrapper';
@@ -16,8 +16,9 @@ export default function App() {
   const [sessionWords, setSessionWords] = useState<Word[]>([]);
   const [sessionConfig, setSessionConfig] = useState<SessionConfig | null>(null);
   const [sessionResult, setSessionResult] = useState<SessionResult | null>(null);
+  const [lockedWords, setLockedWords] = useState<Word[] | null>(null);
 
-  const { cards, updateCard } = useProgress();
+  const { cards, updateCard, resetProgress } = useProgress();
 
   useEffect(() => {
     loadWords()
@@ -27,8 +28,17 @@ export default function App() {
   }, []);
 
   function handleStartSession(config: SessionConfig) {
-    const sessionQueue = getWordsForSession(words, cards, config.sessionSize);
-    setSessionWords(sessionQueue);
+    // Use locked set if present; otherwise build from buckets or SRS due logic
+    let queue: Word[];
+    if (lockedWords) {
+      queue = lockedWords;
+    } else if (config.buckets && config.buckets.length > 0) {
+      queue = getWordsFromBuckets(words, cards, config.buckets, config.sessionSize);
+    } else {
+      queue = getWordsForSession(words, cards, config.sessionSize);
+    }
+    if (!lockedWords) setLockedWords(queue);
+    setSessionWords(queue);
     setSessionConfig(config);
     setScreen('session');
   }
@@ -40,9 +50,18 @@ export default function App() {
 
   function handleReview() {
     if (!sessionConfig) return;
-    const queue = getWordsForSession(words, cards, sessionConfig.sessionSize);
-    setSessionWords(queue);
+    // Same locked word set, different (or same) mode
+    setSessionWords(lockedWords ?? getWordsForSession(words, cards, sessionConfig.sessionSize));
     setScreen('session');
+  }
+
+  function handleClearLockedWords() {
+    setLockedWords(null);
+  }
+
+  function handleResetProgress() {
+    resetProgress();
+    setLockedWords(null);
   }
 
   const masteredCount = [...cards.values()].filter(c => c.bucket === 4).length;
@@ -74,7 +93,10 @@ export default function App() {
         <Home
           words={words}
           cards={cards}
+          lockedWords={lockedWords}
           onStartSession={handleStartSession}
+          onClearLockedWords={handleClearLockedWords}
+          onResetProgress={handleResetProgress}
         />
       )}
       {screen === 'session' && sessionConfig && (

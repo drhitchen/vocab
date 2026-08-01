@@ -21,36 +21,35 @@ export default function MultipleChoice({ words, allWords, onAnswer, onSessionEnd
     return shuffle([word, ...distractors]);
   }, [word, allWords]);
 
-  const advance = useCallback((correct: boolean) => {
-    onAnswer(word.id, correct);
-    setTimeout(() => {
-      if (index + 1 >= words.length) {
-        onSessionEnd();
-      } else {
-        setIndex(i => i + 1);
-        setSelected(null);
-      }
-    }, 800);
-  }, [word, index, words.length, onAnswer, onSessionEnd]);
+  const advance = useCallback(() => {
+    if (index + 1 >= words.length) {
+      onSessionEnd();
+    } else {
+      setIndex(i => i + 1);
+      setSelected(null);
+    }
+  }, [index, words.length, onSessionEnd]);
 
   function select(optionId: string) {
     if (selected !== null) return;
     setSelected(optionId);
-    advance(optionId === word.id);
+    onAnswer(word.id, optionId === word.id);
   }
 
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
-      if (selected !== null) return;
-      const n = parseInt(e.key);
-      if (n >= 1 && n <= 4 && options[n - 1]) {
-        select(options[n - 1].id);
+      if (selected === null) {
+        const n = parseInt(e.key);
+        if (n >= 1 && n <= 4 && options[n - 1]) select(options[n - 1].id);
+      } else if (e.code === 'Space' || e.code === 'Enter' || e.code === 'ArrowRight') {
+        e.preventDefault();
+        advance();
       }
     }
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selected, options]);
+  }, [selected, options, advance]);
 
   function optionClass(opt: Word) {
     if (selected === null) return 'border-slate-700 bg-slate-900 hover:border-slate-500 text-slate-200';
@@ -80,6 +79,15 @@ export default function MultipleChoice({ words, allWords, onAnswer, onSessionEnd
           </button>
         ))}
       </div>
+
+      {selected !== null && (
+        <button
+          onClick={advance}
+          className="w-full py-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium transition-colors"
+        >
+          Next → <span className="text-slate-500 text-sm ml-1">Space / Enter</span>
+        </button>
+      )}
     </div>
   );
 }

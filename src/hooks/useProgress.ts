@@ -37,5 +37,10 @@ export function useProgress() {
     return cards.get(wordId);
   }, [cards]);
 
-  return { cards, updateCard, getCard };
+  const resetProgress = useCallback(() => {
+    localStorage.removeItem(STORAGE_KEY);
+    setCards(new Map());
+  }, []);
+
+  return { cards, updateCard, getCard, resetProgress };
 }

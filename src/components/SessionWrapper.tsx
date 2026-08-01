@@ -4,7 +4,6 @@ import { scheduleNext, createCard } from '../utils/srs';
 import Flashcard from './modes/Flashcard';
 import MultipleChoice from './modes/MultipleChoice';
 import FillInBlank from './modes/FillInBlank';
-import Spelling from './modes/Spelling';
 import MatchPairs from './modes/MatchPairs';
 
 interface Props {
@@ -81,7 +80,6 @@ export default function SessionWrapper({
       {mode === 'flashcard' && <Flashcard {...commonProps} />}
       {mode === 'multiple-choice' && <MultipleChoice {...commonProps} allWords={allWords} />}
       {mode === 'fill-in-blank' && <FillInBlank {...commonProps} />}
-      {mode === 'spelling' && <Spelling {...commonProps} />}
       {mode === 'match-pairs' && <MatchPairs {...commonProps} />}
     </div>
   );
