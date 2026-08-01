@@ -5,7 +5,9 @@ interface EntryCardProps {
   word: Word;
   card: SRSCard | undefined;
   isExpanded: boolean;
+  isSelected: boolean;
   onToggle: () => void;
+  onSelect: () => void;
 }
 
 const BUCKET_LABELS = ['New', 'Learning', 'Familiar', 'Known', 'Mastered'] as const;
@@ -25,7 +27,7 @@ const TYPE_BADGE: Record<string, string> = {
   prefix: 'bg-rose-900 text-rose-200',
 };
 
-export default function EntryCard({ word, card, isExpanded, onToggle }: EntryCardProps) {
+export default function EntryCard({ word, card, isExpanded, isSelected, onToggle, onSelect }: EntryCardProps) {
   const [showJson, setShowJson] = useState(false);
 
   const truncDef = word.definitions[0].length > 80
@@ -38,12 +40,19 @@ export default function EntryCard({ word, card, isExpanded, onToggle }: EntryCar
   const typeBadge = TYPE_BADGE[word.type] ?? 'bg-slate-700 text-slate-200';
 
   return (
-    <div className="border-b border-slate-800">
+    <div className={`border-b border-slate-800${isSelected ? ' bg-indigo-950/30' : ''}`}>
       {/* Collapsed row */}
       <div
-        className="grid grid-cols-[2rem_1fr_auto_auto_2fr] items-center gap-3 px-4 py-2.5 hover:bg-slate-900 cursor-pointer select-none"
+        className="grid grid-cols-[1.5rem_1.5rem_1fr_auto_auto_2fr] items-center gap-3 px-4 py-2.5 hover:bg-slate-900 cursor-pointer select-none"
         onClick={onToggle}
       >
+        <input
+          type="checkbox"
+          checked={isSelected}
+          onChange={onSelect}
+          onClick={e => e.stopPropagation()}
+          className="accent-indigo-500 cursor-pointer"
+        />
         <span className="text-slate-500 text-xs">{isExpanded ? '▼' : '▶'}</span>
         <span className="font-semibold text-slate-100 truncate">{word.word}</span>
         <span className="text-slate-400 text-xs">{word.partOfSpeech}</span>

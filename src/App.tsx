@@ -60,6 +60,11 @@ export default function App() {
     setLockedWords(null);
   }
 
+  function handleStudySelected(selected: Word[]) {
+    setLockedWords(selected);
+    setScreen('home');
+  }
+
   function handleResetProgress() {
     resetProgress();
     setLockedWords(null);
@@ -119,7 +124,7 @@ export default function App() {
         />
       )}
       {screen === 'browse' && (
-        <Browse words={words} cards={cards} />
+        <Browse words={words} cards={cards} onStudySelected={handleStudySelected} />
       )}
     </div>
   );
