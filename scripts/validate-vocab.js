@@ -34,30 +34,29 @@ const EXAMPLE_MIN   = 1;
 const EXAMPLE_MAX   = 2;
 const DEF_MAX       = 2;
 
-/** Very naive stem check: returns true if the word (or a clear derivative) appears in text */
+/** Returns true if the word (or a clear derivative) appears in the definition text */
 function containsSelfReference(word, text) {
   if (!word || !text) return false;
 
   const textLower = text.toLowerCase();
   const wordLower = word.toLowerCase();
 
-  // Multi-word entries: check each significant word (4+ chars)
-  const tokens = wordLower.split(/\s+/).filter((t) => t.length >= 4 && !/^(the|and|for|with|that|this|from|into|upon)$/.test(t));
-
-  for (const token of tokens) {
-    // Strip common suffixes to get a rough stem
-    const stem = token
-      .replace(/(?:tion|sion|ness|ment|ity|ous|ful|ish|ive|ing|ed|er|est|ly|al|ic)$/, '')
-      .replace(/e$/, '');
-
-    if (stem.length < 3) continue;
-
-    // Check if the stem appears as a standalone word root in the definition
-    const pattern = new RegExp(`\\b${escapeRegex(stem)}`, 'i');
-    if (pattern.test(textLower)) return true;
+  // For multi-word entries (phrases), only check whether the full phrase appears
+  // verbatim — checking individual tokens causes false positives (e.g. "nervous"
+  // in "autonomic nervous system" matching "nervous" in the definition).
+  if (wordLower.includes(' ')) {
+    return new RegExp(`\\b${escapeRegex(wordLower)}\\b`, 'i').test(textLower);
   }
 
-  return false;
+  // For single words, check the word itself and a rough morphological stem
+  if (new RegExp(`\\b${escapeRegex(wordLower)}\\b`, 'i').test(textLower)) return true;
+
+  const stem = wordLower
+    .replace(/(?:tion|sion|ness|ment|ity|ous|ful|ish|ive|ing|ed|er|est|ly|al|ic)$/, '')
+    .replace(/e$/, '');
+
+  if (stem.length < 4) return false;
+  return new RegExp(`\\b${escapeRegex(stem)}`, 'i').test(textLower);
 }
 
 function escapeRegex(s) {
