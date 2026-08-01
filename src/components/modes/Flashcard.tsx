@@ -44,7 +44,15 @@ export default function Flashcard({ words, onAnswer, onSessionEnd }: Props) {
           ${flipped ? 'border-slate-600 bg-slate-800 hover:bg-slate-750' : 'border-indigo-700 bg-indigo-950 hover:bg-indigo-900'}`}
       >
         {flipped ? (
-          <p className="text-slate-200 text-lg leading-relaxed">{word.definition}</p>
+          <div className="space-y-4">
+            <p className="text-slate-200 text-lg leading-relaxed">{word.definition}</p>
+            {word.definitions[1] && (
+              <p className="text-slate-400 text-base leading-relaxed border-t border-slate-700 pt-3">{word.definitions[1]}</p>
+            )}
+            {word.examples[0] && (
+              <p className="text-slate-500 text-sm italic">&ldquo;{word.examples[0]}&rdquo;</p>
+            )}
+          </div>
         ) : (
           <p className="text-white text-3xl font-bold">{word.word}</p>
         )}

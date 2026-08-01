@@ -1,26 +1,26 @@
 import { Word } from '../types';
 
-function slugify(word: string): string {
-  return word.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-}
+type RawEntry = {
+  id: string; word: string; type?: string; partOfSpeech?: string;
+  definitions: string[]; examples?: string[];
+  reviewNeeded?: boolean; reviewReason?: string;
+};
 
 export async function loadWords(): Promise<Word[]> {
-  const response = await fetch('/vocab.txt');
-  const text = await response.text();
-  const seen = new Set<string>();
-  const words: Word[] = [];
+  const response = await fetch('/vocab.json');
+  const entries = (await response.json()) as RawEntry[];
 
-  for (const line of text.split('\n')) {
-    const tabIdx = line.indexOf('\t');
-    if (tabIdx === -1) continue;
-    const word = line.slice(0, tabIdx).trim();
-    const definition = line.slice(tabIdx + 1).trim();
-    if (!word || !definition) continue;
-    const id = slugify(word);
-    if (!id || seen.has(id)) continue;
-    seen.add(id);
-    words.push({ id, word, definition });
-  }
-
-  return words;
+  return entries
+    .filter(e => e.id && e.word && e.definitions?.length)
+    .map(e => ({
+      id: e.id,
+      word: e.word,
+      type: (e.type ?? 'common') as Word['type'],
+      partOfSpeech: e.partOfSpeech ?? '',
+      definitions: [e.definitions[0], e.definitions[1]] as [string, string?],
+      examples: e.examples ?? [],
+      reviewNeeded: e.reviewNeeded ?? false,
+      reviewReason: e.reviewReason ?? '',
+      definition: e.definitions[0], // backward compat for game modes
+    }));
 }

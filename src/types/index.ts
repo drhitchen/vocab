@@ -1,7 +1,13 @@
 export interface Word {
-  id: string;       // slugified word, e.g. "aback", "ad-hoc"
+  id: string;
   word: string;
-  definition: string;
+  type: 'common' | 'proper' | 'phrase' | 'prefix';
+  partOfSpeech: string;
+  definitions: [string, string?]; // 1 or 2 definitions
+  examples: string[];             // 1-2 example sentences
+  reviewNeeded: boolean;
+  reviewReason: string;
+  definition: string;             // = definitions[0]; kept for backward compat
 }
 
 export type Bucket = 0 | 1 | 2 | 3 | 4;
