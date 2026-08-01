@@ -13,7 +13,7 @@ export default function App() {
   const [words, setWords] = useState<Word[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [screen, setScreen] = useState<AppScreen>('home');
+  const [screen, setScreen] = useState<AppScreen>('browse');
   const [sessionWords, setSessionWords] = useState<Word[]>([]);
   const [sessionConfig, setSessionConfig] = useState<SessionConfig | null>(null);
   const [sessionResult, setSessionResult] = useState<SessionResult | null>(null);

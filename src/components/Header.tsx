@@ -36,7 +36,7 @@ export default function Header({ totalWords, masteredCount, dueCount, screen, on
       </div>
       {/* Nav tabs */}
       <div className="px-6 flex gap-1">
-        {(['home', 'browse'] as const).map(s => (
+        {(['browse', 'home'] as const).map(s => (
           <button
             key={s}
             onClick={() => onNavigate(s)}

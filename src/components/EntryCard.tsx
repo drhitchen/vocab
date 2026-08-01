@@ -56,6 +56,19 @@ export default function EntryCard({ word, card, isExpanded, onToggle }: EntryCar
       {/* Expanded panel */}
       {isExpanded && (
         <div className="px-10 pb-4 pt-1 bg-slate-900 text-sm space-y-3">
+          {/* External reference */}
+          <div>
+            <a
+              href={`https://www.merriam-webster.com/dictionary/${encodeURIComponent(word.word)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={e => e.stopPropagation()}
+              className="text-xs text-slate-400 hover:text-sky-400 underline underline-offset-2"
+            >
+              ↗ Merriam-Webster
+            </a>
+          </div>
+
           {/* Definitions */}
           <div>
             <p className="text-xs text-slate-500 uppercase tracking-wide mb-1">Definitions</p>
