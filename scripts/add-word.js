@@ -209,6 +209,7 @@ async function main() {
     const entry = findEntry(loadJson(), word);
     if (entry) {
       display(entry);
+      console.log(`  https://www.merriam-webster.com/dictionary/${encodeURIComponent(entry.word)}\n`);
       process.exit(0);
     } else {
       console.log(`\n  "${word}" not in vocabulary.\n`);
