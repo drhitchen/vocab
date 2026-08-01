@@ -14,11 +14,12 @@ export interface SRSCard {
   correctAttempts: number;
 }
 
-export type GameMode = 'flashcard' | 'multiple-choice' | 'fill-in-blank' | 'spelling' | 'match-pairs';
+export type GameMode = 'flashcard' | 'multiple-choice' | 'fill-in-blank' | 'match-pairs';
 
 export interface SessionConfig {
   mode: GameMode;
-  sessionSize: 10 | 20 | 50;
+  sessionSize: 1 | 5 | 10 | 20 | 50;
+  buckets?: Bucket[]; // if set, pull from these buckets instead of SRS due logic
 }
 
 export type AppScreen = 'home' | 'session' | 'summary';

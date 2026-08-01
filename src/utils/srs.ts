@@ -64,3 +64,19 @@ export function getWordsForSession(
 export function getBucketLabel(bucket: Bucket): string {
   return ['New', 'Learning', 'Familiar', 'Known', 'Mastered'][bucket];
 }
+
+// Pull words directly from specified buckets, ignoring review schedule
+export function getWordsFromBuckets(
+  words: Word[],
+  cards: Map<string, SRSCard>,
+  buckets: Bucket[],
+  maxCount: number
+): Word[] {
+  const bucketSet = new Set(buckets);
+  const filtered = words.filter(w => {
+    const card = cards.get(w.id);
+    if (!card) return bucketSet.has(0); // unseen words belong to bucket 0 (New)
+    return bucketSet.has(card.bucket);
+  });
+  return shuffle(filtered).slice(0, maxCount);
+}
