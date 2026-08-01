@@ -5,7 +5,7 @@
  *
  * Usage:
  *   node scripts/add-word.js [word]           # word optional; prompts if omitted
- *   node scripts/add-word.js --file FILE      # target JSON (default: vocab-normalized.json)
+ *   node scripts/add-word.js --file FILE      # target JSON (default: public/vocab.json)
  *   node scripts/add-word.js --model NAME     # Claude model (default: claude-sonnet-4-5)
  */
 
@@ -18,7 +18,7 @@ import { fileURLToPath } from 'url';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const args = parseArgs(process.argv.slice(2));
-const JSON_FILE = args['file']  ?? path.join(ROOT, 'vocab-normalized.json');
+const JSON_FILE = args['file']  ?? path.join(ROOT, 'public', 'vocab.json');
 const MODEL     = args['model'] ?? 'claude-sonnet-4-5';
 // First positional arg (if any) is treated as the word
 const WORD_ARG  = args['_']?.[0] ?? null;
