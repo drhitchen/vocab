@@ -7,7 +7,7 @@ type RawEntry = {
 };
 
 export async function loadWords(): Promise<Word[]> {
-  const response = await fetch('/vocab.json');
+  const response = await fetch(`${import.meta.env.BASE_URL}vocab.json`);
   const entries = (await response.json()) as RawEntry[];
 
   return entries
