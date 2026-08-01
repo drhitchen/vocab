@@ -133,7 +133,44 @@ Set reviewNeeded=true only if you are genuinely uncertain about the word.
 
 Return ONLY valid JSON — no markdown, no commentary.`;
 
+// ---------------------------------------------------------------------------
+// Entry validation
+// ---------------------------------------------------------------------------
+
+const VALID_TYPES = new Set(['common', 'proper', 'phrase', 'prefix']);
+const HTML_PATTERN = /<[^>]+>/;
+
+function validateEntry(entry) {
+  const required = ['id', 'word', 'type', 'partOfSpeech', 'definitions', 'examples'];
+  for (const field of required) {
+    if (entry[field] == null) throw new Error(`Missing required field: ${field}`);
+  }
+  if (!VALID_TYPES.has(entry.type)) {
+    throw new Error(`Invalid type: "${entry.type}"`);
+  }
+  if (!Array.isArray(entry.definitions) || entry.definitions.length < 1 || entry.definitions.length > 2) {
+    throw new Error('definitions must be an array of 1-2 strings');
+  }
+  if (!Array.isArray(entry.examples) || entry.examples.length < 1) {
+    throw new Error('examples must be a non-empty array');
+  }
+  for (const def of entry.definitions) {
+    if (typeof def !== 'string') throw new Error('definition must be a string');
+    if (HTML_PATTERN.test(def)) throw new Error(`HTML content rejected in definition: "${def.slice(0, 60)}"`);
+  }
+  for (const ex of entry.examples) {
+    if (typeof ex !== 'string') throw new Error('example must be a string');
+    if (HTML_PATTERN.test(ex)) throw new Error(`HTML content rejected in example: "${ex.slice(0, 60)}"`);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Claude API
+// ---------------------------------------------------------------------------
+
 async function generateEntry(word) {
+  // Strip quote chars to prevent prompt injection via the word argument
+  const safeWord = word.replace(/["'\\`]/g, '').slice(0, 100);
   const body = JSON.stringify({
     model: MODEL,
     max_tokens: 1024,
@@ -141,7 +178,7 @@ async function generateEntry(word) {
     messages: [
       {
         role: 'user',
-        content: `Generate a vocab entry for the word: "${word}"
+        content: `Generate a vocab entry for the word: "${safeWord}"
 
 Return a single JSON object with this exact schema:
 {
@@ -257,6 +294,7 @@ async function main() {
       entry = await generateEntry(word);
       // Ensure id is correct regardless of model output
       entry.id = slugify(entry.word ?? word);
+      validateEntry(entry);
       console.log(' done\n');
     } catch (err) {
       console.log(` FAILED: ${err.message}\n`);
