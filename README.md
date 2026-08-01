@@ -2,7 +2,7 @@
 
 A spaced-repetition vocabulary learning app built with React + Vite. All progress is saved locally in the browser — no account needed.
 
-**Live:** https://drhitchen.github.io/vocab/
+**Live:** https://drhitchen.github.io/vocab/ · **License:** [MIT](LICENSE)
 
 ## Getting started
 
@@ -69,6 +69,10 @@ Click any bucket card on the home screen to filter by that bucket (multi-select 
 
 ## Tech stack
 
-- React 18 + Vite + TypeScript
+- React 19 + Vite 8 + TypeScript
 - Tailwind CSS v3
 - No backend, no account, no network calls after initial load
+
+## License
+
+[MIT](LICENSE) — © 2026 Doug Hitchen
