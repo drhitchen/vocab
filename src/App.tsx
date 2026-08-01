@@ -46,6 +46,10 @@ export default function App() {
   }
 
   const masteredCount = [...cards.values()].filter(c => c.bucket === 4).length;
+  const dueCount = words.filter(w => {
+    const card = cards.get(w.id);
+    return !card || new Date(card.nextReview) <= new Date();
+  }).length;
 
   if (loading) {
     return (
@@ -65,7 +69,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
-      <Header totalWords={words.length} masteredCount={masteredCount} />
+      <Header totalWords={words.length} masteredCount={masteredCount} dueCount={dueCount} />
       {screen === 'home' && (
         <Home
           words={words}

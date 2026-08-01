@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { SRSCard, Word } from '../../types';
+import { Word } from '../../types';
 import { shuffle } from '../../utils/shuffle';
 
 interface Props {
   words: Word[];
   allWords: Word[];
-  cards: Map<string, SRSCard>;
   onAnswer: (wordId: string, correct: boolean) => void;
   onSessionEnd: () => void;
 }

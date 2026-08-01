@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { GameMode, SessionResult, SRSCard, Word } from '../types';
 import { scheduleNext, createCard } from '../utils/srs';
 import Flashcard from './modes/Flashcard';
@@ -25,6 +25,14 @@ export default function SessionWrapper({
   const incorrectRef = useRef(0);
   const bucketChangesRef = useRef<SessionResult['bucketChanges']>([]);
 
+  useEffect(() => {
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') onHome();
+    }
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [onHome]);
+
   const handleAnswer = useCallback((wordId: string, isCorrect: boolean) => {
     const existing = cards.get(wordId) ?? createCard(wordId);
     const updated = scheduleNext(existing, isCorrect);
@@ -44,10 +52,20 @@ export default function SessionWrapper({
 
   const commonProps = {
     words,
-    cards,
     onAnswer: handleAnswer,
     onSessionEnd: handleSessionEnd,
   };
+
+  if (words.length === 0) {
+    return (
+      <div className="max-w-2xl mx-auto px-6 py-20 text-center">
+        <p className="text-slate-400 mb-6">No words to review right now.</p>
+        <button onClick={onHome} className="px-6 py-3 bg-slate-700 rounded-xl hover:bg-slate-600 transition-colors">
+          ← Back to Home
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div>

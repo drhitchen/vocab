@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { SRSCard, Word } from '../../types';
+import { Word } from '../../types';
 
 interface Props {
   words: Word[];
-  cards: Map<string, SRSCard>;
   onAnswer: (wordId: string, correct: boolean) => void;
   onSessionEnd: () => void;
 }

@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
-import { SRSCard, Word } from '../../types';
+import { Word } from '../../types';
 import { shuffle } from '../../utils/shuffle';
 
 interface Props {
   words: Word[];
-  cards: Map<string, SRSCard>;
   onAnswer: (wordId: string, correct: boolean) => void;
   onSessionEnd: () => void;
 }
@@ -28,8 +27,11 @@ export default function MatchPairs({ words, onAnswer, onSessionEnd }: Props) {
   const [wrong, setWrong] = useState<[string, string] | null>(null);
   const [mistakes, setMistakes] = useState<Set<string>>(new Set());
 
+  const roundWords = words.slice(roundStart, roundStart + PAIR_SIZE);
+  const totalRounds = Math.ceil(words.length / PAIR_SIZE);
+  const currentRound = Math.floor(roundStart / PAIR_SIZE) + 1;
+
   useEffect(() => {
-    const roundWords = words.slice(roundStart, roundStart + PAIR_SIZE);
     const newTiles: Tile[] = [];
     for (const w of roundWords) {
       newTiles.push({ id: `${w.id}-word`, wordId: w.id, type: 'word', text: w.word });
@@ -42,9 +44,10 @@ export default function MatchPairs({ words, onAnswer, onSessionEnd }: Props) {
     setMistakes(new Set());
   }, [roundStart, words]);
 
-  const roundWords = words.slice(roundStart, roundStart + PAIR_SIZE);
-  const totalRounds = Math.ceil(words.length / PAIR_SIZE);
-  const currentRound = Math.floor(roundStart / PAIR_SIZE) + 1;
+  // End session if no words remain for this round (e.g. empty words prop)
+  useEffect(() => {
+    if (roundWords.length === 0) onSessionEnd();
+  }, [roundWords.length, onSessionEnd]);
 
   function handleTileClick(tile: Tile) {
     if (matched.has(tile.wordId)) return;
@@ -114,6 +117,8 @@ export default function MatchPairs({ words, onAnswer, onSessionEnd }: Props) {
     return 'border-slate-700 bg-slate-900 text-slate-300 hover:border-slate-500 cursor-pointer';
   }
 
+  if (roundWords.length === 0) return null;
+
   return (
     <div className="max-w-3xl mx-auto px-6 py-10 flex flex-col gap-6">
       <div className="flex justify-between items-center text-sm text-slate-500">
@@ -129,7 +134,7 @@ export default function MatchPairs({ words, onAnswer, onSessionEnd }: Props) {
             disabled={matched.has(tile.wordId)}
             className={`text-left px-4 py-3 rounded-xl border text-sm leading-snug transition-colors min-h-16 ${tileClass(tile)}`}
           >
-            {tile.text}
+            <span className={tile.type === 'definition' ? 'line-clamp-3' : ''}>{tile.text}</span>
           </button>
         ))}
       </div>
