@@ -28,7 +28,7 @@ export interface SessionConfig {
   buckets?: Bucket[]; // if set, pull from these buckets instead of SRS due logic
 }
 
-export type AppScreen = 'home' | 'session' | 'summary';
+export type AppScreen = 'home' | 'session' | 'summary' | 'browse';
 
 export interface SessionResult {
   wordsReviewed: number;

@@ -5,6 +5,7 @@ import { useProgress } from './hooks/useProgress';
 import { getWordsForSession, getWordsFromBuckets } from './utils/srs';
 import Header from './components/Header';
 import Home from './components/Home';
+import Browse from './components/Browse';
 import SessionWrapper from './components/SessionWrapper';
 import SessionSummary from './components/SessionSummary';
 
@@ -88,7 +89,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
-      <Header totalWords={words.length} masteredCount={masteredCount} dueCount={dueCount} />
+      <Header totalWords={words.length} masteredCount={masteredCount} dueCount={dueCount} screen={screen} onNavigate={(s) => setScreen(s)} />
       {screen === 'home' && (
         <Home
           words={words}
@@ -116,6 +117,9 @@ export default function App() {
           onHome={() => setScreen('home')}
           onReview={handleReview}
         />
+      )}
+      {screen === 'browse' && (
+        <Browse words={words} cards={cards} />
       )}
     </div>
   );
