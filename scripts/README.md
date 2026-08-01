@@ -90,6 +90,44 @@ node scripts/validate-vocab.js --warn-only
 
 ---
 
+### `review-vocab.js`
+
+Interactively reviews every entry in `vocab-review-needed.json` one at a time.
+For each entry it shows the original definition from `vocab.txt` alongside the normalized version, then prompts for an action.
+
+**Usage:**
+
+```bash
+node scripts/review-vocab.js
+```
+
+**Actions per entry:**
+
+| Key | Action |
+|-----|--------|
+| `A` (or Enter) | Accept — clears `reviewNeeded`, saves to normalized JSON, removes from review queue |
+| `E` | Edit one or more fields inline, then confirm |
+| `R` | Regenerate via Claude using the original definition as context, then accept/edit/skip |
+| `S` | Skip — leave in review queue for next session |
+| `Q` | Quit — progress is saved, resume anytime |
+
+**Edit sub-menu** (`E`):
+
+```
+def1   First definition
+def2   Second definition (for words with two distinct senses)
+ex1    First example sentence
+ex2    Second example sentence
+type   Entry type (common/proper/phrase/prefix)
+pos    Part of speech
+editor Open full entry in $EDITOR (defaults to nano)
+done   Finish editing this entry
+```
+
+Progress is saved to disk after every accepted entry, so the session can be safely interrupted and resumed.
+
+---
+
 ### `add-word.js`
 
 Interactive tool for looking up or adding individual words. Prompts for a word, checks the JSON, and uses Claude to generate the entry if missing.
