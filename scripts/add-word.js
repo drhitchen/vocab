@@ -18,8 +18,9 @@ import { fileURLToPath } from 'url';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const args = parseArgs(process.argv.slice(2));
-const JSON_FILE = args['file']  ?? path.join(ROOT, 'public', 'vocab.json');
-const MODEL     = args['model'] ?? 'claude-sonnet-4-5';
+const JSON_FILE   = args['file']   ?? path.join(ROOT, 'public', 'vocab.json');
+const LOOKUP_ONLY = !!args['lookup'];
+const MODEL       = args['model']  ?? 'claude-sonnet-4-5';
 // First positional arg (if any) is treated as the word
 const WORD_ARG  = args['_']?.[0] ?? null;
 
@@ -28,7 +29,7 @@ const WORD_ARG  = args['_']?.[0] ?? null;
 // ---------------------------------------------------------------------------
 
 const API_KEY = process.env.ANTHROPIC_API_KEY;
-if (!API_KEY) {
+if (!API_KEY && !LOOKUP_ONLY) {
   console.error(`
 Error: ANTHROPIC_API_KEY is not set.
 
@@ -200,6 +201,22 @@ Return a single JSON object with this exact schema:
 // ---------------------------------------------------------------------------
 
 async function main() {
+  // --lookup: display and exit, no prompts or API calls
+  if (LOOKUP_ONLY) {
+    // word comes from positional arg OR as the value of --lookup (e.g. --lookup detent)
+    const word = WORD_ARG ?? (typeof args['lookup'] === 'string' ? args['lookup'] : null);
+    if (!word) { console.error('Usage: add-word.js --lookup <word>'); process.exit(1); }
+    const entry = findEntry(loadJson(), word);
+    if (entry) {
+      display(entry);
+      process.exit(0);
+    } else {
+      console.log(`\n  "${word}" not in vocabulary.\n`);
+      console.log(`  Add it: node scripts/add-word.js ${word}\n`);
+      process.exit(1);
+    }
+  }
+
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
   // Suppress the default "close" behavior so we can loop
   rl.on('SIGINT', () => { console.log('\nBye!'); rl.close(); process.exit(0); });
