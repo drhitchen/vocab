@@ -26,26 +26,28 @@ Overall risk posture: **Medium**. No critical findings in the deployed SPA itsel
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│  Developer Machine (local only)                      │
-│                                                      │
+│  Developer Machine (local only)                     │
+│                                                     │
 │  scripts/add-word.js ──── ANTHROPIC_API_KEY (env)   │
-│         │  reads/writes                              │
-│         ▼                                            │
-│  public/vocab.json ──────────────────────────────┐  │
-│                                                   │  │
-│  git push → GitHub Actions (deploy.yml)          │  │
-│               │ npm ci && npm run build           │  │
-│               │ upload-pages-artifact             │  │
-│               ▼                                   │  │
-│        GitHub Pages CDN                           │  │
-└───────────────────────────────────────────────────┘
-                    │ static fetch
+│         │  reads/writes                             │
+│         ▼                                           │
+│  public/vocab.json                                  │
+│         │  git commit + push                        │
+│         ▼                                           │
+│  GitHub Actions (deploy.yml)                        │
+│    npm ci && npm run build                          │
+│    upload-pages-artifact → deploy-pages             │
+│         │                                           │
+│         ▼                                           │
+│  GitHub Pages CDN                                   │
+└─────────────────────────────────────────────────────┘
+                    │ HTTPS static fetch
                     ▼
           User Browser (any origin)
           ┌─────────────────────────┐
           │  React SPA              │
           │  ← vocab.json (fetch)   │
-          │  ← localStorage (SRS)   │
+          │  ↔ localStorage (SRS)   │
           └─────────────────────────┘
 ```
 
@@ -69,12 +71,12 @@ Overall risk posture: **Medium**. No critical findings in the deployed SPA itsel
 
 [GitHub Actions]
   ├─ TRIGGER: push to master
-  ├─ actions/checkout@v4 (third-party, floating tag)
-  ├─ actions/setup-node@v4 (third-party, floating tag)
+  ├─ actions/checkout@3d3c42e5... (SHA-pinned, v7)
+  ├─ actions/setup-node@82076278... (SHA-pinned, v7)
   ├─ npm ci (reads package-lock.json)
   ├─ npm run build (tsc + vite)
-  ├─ actions/upload-pages-artifact@v3 (third-party, floating tag)
-  └─ actions/deploy-pages@v4 (third-party, floating tag)
+  ├─ actions/upload-pages-artifact@fc324d35... (SHA-pinned, v5)
+  └─ actions/deploy-pages@cd2ce8fc... (SHA-pinned, v5)
 ```
 
 ### Trust Boundaries
