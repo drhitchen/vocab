@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
-import { AppScreen, SessionConfig, Word } from './types';
+import { AppScreen, SessionConfig, SessionResult, Word } from './types';
 import { loadWords } from './data/vocab';
 import { useProgress } from './hooks/useProgress';
 import { getWordsForSession } from './utils/srs';
 import Header from './components/Header';
 import Home from './components/Home';
+import SessionWrapper from './components/SessionWrapper';
+import SessionSummary from './components/SessionSummary';
 
 export default function App() {
   const [words, setWords] = useState<Word[]>([]);
@@ -13,8 +15,9 @@ export default function App() {
   const [screen, setScreen] = useState<AppScreen>('home');
   const [sessionWords, setSessionWords] = useState<Word[]>([]);
   const [sessionConfig, setSessionConfig] = useState<SessionConfig | null>(null);
+  const [sessionResult, setSessionResult] = useState<SessionResult | null>(null);
 
-  const { cards } = useProgress();
+  const { cards, updateCard } = useProgress();
 
   useEffect(() => {
     loadWords()
@@ -27,6 +30,18 @@ export default function App() {
     const sessionQueue = getWordsForSession(words, cards, config.sessionSize);
     setSessionWords(sessionQueue);
     setSessionConfig(config);
+    setScreen('session');
+  }
+
+  function handleSessionEnd(result: SessionResult) {
+    setSessionResult(result);
+    setScreen('summary');
+  }
+
+  function handleReview() {
+    if (!sessionConfig) return;
+    const queue = getWordsForSession(words, cards, sessionConfig.sessionSize);
+    setSessionWords(queue);
     setScreen('session');
   }
 
@@ -58,29 +73,23 @@ export default function App() {
           onStartSession={handleStartSession}
         />
       )}
-      {screen === 'session' && (
-        <div className="max-w-2xl mx-auto p-8 text-center">
-          <p className="text-slate-400 mb-4">
-            Session mode: <strong>{sessionConfig?.mode}</strong> — {sessionWords.length} words
-          </p>
-          <button
-            onClick={() => setScreen('home')}
-            className="px-4 py-2 bg-slate-700 rounded hover:bg-slate-600 transition-colors"
-          >
-            ← Back to Home
-          </button>
-        </div>
+      {screen === 'session' && sessionConfig && (
+        <SessionWrapper
+          mode={sessionConfig.mode}
+          words={sessionWords}
+          allWords={words}
+          cards={cards}
+          updateCard={updateCard}
+          onSessionEnd={handleSessionEnd}
+          onHome={() => setScreen('home')}
+        />
       )}
-      {screen === 'summary' && (
-        <div className="max-w-2xl mx-auto p-8 text-center">
-          <p className="text-slate-400 mb-4">Session complete!</p>
-          <button
-            onClick={() => setScreen('home')}
-            className="px-4 py-2 bg-slate-700 rounded hover:bg-slate-600 transition-colors"
-          >
-            ← Back to Home
-          </button>
-        </div>
+      {screen === 'summary' && sessionResult && (
+        <SessionSummary
+          result={sessionResult}
+          onHome={() => setScreen('home')}
+          onReview={handleReview}
+        />
       )}
     </div>
   );
