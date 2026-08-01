@@ -1330,7 +1330,7 @@ pabulum	a substance that gives nourishment; food; insipid intellectual nourishme
 pagan	one who has no religion; a heathen
 paladin	a paragon of chivalry; a heroic champion; a strong supporter or defender of a cause
 palaver	idle chatter; talk intended to charm or beguile
-paleo-	ancient; prehistoric; old
+paleo	ancient; prehistoric; old
 Paleozoic	the era of geologic time that includes the Cambrian, Ordovician, Silurian, Devonian, Mississippian, Pennsylvanian, and Permian periods and i
 palindrome	a word, phrase, verse, or sentence that reads the same backward or forward
 palisade	a fence of pales forming a defense barrier or fortification; a line of lofty, steep cliffs, usually along a river
