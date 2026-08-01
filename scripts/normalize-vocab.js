@@ -33,7 +33,7 @@ const OUTPUT_FILE   = args['output'] ?? path.join(ROOT, 'vocab-normalized.json')
 const REVIEW_FILE   = args['review'] ?? path.join(ROOT, 'vocab-review-needed.json');
 const PROGRESS_FILE = path.join(ROOT, 'vocab-normalize-progress.json');
 const BATCH_SIZE    = parseInt(args['batch'] ?? '25', 10);
-const MODEL         = args['model']  ?? 'claude-3-5-haiku-20241022';
+const MODEL         = args['model']  ?? 'claude-sonnet-4-5';
 const NO_RESUME     = args['no-resume'] === true;
 const DRY_RUN       = args['dry-run']   === true;
 
@@ -149,7 +149,13 @@ async function callClaude(userPrompt, retries = 3) {
       }
 
       if (response.status !== 200) {
-        throw new Error(`API returned ${response.status}: ${response.body.slice(0, 200)}`);
+        const err = new Error(`API returned ${response.status}: ${response.body.slice(0, 200)}`);
+        // 4xx errors (except 429) are permanent — retrying won't help
+        if (response.status >= 400 && response.status < 500) throw err;
+        if (attempt === retries) throw err;
+        console.log(`  Server error ${response.status}, retrying…`);
+        await sleep(5000 * attempt);
+        continue;
       }
 
       const parsed = JSON.parse(response.body);
