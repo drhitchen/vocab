@@ -12380,6 +12380,21 @@
     "reviewReason": ""
   },
   {
+    "id": "gruyere",
+    "word": "gruyere",
+    "type": "proper",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A firm, pale yellow Swiss cheese with a nutty, slightly sweet flavor and small holes, often used in fondue and French onion soup."
+    ],
+    "examples": [
+      "The chef melted gruyere over the top of the onion soup before placing it under the broiler.",
+      "She bought a wedge of gruyere to make a traditional cheese fondue for dinner."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "gubernatorial",
     "word": "gubernatorial",
     "type": "common",
