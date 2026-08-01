@@ -2,6 +2,8 @@
 
 A spaced-repetition vocabulary learning app built with React + Vite. All progress is saved locally in the browser — no account needed.
 
+**Live:** https://drhitchen.github.io/vocab/
+
 ## Getting started
 
 ```bash
@@ -24,6 +26,10 @@ Open [http://localhost:5173](http://localhost:5173).
 | 4 | Mastered | 14 days |
 
 Answer correctly → word advances one bucket. Answer wrong → word resets to New.
+
+## Browse
+
+The **Browse** tab lets you search all 2,105 words by name or definition. Expand any row for full definitions, examples, SRS status, and a link to Merriam-Webster.
 
 ## Study modes
 
@@ -56,9 +62,10 @@ Click any bucket card on the home screen to filter by that bucket (multi-select 
 
 ## Data
 
-- Vocabulary lives in `public/vocab.txt` (tab-separated `word\tdefinition`, ~2,100 entries).
+- Vocabulary lives in `public/vocab.json` (~2,105 entries).
 - Progress is stored in `localStorage` under the key `vocab-builder-progress`.
 - Use **Reset all progress** at the bottom of the home screen to wipe everything (two-click confirmation required).
+- To look up or add a word locally: `node scripts/add-word.js --lookup <word>` (adding requires `ANTHROPIC_API_KEY`).
 
 ## Tech stack
 
