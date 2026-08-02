@@ -8009,6 +8009,21 @@
     "reviewReason": ""
   },
   {
+    "id": "dirge",
+    "word": "dirge",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A slow, mournful song or hymn performed at a funeral or memorial service to express grief and honor the deceased."
+    ],
+    "examples": [
+      "The organist played a solemn dirge as the mourners filed past the casket.",
+      "The bagpiper's dirge echoed through the cemetery on that misty morning."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "disavow",
     "word": "disavow",
     "type": "common",
