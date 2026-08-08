@@ -10308,6 +10308,21 @@
     "reviewReason": ""
   },
   {
+    "id": "ex-ante",
+    "word": "ex ante",
+    "type": "phrase",
+    "partOfSpeech": "adj/adv",
+    "definitions": [
+      "Based on forecasts, predictions, or expectations before an event occurs, rather than on actual outcomes or observations afterward."
+    ],
+    "examples": [
+      "The ex ante analysis suggested the merger would create significant value, though the actual results proved disappointing.",
+      "Economists often distinguish between ex ante expectations of inflation and the ex post reality that consumers actually experience."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "ex-parte",
     "word": "ex parte",
     "type": "phrase",
@@ -26063,6 +26078,22 @@
     "reviewReason": ""
   },
   {
+    "id": "straw-man",
+    "word": "straw man",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A misrepresentation of someone's argument that is easier to attack than their actual position.",
+      "A person or entity set up to serve as a cover or front for a questionable transaction or operation."
+    ],
+    "examples": [
+      "The senator attacked a straw man by claiming his opponent wanted to eliminate all taxes, when she had only proposed modest reductions.",
+      "The company created a straw man corporation in another country to hide the true ownership of its assets."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "stricture",
     "word": "stricture",
     "type": "common",
@@ -26270,6 +26301,21 @@
     ],
     "examples": [
       "The executive's succinct summary captured the entire quarterly report in three sentences."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "succumb",
+    "word": "succumb",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To give in to pressure, temptation, or overwhelming force after trying to resist, or to die from disease or injury."
+    ],
+    "examples": [
+      "After hours of their pleading, she finally succumbed and agreed to join them for dinner.",
+      "The elderly patient succumbed to pneumonia despite the doctors' best efforts."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -28096,6 +28142,21 @@
     ],
     "examples": [
       "She offered unstinting support to her friend during the difficult recovery period."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "untenable",
+    "word": "untenable",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Impossible to defend, maintain, or justify in the face of criticism or opposition; not able to be supported by logic or evidence."
+    ],
+    "examples": [
+      "After the leaked documents revealed the truth, the CEO's position became completely untenable and he resigned.",
+      "The army abandoned the fort because their strategic position had become untenable against the advancing forces."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
