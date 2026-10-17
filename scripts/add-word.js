@@ -1,67 +1,87 @@
 #!/usr/bin/env node
 /**
- * Add a new word to the normalized vocab JSON, or look up an existing one.
- * Uses the Anthropic API to generate definition, examples, and metadata.
+ * Look up, add, update, or delete a word in the normalized vocab JSON.
+ * Uses Anthropic or OpenAI to generate definition, examples, and metadata.
  *
  * Usage:
- *   node scripts/add-word.js [word]           # word optional; prompts if omitted
+ *   node scripts/add-word.js [--lookup|--add|--update|--del] [word]
  *   node scripts/add-word.js --file FILE      # target JSON (default: public/vocab.json)
- *   node scripts/add-word.js --model NAME     # Claude model (default: claude-sonnet-4-5)
+ *   node scripts/add-word.js --provider NAME  # anthropic (default) or openai
+ *   node scripts/add-word.js --model NAME     # default: claude-sonnet-5.5
  */
 
 import fs from 'fs';
 import path from 'path';
 import https from 'https';
 import readline from 'readline';
+import { spawnSync } from 'child_process';
 import { fileURLToPath } from 'url';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
+const PROVIDERS = {
+  anthropic: {
+    key: 'ANTHROPIC_API_KEY',
+    models: { 'claude-sonnet-5.5': 'claude-sonnet-5-5', 'claude-haiku-5.5': 'claude-haiku-5-5' },
+    hostname: 'api.anthropic.com',
+    path: '/v1/messages',
+  },
+  openai: {
+    key: 'OPENAI_API_KEY',
+    models: { 'gpt-6.1-sol': 'gpt-6.1-sol', 'gpt-6-luna': 'gpt-6-luna' },
+    hostname: 'api.openai.com',
+    path: '/v1/responses',
+  },
+};
 
-const args = parseArgs(process.argv.slice(2));
-const JSON_FILE   = args['file']   ?? path.join(ROOT, 'public', 'vocab.json');
-const LOOKUP_ONLY = !!args['lookup'];
-const MODEL       = args['model']  ?? 'claude-sonnet-4-5';
-// First positional arg (if any) is treated as the word
-const WORD_ARG  = args['_']?.[0] ?? null;
+export function promptApiKey(provider) {
+  const variable = PROVIDERS[provider].key;
+  if (!process.stdin.isTTY) {
+    throw new Error(`${variable} is not set. Set it in the environment or run in a terminal for hidden input.`);
+  }
+  const result = spawnSync('/bin/zsh', ['-f', '-c', `
+    IFS= read -rs "key?Enter $1 API key (input hidden): " || exit 1
+    printf '\\n' >&2
+    printf '%s' "$key"
+  `, 'vocab-key', provider], { encoding: 'utf8', stdio: ['inherit', 'pipe', 'inherit'] });
+  if (result.error) throw new Error(`Unable to prompt for ${variable}: ${result.error.message}`);
+  if (result.status !== 0 || !result.stdout.trim()) {
+    throw new Error(`No ${variable} provided; command cancelled.`);
+  }
+  return result.stdout.trim();
+}
 
-// ---------------------------------------------------------------------------
-// API key
-// ---------------------------------------------------------------------------
-
-const API_KEY = process.env.ANTHROPIC_API_KEY;
-if (!API_KEY && !LOOKUP_ONLY) {
-  console.error(`
-Error: ANTHROPIC_API_KEY is not set.
-
-  export ANTHROPIC_API_KEY=sk-ant-...
-  node scripts/add-word.js
-`);
-  process.exit(1);
+export function createKeyProvider(promptKey = promptApiKey, env = process.env) {
+  const keys = new Map();
+  return (provider) => {
+    if (!keys.has(provider)) {
+      const key = env[PROVIDERS[provider].key]?.trim() || promptKey(provider).trim();
+      if (!key) throw new Error(`No ${PROVIDERS[provider].key} provided; command cancelled.`);
+      keys.set(provider, key);
+    }
+    return keys.get(provider);
+  };
 }
 
 // ---------------------------------------------------------------------------
 // Load / save JSON
 // ---------------------------------------------------------------------------
 
-function loadJson() {
-  if (!fs.existsSync(JSON_FILE)) return [];
-  try {
-    const data = JSON.parse(fs.readFileSync(JSON_FILE, 'utf8'));
-    return Array.isArray(data) ? data : [];
-  } catch {
-    return [];
-  }
+function loadJson(jsonFile) {
+  if (!fs.existsSync(jsonFile)) return [];
+  const data = JSON.parse(fs.readFileSync(jsonFile, 'utf8'));
+  if (!Array.isArray(data)) throw new Error(`Expected an array in ${jsonFile}`);
+  return data;
 }
 
-function saveJson(entries) {
+function saveJson(jsonFile, entries) {
   // Write atomically via a temp file
-  const tmp = JSON_FILE + '.tmp';
+  const tmp = jsonFile + '.tmp';
   fs.writeFileSync(tmp, JSON.stringify(entries, null, 2));
-  fs.renameSync(tmp, JSON_FILE);
+  fs.renameSync(tmp, jsonFile);
 }
 
 // ---------------------------------------------------------------------------
-// Lookup — case-insensitive match on word or id
+// Lookup: case-insensitive match on word or id
 // ---------------------------------------------------------------------------
 
 function findEntry(entries, word) {
@@ -104,12 +124,12 @@ function display(entry) {
 // Prompt
 // ---------------------------------------------------------------------------
 
-function prompt(rl, question) {
-  return new Promise((resolve) => rl.question(question, resolve));
+function isYes(answer) {
+  return /^(y|yes)$/i.test(answer.trim());
 }
 
 // ---------------------------------------------------------------------------
-// Claude API
+// Generation prompt
 // ---------------------------------------------------------------------------
 
 const SYSTEM_PROMPT = `You are a precise vocabulary dictionary editor. Given a single word, produce a clean, normalized JSON entry.
@@ -131,7 +151,8 @@ CLASSIFICATION:
 
 Set reviewNeeded=true only if you are genuinely uncertain about the word.
 
-Return ONLY valid JSON — no markdown, no commentary.`;
+Never use Unicode em dash or en dash characters in any text.
+Return ONLY valid JSON, no markdown, no commentary.`;
 
 // ---------------------------------------------------------------------------
 // Entry validation
@@ -165,20 +186,47 @@ function validateEntry(entry) {
 }
 
 // ---------------------------------------------------------------------------
-// Claude API
+// Provider APIs
 // ---------------------------------------------------------------------------
 
-async function generateEntry(word) {
+export function parseApiResponse(data, provider = 'anthropic') {
+  const msg = JSON.parse(data);
+  if (provider === 'openai') {
+    if (msg.status !== 'completed') {
+      throw new Error(`OpenAI response was not completed: ${msg.incomplete_details?.reason ?? msg.status ?? 'unknown status'}.`);
+    }
+    if (!Array.isArray(msg.output)) throw new Error('OpenAI response is missing its output array.');
+    const text = msg.output
+      .filter((item) => item?.type === 'message' && item.role === 'assistant')
+      .flatMap((item) => item.content ?? [])
+      .filter((block) => block?.type === 'output_text' && typeof block.text === 'string')
+      .map((block) => block.text)
+      .join('').trim()
+      .replace(/^```(?:json)?\s*/m, '').replace(/\s*```$/m, '');
+    if (!text) throw new Error('OpenAI response contained no text.');
+    return JSON.parse(text);
+  }
+  if (msg.stop_reason === 'max_tokens') {
+    throw new Error('API response reached max_tokens before completing the entry. Increase max_tokens or use a different model.');
+  }
+  if (!Array.isArray(msg.content)) throw new Error('API response is missing its content array.');
+  const text = msg.content
+    .filter((block) => block?.type === 'text' && typeof block.text === 'string')
+    .map((block) => block.text)
+    .join('')
+    .trim()
+    .replace(/^```(?:json)?\s*/m, '').replace(/\s*```$/m, '');
+  if (!text) {
+    throw new Error(`API response contained no text (stop_reason: ${msg.stop_reason ?? 'unknown'}).`);
+  }
+  return JSON.parse(text);
+}
+
+export async function generateEntry(word, { provider, model }, apiKey) {
+  const config = PROVIDERS[provider];
   // Strip quote chars to prevent prompt injection via the word argument
   const safeWord = word.replace(/["'\\`]/g, '').slice(0, 100);
-  const body = JSON.stringify({
-    model: MODEL,
-    max_tokens: 1024,
-    system: SYSTEM_PROMPT,
-    messages: [
-      {
-        role: 'user',
-        content: `Generate a vocab entry for the word: "${safeWord}"
+  const content = `Generate a vocab entry for the word: "${safeWord}"
 
 Return a single JSON object with this exact schema:
 {
@@ -190,43 +238,53 @@ Return a single JSON object with this exact schema:
   "examples": string[],   // 1 or 2 elements
   "reviewNeeded": boolean,
   "reviewReason": string  // empty string if false
-}`,
-      },
-    ],
+}`;
+  const body = JSON.stringify(provider === 'anthropic' ? {
+    model: config.models[model],
+    max_tokens: 4096,
+    system: SYSTEM_PROMPT,
+    messages: [{ role: 'user', content }],
+  } : {
+    model: config.models[model],
+    max_output_tokens: 4096,
+    instructions: SYSTEM_PROMPT,
+    input: [{ role: 'user', content }],
+    store: false,
   });
 
   return new Promise((resolve, reject) => {
     const req = https.request(
       {
-        hostname: 'api.anthropic.com',
-        path: '/v1/messages',
+        hostname: config.hostname,
+        path: config.path,
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': API_KEY,
-          'anthropic-version': '2023-06-01',
+          ...(provider === 'anthropic' ? {
+            'x-api-key': apiKey,
+            'anthropic-version': '2023-06-01',
+          } : { Authorization: `Bearer ${apiKey}` }),
           'Content-Length': Buffer.byteLength(body),
         },
       },
       (res) => {
         let data = '';
+        res.on('error', reject);
         res.on('data', (c) => (data += c));
         res.on('end', () => {
           if (res.statusCode !== 200) {
-            reject(new Error(`API error ${res.statusCode}: ${data.slice(0, 200)}`));
+            reject(new Error(`${provider} API error ${res.statusCode}. Check your API key, model access, and provider status.`));
             return;
           }
           try {
-            const msg = JSON.parse(data);
-            const text = msg.content[0].text.trim()
-              .replace(/^```(?:json)?\s*/m, '').replace(/\s*```$/m, '');
-            resolve(JSON.parse(text));
+            resolve(parseApiResponse(data, provider));
           } catch (e) {
-            reject(new Error(`JSON parse error: ${e.message}\nRaw: ${data.slice(0, 300)}`));
+            reject(new Error(`Invalid API response: ${e instanceof SyntaxError ? 'Response contained invalid JSON.' : e.message}`));
           }
         });
       }
     );
+    req.setTimeout(120000, () => req.destroy(new Error(`${provider} API request timed out.`)));
     req.on('error', reject);
     req.write(body);
     req.end();
@@ -234,119 +292,162 @@ Return a single JSON object with this exact schema:
 }
 
 // ---------------------------------------------------------------------------
-// Main loop
+// Commands
 // ---------------------------------------------------------------------------
 
-async function main() {
-  // --lookup: display and exit, no prompts or API calls
-  if (LOOKUP_ONLY) {
-    // word comes from positional arg OR as the value of --lookup (e.g. --lookup detent)
-    const word = WORD_ARG ?? (typeof args['lookup'] === 'string' ? args['lookup'] : null);
-    if (!word) { console.error('Usage: add-word.js --lookup <word>'); process.exit(1); }
-    const entry = findEntry(loadJson(), word);
-    if (entry) {
-      display(entry);
-      console.log(`  https://www.merriam-webster.com/dictionary/${encodeURIComponent(entry.word)}\n`);
-      process.exit(0);
-    } else {
-      console.log(`\n  "${word}" not in vocabulary.\n`);
-      console.log(`  Add it: node scripts/add-word.js ${word}\n`);
-      process.exit(1);
-    }
+export async function runCommand({ mode, word, jsonFile, ask, generate }) {
+  const existing = findEntry(loadJson(jsonFile), word);
+  if (existing) display(existing);
+
+  if (mode === 'lookup' && existing) {
+    console.log(`  https://www.merriam-webster.com/dictionary/${encodeURIComponent(existing.word)}\n`);
+    return;
   }
 
-  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-  // Suppress the default "close" behavior so we can loop
-  rl.on('SIGINT', () => { console.log('\nBye!'); rl.close(); process.exit(0); });
-
-  console.log(`\nVocab Word Tool  (model: ${MODEL})`);
-  console.log(`File: ${JSON_FILE}`);
-  console.log(`Type a word to look it up or add it. Ctrl-C to quit.\n`);
-
-  let firstWord = WORD_ARG;
-
-  // eslint-disable-next-line no-constant-condition
-  while (true) {
-    let word;
-    if (firstWord) {
-      word = firstWord.trim();
-      firstWord = null;
-      console.log(`Looking up: ${word}`);
-    } else {
-      word = (await prompt(rl, 'Word: ')).trim();
-      if (!word) continue;
+  if (!existing) {
+    console.log(`\n  "${word}" not in vocabulary.\n`);
+    if (mode === 'del') {
+      process.exitCode = 1;
+      return;
     }
-
-    const entries = loadJson();
-    const existing = findEntry(entries, word);
-
-    if (existing) {
-      console.log(`\n  \x1b[32m✓ Found in vocabulary\x1b[0m`);
-      display(existing);
-      const again = await prompt(rl, 'Update this entry? [y/N] ');
-      if (again.toLowerCase() !== 'y') continue;
-    }
-
-    // Generate via API
-    process.stdout.write(`  Generating entry for "${word}"…`);
-    let entry;
-    try {
-      entry = await generateEntry(word);
-      // Ensure id is correct regardless of model output
-      entry.id = slugify(entry.word ?? word);
-      validateEntry(entry);
-      console.log(' done\n');
-    } catch (err) {
-      console.log(` FAILED: ${err.message}\n`);
-      continue;
-    }
-
-    display(entry);
-
-    const save = await prompt(rl, 'Add to vocabulary file? [Y/n] ');
-    if (save.toLowerCase() === 'n') {
-      console.log('  Discarded.\n');
-      continue;
-    }
-
-    const fresh = loadJson(); // re-read in case normalizer wrote new data
-    const idx = fresh.findIndex((e) => e.id === entry.id);
-    if (idx >= 0) {
-      fresh[idx] = entry; // update existing
-      console.log(`  Updated existing entry for "${entry.word}".\n`);
-    } else {
-      // Insert alphabetically by word
-      const insertAt = fresh.findIndex((e) => (e.word ?? '').toLowerCase() > entry.word.toLowerCase());
-      if (insertAt === -1) fresh.push(entry);
-      else fresh.splice(insertAt, 0, entry);
-      console.log(`  Added "${entry.word}" (${fresh.length} total entries).\n`);
-    }
-
-    saveJson(fresh);
+    if (mode === 'lookup' && !isYes(await ask('Add this word? [y/N] '))) return;
+  } else if (mode === 'del') {
+    if (!isYes(await ask('Delete this entry? [y/N] '))) return;
+    const fresh = loadJson(jsonFile);
+    saveJson(jsonFile, fresh.filter((entry) => entry.id !== existing.id));
+    console.log(`  Deleted "${existing.word}".\n`);
+    return;
+  } else if (!isYes(await ask('Update this entry? [y/N] '))) {
+    return;
   }
+
+  console.log(`  Generating entry for "${existing?.word ?? word}"...`);
+  const entry = await generate(existing?.word ?? word);
+  entry.id = existing?.id ?? slugify(word);
+  entry.word = existing?.word ?? word;
+  validateEntry(entry);
+  console.log('  Generated entry.\n');
+  display(entry);
+
+  const save = (await ask(existing ? 'Save updated entry? [Y/n] ' : 'Add to vocabulary file? [Y/n] ')).trim();
+  if (save && !isYes(save)) {
+    console.log('  Discarded.\n');
+    return;
+  }
+
+  const fresh = loadJson(jsonFile);
+  const idx = fresh.findIndex((item) => item.id === entry.id);
+  if (!existing && idx >= 0) throw new Error(`An entry with id "${entry.id}" already exists; look it up before updating.`);
+  if (idx >= 0) {
+    fresh[idx] = entry;
+  } else {
+    const insertAt = fresh.findIndex((item) => (item.word ?? '').toLowerCase() > entry.word.toLowerCase());
+    if (insertAt === -1) fresh.push(entry);
+    else fresh.splice(insertAt, 0, entry);
+  }
+  saveJson(jsonFile, fresh);
+  console.log(`  ${idx >= 0 ? 'Updated' : 'Added'} "${entry.word}" (${fresh.length} total entries).\n`);
 }
 
 // ---------------------------------------------------------------------------
 // Arg parser
 // ---------------------------------------------------------------------------
 
-function parseArgs(argv) {
-  const result = { _: [] };
+export function parseArgs(argv) {
+  const result = { mode: 'lookup', word: '', file: path.join(ROOT, 'public', 'vocab.json') };
+  const words = [];
+  let selectedMode;
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
-    if (arg.startsWith('--')) {
+    if (arg === '--') {
+      words.push(...argv.slice(i + 1));
+      break;
+    } else if (['--lookup', '--add', '--update', '--del'].includes(arg)) {
+      if (selectedMode) throw new Error('Choose only one of --lookup, --add, --update, or --del.');
+      selectedMode = arg.slice(2);
+      result.mode = selectedMode;
+    } else if (arg === '--file' || arg === '--model' || arg === '--provider') {
       const key = arg.slice(2);
       const next = argv[i + 1];
-      if (next && !next.startsWith('--')) { result[key] = next; i++; }
-      else result[key] = true;
+      if (!next || next.startsWith('--')) throw new Error(`${arg} requires a value.`);
+      result[key] = next;
+      i++;
+    } else if (arg.startsWith('-')) {
+      throw new Error(`Unknown option: ${arg}`);
     } else {
-      result._.push(arg);
+      words.push(arg);
     }
   }
+  result.word = words.join(' ').trim();
+  if (result.provider && !Object.hasOwn(PROVIDERS, result.provider)) {
+    throw new Error(`Unknown provider: ${result.provider}. Choose anthropic or openai.`);
+  }
+  if (result.model) {
+    const selection = Object.entries(PROVIDERS).flatMap(([provider, config]) =>
+      Object.entries(config.models).map(([model, apiModel]) => ({ provider, model, apiModel }))
+    ).find(({ model, apiModel }) => result.model === model || result.model === apiModel);
+    if (!selection) throw new Error(`Unsupported model: ${result.model}. Choose ${Object.values(PROVIDERS).flatMap((config) => Object.keys(config.models)).join(', ')}.`);
+    if (result.provider && result.provider !== selection.provider) throw new Error(`Model ${result.model} requires provider ${selection.provider}.`);
+    result.provider = selection.provider;
+    result.model = selection.model;
+  }
+  result.provider ??= 'anthropic';
+  result.model ??= Object.keys(PROVIDERS[result.provider].models)[0];
   return result;
 }
 
-main().catch((err) => {
-  console.error('\nFatal:', err.message);
-  process.exit(1);
-});
+async function main() {
+  const args = parseArgs(process.argv.slice(2));
+  let rl;
+  let answers;
+  const getKey = createKeyProvider();
+  const ask = async (question, allowEof = false) => {
+    if (!rl) {
+      rl = readline.createInterface({ input: process.stdin, crlfDelay: Infinity });
+      answers = rl[Symbol.asyncIterator]();
+      rl.on('SIGINT', () => rl.close());
+    }
+    process.stdout.write(question);
+    const answer = await answers.next();
+    if (answer.done) {
+      if (allowEof) return null;
+      throw new Error('Input closed; command cancelled without saving.');
+    }
+    return answer.value;
+  };
+
+  try {
+    do {
+      const answer = args.word || await ask('Word: ', true);
+      if (answer === null) break;
+      const word = answer.trim();
+      if (!word) continue;
+      await runCommand({
+        mode: args.mode,
+        word,
+        jsonFile: args.file,
+        ask,
+        generate: (value) => {
+          console.log(`  Provider: ${args.provider} | Model: ${args.model}`);
+          rl?.pause();
+          let apiKey;
+          try {
+            apiKey = getKey(args.provider);
+          } finally {
+            rl?.resume();
+          }
+          return generateEntry(value, args, apiKey);
+        },
+      });
+    } while (!args.word);
+  } finally {
+    rl?.close();
+  }
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((err) => {
+    console.error('\nFatal:', err.message);
+    process.exitCode = 1;
+  });
+}

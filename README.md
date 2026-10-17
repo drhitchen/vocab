@@ -1,6 +1,6 @@
 # Vocab Builder
 
-A spaced-repetition vocabulary learning app built with React + Vite. All progress is saved locally in the browser — no account needed.
+A spaced-repetition vocabulary learning app built with React + Vite. All progress is saved locally in the browser, no account needed.
 
 **Live:** https://drhitchen.github.io/vocab/ · **License:** [MIT](LICENSE)
 
@@ -15,7 +15,7 @@ Open [http://localhost:5173](http://localhost:5173).
 
 ## How it works
 
-**Spaced repetition (SRS)** — every word lives in one of five buckets:
+**Spaced repetition (SRS)**: every word lives in one of five buckets:
 
 | Bucket | Label | Review interval |
 |--------|-------|-----------------|
@@ -36,7 +36,7 @@ The **Browse** tab lets you search all 2,105 words by name or definition. Expand
 | Mode | How it works |
 |------|-------------|
 | **Flashcards** | See the word, click / Space to flip for the definition, then mark **Got it** or **Again** |
-| **Multiple Choice** | See a definition, pick the correct word from 4 options (keyboard 1–4); Space / Enter advances after feedback |
+| **Multiple Choice** | See a definition, pick the correct word from 4 options (keyboard 1 to 4); Space / Enter advances after feedback |
 | **Fill in Blank** | See a definition + a letter-by-letter hint (Tab reveals one more letter); type the word and press Enter |
 | **Match Pairs** | Match 6 word tiles to their definition tiles; click two tiles to attempt a pair |
 
@@ -45,27 +45,27 @@ The **Browse** tab lets you search all 2,105 words by name or definition. Expand
 | Key | Action |
 |-----|--------|
 | Space / Enter | Flip flashcard · submit fill-in-blank · advance after feedback |
-| 1 – 4 | Select multiple-choice answer |
+| 1 to 4 | Select multiple-choice answer |
 | Tab | Reveal one more hint letter (Fill in Blank) |
 | Escape | End session, return to home |
 
 ## Session workflow
 
 1. **Pick a session size** (1 · 5 · 10 · 20 · 50 words) and a **mode**.
-2. Click **Select N words & start →** — the word set is *locked* for this round.
+2. Click **Select N words & start →**: the word set is *locked* for this round.
 3. Return to home and switch modes to practice the same words differently.
 4. Click **New set ↺** when you're ready for a fresh batch.
 
 ### Study by bucket
 
-Click any bucket card on the home screen to filter by that bucket (multi-select supported). The session will pull from those specific words regardless of their scheduled review date — useful for reinforcing words you want to drill.
+Click any bucket card on the home screen to filter by that bucket (multi-select supported). The session will pull from those specific words regardless of their scheduled review date, useful for reinforcing words you want to drill.
 
 ## Data
 
 - Vocabulary lives in `public/vocab.json` (~2,105 entries).
 - Progress is stored in `localStorage` under the key `vocab-builder-progress`.
 - Use **Reset all progress** at the bottom of the home screen to wipe everything (two-click confirmation required).
-- To look up or add a word locally: `node scripts/add-word.js --lookup <word>` (adding requires `ANTHROPIC_API_KEY`).
+- Manage words locally: `node scripts/add-word.js [--lookup|--add|--update|--del] <word>`. Defaults to lookup; missing words offer to add. Generation supports `--provider anthropic|openai` and `--model NAME`, defaulting to Anthropic `claude-sonnet-5.5`. The provider and model are displayed; missing API keys are prompted with hidden input. See [script documentation](scripts/README.md).
 
 ## Tech stack
 
@@ -75,4 +75,4 @@ Click any bucket card on the home screen to filter by that bucket (multi-select 
 
 ## License
 
-[MIT](LICENSE) — © 2026 Doug Hitchen
+[MIT](LICENSE), © 2026 Doug Hitchen

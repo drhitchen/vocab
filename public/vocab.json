@@ -154,6 +154,21 @@
     "reviewReason": ""
   },
   {
+    "id": "ablate",
+    "word": "ablate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To remove or wear away material from a surface, often using heat, friction, chemicals, or a medical procedure."
+    ],
+    "examples": [
+      "The surgeon used a laser to ablate the damaged tissue while leaving nearby healthy tissue intact.",
+      "As the spacecraft entered the atmosphere, intense heat caused its protective outer layer to ablate."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "abolish",
     "word": "abolish",
     "type": "common",
