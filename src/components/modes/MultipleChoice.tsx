@@ -1,15 +1,17 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Word } from '../../types';
 import { shuffle } from '../../utils/shuffle';
+import SessionBar from '../SessionBar';
 
 interface Props {
   words: Word[];
   allWords: Word[];
   onAnswer: (wordId: string, correct: boolean) => void;
   onSessionEnd: () => void;
+  onExit: () => void;
 }
 
-export default function MultipleChoice({ words, allWords, onAnswer, onSessionEnd }: Props) {
+export default function MultipleChoice({ words, allWords, onAnswer, onSessionEnd, onExit }: Props) {
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
 
@@ -51,43 +53,42 @@ export default function MultipleChoice({ words, allWords, onAnswer, onSessionEnd
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected, options, advance]);
 
-  function optionClass(opt: Word) {
-    if (selected === null) return 'border-slate-700 bg-slate-900 hover:border-slate-500 text-slate-200';
-    if (opt.id === word.id) return 'border-emerald-600 bg-emerald-950 text-emerald-200';
-    if (opt.id === selected) return 'border-red-700 bg-red-950 text-red-300';
-    return 'border-slate-800 bg-slate-900 text-slate-500';
+  function optionState(opt: Word) {
+    if (selected === null) return 'idle';
+    if (opt.id === word.id) return 'correct';
+    if (opt.id === selected) return 'wrong';
+    return 'dim';
   }
 
   return (
-    <div className="max-w-2xl mx-auto px-6 py-10 flex flex-col gap-8">
-      <p className="text-slate-500 text-sm text-center">{index + 1} / {words.length}</p>
+    <main className="screen screen-session">
+      <SessionBar label="Question" current={index + 1} total={words.length} onExit={onExit} />
 
-      <div className="rounded-2xl border border-slate-700 bg-slate-900 p-8">
-        <p className="text-slate-300 text-lg leading-relaxed text-center">{word.definition}</p>
+      <div className="prompt-card">
+        <p className="prompt-text">{word.definition}</p>
       </div>
 
-      <div className="grid grid-cols-1 gap-3">
+      <div className="options">
         {options.map((opt, i) => (
           <button
             key={opt.id}
+            type="button"
+            className="option"
+            data-state={optionState(opt)}
             onClick={() => select(opt.id)}
             disabled={selected !== null}
-            className={`text-left px-5 py-4 rounded-xl border font-medium transition-colors ${optionClass(opt)}`}
           >
-            <span className="text-slate-500 mr-3 text-sm">{i + 1}</span>
-            {opt.word}
+            <span className="option-key">{i + 1}</span>
+            <span className="option-text">{opt.word}</span>
           </button>
         ))}
       </div>
 
       {selected !== null && (
-        <button
-          onClick={advance}
-          className="w-full py-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium transition-colors"
-        >
-          Next → <span className="text-slate-500 text-sm ml-1">Space / Enter</span>
+        <button type="button" className="btn-secondary btn-block next-btn" onClick={advance}>
+          Next → <span className="next-hint">Space / Enter</span>
         </button>
       )}
-    </div>
+    </main>
   );
 }

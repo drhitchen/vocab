@@ -53,34 +53,28 @@ export default function SessionWrapper({
     words,
     onAnswer: handleAnswer,
     onSessionEnd: handleSessionEnd,
+    onExit: onHome,
   };
 
   if (words.length === 0) {
     return (
-      <div className="max-w-2xl mx-auto px-6 py-20 text-center">
-        <p className="text-slate-400 mb-6">No words to review right now.</p>
-        <button onClick={onHome} className="px-6 py-3 bg-slate-700 rounded-xl hover:bg-slate-600 transition-colors">
-          ← Back to Home
-        </button>
-      </div>
+      <main className="screen screen-session">
+        <div className="empty-session">
+          <p>No words to review right now.</p>
+          <button type="button" className="btn-secondary" onClick={onHome}>
+            ← Back to Home
+          </button>
+        </div>
+      </main>
     );
   }
 
   return (
-    <div>
-      <div className="flex items-center justify-between px-6 py-3 border-b border-slate-800">
-        <span className="text-sm text-slate-500 capitalize">{mode.replace('-', ' ')}</span>
-        <button
-          onClick={onHome}
-          className="text-sm text-slate-500 hover:text-slate-300 transition-colors"
-        >
-          ✕ End session
-        </button>
-      </div>
+    <>
       {mode === 'flashcard' && <Flashcard {...commonProps} />}
       {mode === 'multiple-choice' && <MultipleChoice {...commonProps} allWords={allWords} />}
       {mode === 'fill-in-blank' && <FillInBlank {...commonProps} />}
       {mode === 'match-pairs' && <MatchPairs {...commonProps} />}
-    </div>
+    </>
   );
 }

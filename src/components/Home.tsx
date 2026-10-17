@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useState, type ComponentType } from 'react';
 import { Bucket, GameMode, SessionConfig, SRSCard, Word } from '../types';
+import { useAppearance } from '../appearance/appearance';
+import { COPY } from '../appearance/copy';
+import { BlankIcon, ChoiceIcon, FlashcardIcon, MatchIcon } from './icons';
 
-const MODES: { id: GameMode; label: string; description: string }[] = [
-  { id: 'flashcard', label: 'Flashcards', description: 'Flip to reveal the definition' },
-  { id: 'multiple-choice', label: 'Multiple Choice', description: 'Pick the correct definition' },
-  { id: 'fill-in-blank', label: 'Fill in Blank', description: 'Type the word (first letter shown)' },
-  { id: 'match-pairs', label: 'Match Pairs', description: 'Match words to definitions' },
+const MODES: { id: GameMode; label: string; description: string; numeral: string; emoji: string; Icon: ComponentType }[] = [
+  { id: 'flashcard', label: 'Flashcards', description: 'Flip to reveal the definition', numeral: 'i.', emoji: '\u{1F4DA}', Icon: FlashcardIcon },
+  { id: 'multiple-choice', label: 'Multiple Choice', description: 'Pick the correct definition', numeral: 'ii.', emoji: '\u{1F3AF}', Icon: ChoiceIcon },
+  { id: 'fill-in-blank', label: 'Fill in Blank', description: 'Type the word (first letter shown)', numeral: 'iii.', emoji: '\u270D\uFE0F', Icon: BlankIcon },
+  { id: 'match-pairs', label: 'Match Pairs', description: 'Match words to definitions', numeral: 'iv.', emoji: '\u{1F9E9}', Icon: MatchIcon },
 ];
 
 const BUCKET_LABELS = ['New', 'Learning', 'Familiar', 'Known', 'Mastered'] as const;
@@ -21,7 +24,19 @@ interface HomeProps {
   onResetProgress: () => void;
 }
 
+function SectionTitle({ step, title, hint }: { step: number; title: string; hint: string }) {
+  return (
+    <h2 className="sec-title">
+      <span className="sec-step" aria-hidden="true">{step}</span>
+      <span className="sec-name">{title}</span>
+      {hint && <small className="sec-hint">{hint}</small>}
+    </h2>
+  );
+}
+
 export default function Home({ words, cards, lockedWords, onStartSession, onClearLockedWords, onResetProgress }: HomeProps) {
+  const { design } = useAppearance();
+  const copy = COPY[design];
   const [mode, setMode] = useState<GameMode>('flashcard');
   const [sessionSize, setSessionSize] = useState<1 | 5 | 10 | 20 | 50>(1);
   const [selectedBuckets, setSelectedBuckets] = useState<Set<number>>(new Set());
@@ -75,80 +90,93 @@ export default function Home({ words, cards, lockedWords, onStartSession, onClea
     return `Select ${sessionSize} word${sessionSize !== 1 ? 's' : ''} & start →`;
   })();
 
+  const wordCount = lockedWords ? lockedWords.length : sessionSize;
+  const modeLabel = MODES.find(m => m.id === mode)?.label ?? '';
+  const total = Math.max(words.length, 1);
+
   return (
-    <main className="max-w-3xl mx-auto px-6 py-10 space-y-10">
-      {/* Progress Stats — click to filter by bucket */}
-      <section>
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Progress</h2>
-          {selectedBuckets.size > 0 && !lockedWords && (
-            <button
-              onClick={() => setSelectedBuckets(new Set())}
-              className="text-xs text-slate-500 hover:text-slate-300 transition-colors"
-            >
-              Clear filter ✕
-            </button>
-          )}
+    <main className="screen screen-study">
+      {design === 'focus' && (
+        <header className="page-head">
+          <h1 className="page-title">Study</h1>
+          <p className="page-sub">Pick your words, a mode, and start a round.</p>
+        </header>
+      )}
+      {design === 'playful' && (
+        <header className="page-head">
+          <h1 className="hero">Ready to <mark>level up</mark>?</h1>
+          <p className="page-sub">Pick your words, choose a game, and go.</p>
+        </header>
+      )}
+
+      {/* Progress stats: click a bucket to filter by it */}
+      <section className="sec">
+        <SectionTitle step={1} title={copy.progressTitle} hint={copy.progressHint} />
+        <div className="spectrum" aria-hidden="true">
+          {displayCounts.map((count, i) => (
+            <i key={BUCKET_LABELS[i]} data-bucket={i} style={{ flexGrow: count }} />
+          ))}
         </div>
-        <div className="grid grid-cols-5 gap-3">
+        <div className="tiles">
           {BUCKET_LABELS.map((label, i) => {
             const count = displayCounts[i];
-            const isSelected = selectedBuckets.has(i);
             return (
               <button
                 key={label}
+                type="button"
+                className="tile"
+                data-bucket={i}
+                aria-pressed={selectedBuckets.has(i)}
                 onClick={() => toggleBucket(i)}
                 disabled={!!lockedWords}
-                className={`rounded-lg p-4 text-center transition-colors border ${
-                  isSelected
-                    ? 'border-indigo-500 bg-indigo-950'
-                    : 'border-transparent bg-slate-900 hover:border-slate-600 disabled:hover:border-transparent'
-                }`}
               >
-                <div className="text-2xl font-bold text-white">{count}</div>
-                <div className={`text-xs mt-1 ${isSelected ? 'text-indigo-400' : 'text-slate-500'}`}>{label}</div>
+                <span className="tile-label">{label}</span>
+                <b className="tile-count">{count.toLocaleString()}</b>
+                <span className="tile-bar" aria-hidden="true">
+                  <i style={{ width: `${(count / total) * 100}%` }} />
+                </span>
               </button>
             );
           })}
         </div>
-        <p className="text-sm text-slate-500 mt-3">
-          {selectedBuckets.size > 0 && !lockedWords
-            ? `${selectedBucketWordCount} word${selectedBucketWordCount !== 1 ? 's' : ''} in selected bucket${selectedBuckets.size !== 1 ? 's' : ''}`
-            : `${availableCount} word${availableCount !== 1 ? 's' : ''} due for review`}
+        <p className="tiles-foot">
+          <span>
+            {selectedBuckets.size > 0 && !lockedWords
+              ? `${selectedBucketWordCount.toLocaleString()} word${selectedBucketWordCount !== 1 ? 's' : ''} in selected bucket${selectedBuckets.size !== 1 ? 's' : ''}`
+              : `${availableCount.toLocaleString()} word${availableCount !== 1 ? 's' : ''} due for review`}
+          </span>
+          {selectedBuckets.size > 0 && !lockedWords && (
+            <button type="button" className="link" onClick={() => setSelectedBuckets(new Set())}>
+              Clear filter ✕
+            </button>
+          )}
         </p>
       </section>
 
       {/* Locked word set OR session size picker */}
       {lockedWords !== null ? (
-        <section>
-          <div className="flex items-center justify-between rounded-xl border border-indigo-800 bg-indigo-950 px-5 py-4">
+        <section className="sec">
+          <div className="locked">
             <div>
-              <span className="text-white font-semibold">{lockedWords.length} word{lockedWords.length !== 1 ? 's' : ''} selected</span>
-              <span className="text-indigo-400 text-sm ml-2">· switch modes freely</span>
+              <b>{lockedWords.length} word{lockedWords.length !== 1 ? 's' : ''} selected</b>
+              <span className="locked-note"> · switch modes freely</span>
             </div>
-            <button
-              onClick={onClearLockedWords}
-              className="text-sm text-indigo-400 hover:text-white transition-colors"
-            >
+            <button type="button" className="link" onClick={onClearLockedWords}>
               New set ↺
             </button>
           </div>
         </section>
       ) : (
-        <section>
-          <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">
-            Session Size
-          </h2>
-          <div className="flex gap-3 flex-wrap">
+        <section className="sec">
+          <SectionTitle step={2} title={copy.sizeTitle} hint={copy.sizeHint} />
+          <div className="sizes">
             {SESSION_SIZES.map(s => (
               <button
                 key={s}
+                type="button"
+                className="size"
+                aria-pressed={sessionSize === s}
                 onClick={() => setSessionSize(s)}
-                className={`px-6 py-2 rounded-lg border font-medium transition-colors ${
-                  sessionSize === s
-                    ? 'border-indigo-500 bg-indigo-950 text-white'
-                    : 'border-slate-800 bg-slate-900 text-slate-400 hover:border-slate-600'
-                }`}
               >
                 {s}
               </button>
@@ -157,63 +185,66 @@ export default function Home({ words, cards, lockedWords, onStartSession, onClea
         </section>
       )}
 
-      {/* Mode Selector */}
-      <section>
-        <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">
-          Mode
-        </h2>
-        <div className="grid grid-cols-1 gap-2">
+      {/* Mode selector */}
+      <section className="sec">
+        <SectionTitle step={3} title={copy.modeTitle} hint={copy.modeHint} />
+        <div className="modes">
           {MODES.map(m => (
             <button
               key={m.id}
+              type="button"
+              className="mode"
+              data-mode={m.id}
+              aria-pressed={mode === m.id}
               onClick={() => setMode(m.id)}
-              className={`text-left px-4 py-3 rounded-lg border transition-colors ${
-                mode === m.id
-                  ? 'border-indigo-500 bg-indigo-950 text-white'
-                  : 'border-slate-800 bg-slate-900 text-slate-300 hover:border-slate-600'
-              }`}
             >
-              <span className="font-medium">{m.label}</span>
-              <span className="text-sm text-slate-500 ml-3">{m.description}</span>
+              <span className="mode-num" aria-hidden="true">{m.numeral}</span>
+              <span className="mode-ico" aria-hidden="true"><m.Icon /></span>
+              <span className="mode-emoji" aria-hidden="true">{m.emoji}</span>
+              <span className="mode-text">
+                <span className="mode-name">{m.label}</span>
+                <span className="mode-desc">{m.description}</span>
+              </span>
+              <span className="mode-tick" aria-hidden="true" />
             </button>
           ))}
         </div>
       </section>
 
-      {/* Start Button */}
-      <button
-        onClick={handleStart}
-        disabled={!canStart}
-        className="w-full py-4 rounded-xl font-semibold text-lg transition-colors
-          disabled:opacity-40 disabled:cursor-not-allowed
-          bg-indigo-600 hover:bg-indigo-500 text-white"
-      >
-        {startLabel}
-      </button>
+      {/* Start button */}
+      <div className="actionbar">
+        <div className="action-info">
+          <b>Ready when you are</b>
+          <span>{wordCount} word{wordCount !== 1 ? 's' : ''} · {modeLabel}</span>
+        </div>
+        <button
+          type="button"
+          className="btn-primary start"
+          onClick={handleStart}
+          disabled={!canStart}
+        >
+          {startLabel}
+        </button>
+      </div>
 
       {/* Reset progress */}
-      <div className="flex justify-center pb-4">
+      <div className="reset-wrap">
         {confirmReset ? (
-          <div className="flex items-center gap-4">
-            <span className="text-slate-400 text-sm">Reset all progress?</span>
+          <div className="reset-confirm">
+            <span>Reset all progress?</span>
             <button
+              type="button"
+              className="danger-link"
               onClick={() => { onResetProgress(); setConfirmReset(false); setSelectedBuckets(new Set()); }}
-              className="text-red-400 text-sm hover:text-red-300 transition-colors font-medium"
             >
               Yes, reset
             </button>
-            <button
-              onClick={() => setConfirmReset(false)}
-              className="text-slate-500 text-sm hover:text-slate-300 transition-colors"
-            >
+            <button type="button" className="link" onClick={() => setConfirmReset(false)}>
               Cancel
             </button>
           </div>
         ) : (
-          <button
-            onClick={() => setConfirmReset(true)}
-            className="text-slate-700 text-xs hover:text-slate-500 transition-colors"
-          >
+          <button type="button" className="reset" onClick={() => setConfirmReset(true)}>
             Reset all progress
           </button>
         )}

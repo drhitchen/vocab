@@ -1,0 +1,18 @@
+/* Rules shared by every design. Per-design skins live in editorial.css, focus.css and playful.css. */
+
+[hidden] { display: none !important; }
+
+button { cursor: pointer; }
+button:disabled { cursor: default; }
+
+.app-state { display: grid; min-height: 100vh; place-items: center; }
+
+.design-picker { display: flex; align-items: center; }
+.design-option { white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}

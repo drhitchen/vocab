@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react';
 import { Word } from '../../types';
+import { useAppearance } from '../../appearance/appearance';
+import { COPY } from '../../appearance/copy';
+import SessionBar from '../SessionBar';
 
 interface Props {
   words: Word[];
   onAnswer: (wordId: string, correct: boolean) => void;
   onSessionEnd: () => void;
+  onExit: () => void;
 }
 
-export default function Flashcard({ words, onAnswer, onSessionEnd }: Props) {
+export default function Flashcard({ words, onAnswer, onSessionEnd, onExit }: Props) {
+  const { design } = useAppearance();
+  const copy = COPY[design];
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
 
@@ -25,6 +31,8 @@ export default function Flashcard({ words, onAnswer, onSessionEnd }: Props) {
   }, []);
 
   function answer(correct: boolean) {
+    // Drop focus from the clicked button so Space keeps flipping the next card
+    if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
     onAnswer(word.id, correct);
     if (index + 1 >= words.length) {
       onSessionEnd();
@@ -35,49 +43,51 @@ export default function Flashcard({ words, onAnswer, onSessionEnd }: Props) {
   }
 
   return (
-    <div className="max-w-2xl mx-auto px-6 py-10 flex flex-col items-center gap-8">
-      <p className="text-slate-500 text-sm">{index + 1} / {words.length}</p>
+    <main className="screen screen-session">
+      <SessionBar label="Card" current={index + 1} total={words.length} onExit={onExit} />
 
-      <div
-        onClick={() => setFlipped(f => !f)}
-        className={`w-full min-h-48 rounded-2xl border flex items-center justify-center p-8 text-center cursor-pointer transition-colors
-          ${flipped ? 'border-slate-600 bg-slate-800 hover:bg-slate-750' : 'border-indigo-700 bg-indigo-950 hover:bg-indigo-900'}`}
-      >
-        {flipped ? (
-          <div className="space-y-4">
-            <p className="text-slate-200 text-lg leading-relaxed">{word.definition}</p>
-            {word.definitions[1] && (
-              <p className="text-slate-400 text-base leading-relaxed border-t border-slate-700 pt-3">{word.definitions[1]}</p>
-            )}
-            {word.examples[0] && (
-              <p className="text-slate-500 text-sm italic">&ldquo;{word.examples[0]}&rdquo;</p>
-            )}
+      <div className={`stage${flipped ? ' is-flipped' : ''}`}>
+        <div
+          className="flashcard"
+          role="button"
+          tabIndex={0}
+          aria-label={flipped ? 'Flip card back to the word' : 'Reveal the definition'}
+          onClick={() => setFlipped(f => !f)}
+          onKeyDown={e => {
+            if (e.code === 'Enter') {
+              e.preventDefault();
+              setFlipped(f => !f);
+            }
+          }}
+        >
+          <div className="flip">
+            <div className="face front" aria-hidden={flipped}>
+              <span className="pos">{word.partOfSpeech}</span>
+              <h2 className="word">{word.word}</h2>
+              <span className="hint">{copy.flipHint}</span>
+            </div>
+            <div className="face back" aria-hidden={!flipped}>
+              <span className="back-head">
+                <span>{word.word}</span>
+                <span className="back-pos"> · {word.partOfSpeech}</span>
+              </span>
+              <p className="def">{word.definition}</p>
+              {word.definitions[1] && <p className="def def-alt">{word.definitions[1]}</p>}
+              {word.examples[0] && <p className="ex">{word.examples[0]}</p>}
+            </div>
           </div>
-        ) : (
-          <p className="text-white text-3xl font-bold">{word.word}</p>
-        )}
-      </div>
+        </div>
 
-      <p className="text-slate-600 text-sm">
-        {flipped ? 'Click card to flip back · Space to toggle' : 'Click card or press Space to reveal'}
-      </p>
-
-      {flipped && (
-        <div className="flex gap-4 w-full">
-          <button
-            onClick={() => answer(false)}
-            className="flex-1 py-3 rounded-xl border border-red-800 bg-red-950 text-red-300 font-semibold hover:bg-red-900 transition-colors"
-          >
-            Again
+        <div className="answers">
+          <button type="button" className="again" disabled={!flipped} onClick={() => answer(false)}>
+            Again<small>{copy.againHint}</small>
           </button>
-          <button
-            onClick={() => answer(true)}
-            className="flex-1 py-3 rounded-xl border border-emerald-700 bg-emerald-950 text-emerald-300 font-semibold hover:bg-emerald-900 transition-colors"
-          >
-            Got it
+          <button type="button" className="good" disabled={!flipped} onClick={() => answer(true)}>
+            {copy.goodLabel}<small>{copy.goodHint}</small>
           </button>
         </div>
-      )}
-    </div>
+        {copy.sessionKeys && <p className="keys">{copy.sessionKeys}</p>}
+      </div>
+    </main>
   );
 }

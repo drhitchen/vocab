@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { Word } from '../../types';
+import SessionBar from '../SessionBar';
 
 interface Props {
   words: Word[];
   onAnswer: (wordId: string, correct: boolean) => void;
   onSessionEnd: () => void;
+  onExit: () => void;
 }
 
 // Returns the word with the first `level` non-space chars revealed, rest as underscores
@@ -17,7 +19,7 @@ function getHint(w: string, level: number): string {
   }).join('');
 }
 
-export default function FillInBlank({ words, onAnswer, onSessionEnd }: Props) {
+export default function FillInBlank({ words, onAnswer, onSessionEnd, onExit }: Props) {
   const [index, setIndex] = useState(0);
   const [input, setInput] = useState('');
   const [feedback, setFeedback] = useState<'correct' | 'wrong' | null>(null);
@@ -75,20 +77,19 @@ export default function FillInBlank({ words, onAnswer, onSessionEnd }: Props) {
   }
 
   return (
-    <div className="max-w-2xl mx-auto px-6 py-10 flex flex-col gap-8">
-      <p className="text-slate-500 text-sm text-center">{index + 1} / {words.length}</p>
+    <main className="screen screen-session">
+      <SessionBar label="Word" current={index + 1} total={words.length} onExit={onExit} />
 
-      <div className="rounded-2xl border border-slate-700 bg-slate-900 p-8 space-y-4">
-        <p className="text-slate-300 text-lg leading-relaxed">{word.definition}</p>
-        <div className="flex items-center justify-between">
-          <p className="font-mono tracking-widest text-indigo-400">
-            {getHint(word.word, hintLevel)}
-          </p>
+      <div className="prompt-card">
+        <p className="prompt-text">{word.definition}</p>
+        <div className="hint-row">
+          <p className="hint-text">{getHint(word.word, hintLevel)}</p>
           {feedback === null && (
             <button
+              type="button"
+              className="link"
               onClick={() => setHintLevel(l => Math.min(l + 1, maxHint))}
               disabled={hintLevel >= maxHint}
-              className="text-xs text-slate-500 hover:text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed transition-colors ml-4 shrink-0"
             >
               Hint (Tab)
             </button>
@@ -96,37 +97,34 @@ export default function FillInBlank({ words, onAnswer, onSessionEnd }: Props) {
         </div>
       </div>
 
-      <div className="space-y-3">
+      <div className="answer-area">
         <input
           ref={inputRef}
+          className="answer-input"
+          data-state={feedback ?? 'idle'}
           value={input}
           onChange={e => setInput(e.target.value)}
           disabled={feedback !== null}
           placeholder="Type the word…"
-          className={`w-full px-4 py-3 rounded-xl border bg-slate-900 text-white placeholder-slate-600 outline-none transition-colors
-            ${feedback === 'correct' ? 'border-emerald-500' : feedback === 'wrong' ? 'border-red-500' : 'border-slate-700 focus:border-indigo-500'}`}
+          aria-label="Your answer"
+          autoComplete="off"
+          autoCapitalize="off"
+          spellCheck={false}
         />
         {feedback === 'wrong' && (
-          <p className="text-slate-400 text-sm">Answer: <span className="text-white font-medium">{word.word}</span></p>
+          <p className="answer-reveal">Answer: <b>{word.word}</b></p>
         )}
 
         {feedback === null ? (
-          <button
-            onClick={submit}
-            disabled={!input.trim()}
-            className="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-40 disabled:cursor-not-allowed font-semibold transition-colors"
-          >
+          <button type="button" className="btn-primary btn-block" onClick={submit} disabled={!input.trim()}>
             Submit
           </button>
         ) : (
-          <button
-            onClick={advance}
-            className="w-full py-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium transition-colors"
-          >
-            Next → <span className="text-slate-500 text-sm ml-1">Space / Enter</span>
+          <button type="button" className="btn-secondary btn-block next-btn" onClick={advance}>
+            Next → <span className="next-hint">Space / Enter</span>
           </button>
         )}
       </div>
-    </div>
+    </main>
   );
 }

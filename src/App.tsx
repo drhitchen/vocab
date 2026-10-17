@@ -3,7 +3,7 @@ import { AppScreen, SessionConfig, SessionResult, Word } from './types';
 import { loadWords } from './data/vocab';
 import { useProgress } from './hooks/useProgress';
 import { getWordsForSession, getWordsFromBuckets } from './utils/srs';
-import Header from './components/Header';
+import AppShell from './components/shell/AppShell';
 import Home from './components/Home';
 import Browse from './components/Browse';
 import SessionWrapper from './components/SessionWrapper';
@@ -78,23 +78,28 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
-        <p className="text-slate-400 text-lg">Loading vocabulary...</p>
+      <div className="app-state">
+        <p className="app-state-text">Loading vocabulary...</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
-        <p className="text-red-400 text-lg">Error: {error}</p>
+      <div className="app-state">
+        <p className="app-state-text is-error">Error: {error}</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      <Header totalWords={words.length} masteredCount={masteredCount} dueCount={dueCount} screen={screen} onNavigate={(s) => setScreen(s)} />
+    <AppShell
+      totalWords={words.length}
+      masteredCount={masteredCount}
+      dueCount={dueCount}
+      screen={screen}
+      onNavigate={(s) => setScreen(s)}
+    >
       {screen === 'home' && (
         <Home
           words={words}
@@ -126,6 +131,6 @@ export default function App() {
       {screen === 'browse' && (
         <Browse words={words} cards={cards} onStudySelected={handleStudySelected} />
       )}
-    </div>
+    </AppShell>
   );
 }

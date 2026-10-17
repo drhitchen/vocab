@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Word } from '../../types';
 import { shuffle } from '../../utils/shuffle';
+import SessionBar from '../SessionBar';
 
 interface Props {
   words: Word[];
   onAnswer: (wordId: string, correct: boolean) => void;
   onSessionEnd: () => void;
+  onExit: () => void;
 }
 
 type TileType = 'word' | 'definition';
@@ -19,7 +21,7 @@ interface Tile {
 
 const PAIR_SIZE = 6;
 
-export default function MatchPairs({ words, onAnswer, onSessionEnd }: Props) {
+export default function MatchPairs({ words, onAnswer, onSessionEnd, onExit }: Props) {
   const [roundStart, setRoundStart] = useState(0);
   const [tiles, setTiles] = useState<Tile[]>([]);
   const [matched, setMatched] = useState<Set<string>>(new Set());
@@ -104,42 +106,38 @@ export default function MatchPairs({ words, onAnswer, onSessionEnd }: Props) {
     }
   }
 
-  function tileClass(tile: Tile) {
-    if (matched.has(tile.wordId)) {
-      return 'border-emerald-700 bg-emerald-950 text-emerald-300 cursor-default';
-    }
-    if (wrong && (wrong[0] === tile.id || wrong[1] === tile.id)) {
-      return 'border-red-600 bg-red-950 text-red-300';
-    }
-    if (selected?.id === tile.id) {
-      return 'border-indigo-500 bg-indigo-950 text-white';
-    }
-    return 'border-slate-700 bg-slate-900 text-slate-300 hover:border-slate-500 cursor-pointer';
+  function tileState(tile: Tile) {
+    if (matched.has(tile.wordId)) return 'matched';
+    if (wrong && (wrong[0] === tile.id || wrong[1] === tile.id)) return 'wrong';
+    if (selected?.id === tile.id) return 'selected';
+    return 'idle';
   }
 
   if (roundWords.length === 0) return null;
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-10 flex flex-col gap-6">
-      <div className="flex justify-between items-center text-sm text-slate-500">
-        <span>Round {currentRound} / {totalRounds}</span>
-        <span>{matched.size} / {roundWords.length} matched</span>
-      </div>
+    <main className="screen screen-session screen-match">
+      <SessionBar label="Round" current={currentRound} total={totalRounds} onExit={onExit} />
 
-      <div className="grid grid-cols-2 gap-3">
+      <p className="match-meta">{matched.size} / {roundWords.length} matched</p>
+
+      <div className="pair-grid">
         {tiles.map(tile => (
           <button
             key={tile.id}
+            type="button"
+            className="pair-tile"
+            data-type={tile.type}
+            data-state={tileState(tile)}
             onClick={() => handleTileClick(tile)}
             disabled={matched.has(tile.wordId)}
-            className={`text-left px-4 py-3 rounded-xl border text-sm leading-snug transition-colors min-h-16 ${tileClass(tile)}`}
           >
-            <span className={tile.type === 'definition' ? 'line-clamp-3' : ''}>{tile.text}</span>
+            <span className="pair-text">{tile.text}</span>
           </button>
         ))}
       </div>
 
-      <p className="text-slate-600 text-xs text-center">Click a word and its matching definition</p>
-    </div>
+      <p className="session-hint">Click a word and its matching definition</p>
+    </main>
   );
 }

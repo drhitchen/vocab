@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vocab Builder | Mockup 2: Focus</title>
+<link rel="stylesheet" href="mockup.css">
+<script src="mockup.js"></script>
+<style>
+:root {
+  --sans: "Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+:root, [data-theme="light"] {
+  --bg: #f4f5f8;
+  --panel: #ffffff;
+  --sunken: #eef0f4;
+  --border: #e2e5eb;
+  --border-strong: #cdd2db;
+  --text: #11141b;
+  --muted: #667085;
+  --faint: #98a2b3;
+  --accent: #0c9a6a;
+  --accent-strong: #087f56;
+  --accent-ink: #ffffff;
+  --accent-soft: #e0f5ec;
+  --danger: #d92d20;
+  --danger-soft: #fdecea;
+  --b0: #98a2b3;
+  --b1: #f0a020;
+  --b2: #3b82f6;
+  --b3: #12b3a2;
+  --b4: #22b455;
+  --shadow: 0 1px 2px rgba(16, 24, 40, .05), 0 6px 20px -6px rgba(16, 24, 40, .1);
+  --shadow-lg: 0 2px 4px rgba(16, 24, 40, .05), 0 24px 56px -16px rgba(16, 24, 40, .22);
+  --ring: 0 0 0 3px rgba(12, 154, 106, .25);
+}
+
+[data-theme="dark"] {
+  --bg: #0a0c11;
+  --panel: #12151c;
+  --sunken: #0d1016;
+  --border: #212633;
+  --border-strong: #323949;
+  --text: #eef1f6;
+  --muted: #98a1b3;
+  --faint: #5f6879;
+  --accent: #3fd68e;
+  --accent-strong: #5ae3a1;
+  --accent-ink: #04140c;
+  --accent-soft: #0f2a1f;
+  --danger: #ff7a70;
+  --danger-soft: #2b1614;
+  --b0: #6b7587;
+  --b1: #ffb84d;
+  --b2: #6ea6ff;
+  --b3: #2dd4bf;
+  --b4: #4ade80;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -8px rgba(0, 0, 0, .55);
+  --shadow-lg: 0 2px 4px rgba(0, 0, 0, .4), 0 28px 60px -16px rgba(0, 0, 0, .75);
+  --ring: 0 0 0 3px rgba(63, 214, 142, .28);
+}
+
+html { background: var(--bg); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.5 var(--sans);
+  letter-spacing: -.005em;
+  -webkit-font-smoothing: antialiased;
+  transition: background .25s, color .25s;
+}
+
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; letter-spacing: inherit; }
+a { color: inherit; }
+:focus-visible { outline: 0; box-shadow: var(--ring); }
+
+/* ---------- Shell ---------- */
+.app { display: grid; grid-template-columns: 256px 1fr; min-height: 100vh; }
+.sidebar { position: sticky; top: 0; display: flex; flex-direction: column; gap: 28px; height: 100vh; padding: 22px 16px; border-right: 1px solid var(--border); background: var(--panel); }
+.brand { display: flex; align-items: center; gap: 11px; padding: 0 8px; font-weight: 650; font-size: 16px; letter-spacing: -.02em; }
+.logo { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); font-weight: 750; font-size: 16px; box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .15); }
+.nav { display: grid; gap: 4px; }
+.nav button { display: flex; align-items: center; gap: 11px; padding: 10px 12px; border-radius: 10px; color: var(--muted); font-weight: 520; text-align: left; transition: background .15s, color .15s; }
+.nav button:hover { background: var(--sunken); color: var(--text); }
+.nav button[aria-current="page"] { background: var(--accent-soft); color: var(--accent-strong); }
+.nav svg { width: 19px; height: 19px; flex: none; }
+.nav .badge { margin-left: auto; padding: 2px 8px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-size: 11.5px; font-weight: 650; }
+.side-foot { margin-top: auto; display: grid; gap: 14px; }
+.mastery { display: flex; align-items: center; gap: 14px; padding: 14px; border: 1px solid var(--border); border-radius: 14px; background: var(--sunken); }
+.ring { position: relative; flex: none; width: 54px; height: 54px; }
+.ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring circle { fill: none; stroke-width: 6; }
+.ring .track { stroke: var(--border-strong); }
+.ring .fill { stroke: var(--accent); stroke-linecap: round; }
+.ring span { position: absolute; inset: 0; display: grid; place-items: center; font-size: 12px; font-weight: 650; }
+.mastery b { display: block; font-size: 15px; font-weight: 650; }
+.mastery small { color: var(--muted); font-size: 12.5px; }
+.theme-btn { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 9px 12px; border: 1px solid var(--border); border-radius: 10px; color: var(--muted); font-weight: 520; transition: .15s; }
+.theme-btn:hover { color: var(--text); border-color: var(--border-strong); }
+.theme-btn svg { width: 17px; height: 17px; }
+
+.content { min-width: 0; padding: 44px 52px 110px; }
+.inner { max-width: 940px; margin: 0 auto; }
+.page-head { margin-bottom: 28px; }
+.page-head h1 { margin: 0; font-size: 30px; font-weight: 680; letter-spacing: -.03em; }
+.page-head p { margin: 6px 0 0; color: var(--muted); }
+.label { margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+.group + .group { margin-top: 32px; }
+
+/* ---------- Study ---------- */
+.tiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.tile { position: relative; padding: 16px 16px 14px; border: 1px solid var(--border); border-radius: 16px; background: var(--panel); text-align: left; box-shadow: var(--shadow); transition: transform .15s, border-color .15s, box-shadow .15s; }
+.tile:hover { transform: translateY(-2px); border-color: var(--border-strong); }
+.tile .top { display: flex; align-items: center; gap: 7px; color: var(--muted); font-size: 13px; font-weight: 520; }
+.tile .top::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+.tile b { display: block; margin-top: 10px; font-size: 28px; font-weight: 680; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.tile .bar { display: block; height: 4px; margin-top: 12px; border-radius: 2px; background: var(--sunken); overflow: hidden; }
+.tile .bar i { display: block; height: 100%; min-width: 4px; border-radius: 2px; background: var(--c); }
+.tile[aria-pressed="true"] { border-color: var(--accent); box-shadow: var(--ring), var(--shadow); }
+.tile[aria-pressed="true"]::after { content: ""; position: absolute; top: 12px; right: 12px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7'/%3E%3C/svg%3E") center / 11px no-repeat; }
+.tiles-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; color: var(--muted); font-size: 13.5px; }
+.text-btn { color: var(--muted); font-size: 13px; font-weight: 520; }
+.text-btn:hover { color: var(--text); }
+
+.segmented { display: inline-flex; gap: 2px; padding: 4px; border: 1px solid var(--border); border-radius: 12px; background: var(--sunken); }
+.segmented button { min-width: 58px; padding: 8px 14px; border-radius: 9px; color: var(--muted); font-weight: 600; font-variant-numeric: tabular-nums; transition: .15s; }
+.segmented button:hover { color: var(--text); }
+.segmented button[aria-pressed="true"] { background: var(--panel); color: var(--text); box-shadow: var(--shadow); }
+
+.modes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.mode { display: flex; align-items: flex-start; gap: 14px; padding: 16px; border: 1px solid var(--border); border-radius: 16px; background: var(--panel); text-align: left; box-shadow: var(--shadow); transition: transform .15s, border-color .15s, box-shadow .15s; }
+.mode:hover { transform: translateY(-2px); border-color: var(--border-strong); }
+.mode .ico { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--sunken); color: var(--muted); transition: .15s; }
+.mode .ico svg { width: 21px; height: 21px; }
+.mode b { display: block; font-size: 15.5px; font-weight: 640; }
+.mode small { display: block; margin-top: 2px; color: var(--muted); font-size: 13.5px; }
+.mode[aria-pressed="true"] { border-color: var(--accent); box-shadow: var(--ring), var(--shadow); }
+.mode[aria-pressed="true"] .ico { background: var(--accent); color: var(--accent-ink); }
+
+.actionbar { position: sticky; bottom: 76px; z-index: 5; display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 36px; padding: 14px 14px 14px 22px; border: 1px solid var(--border); border-radius: 18px; background: color-mix(in srgb, var(--panel) 88%, transparent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: var(--shadow-lg); }
+.actionbar .info b { display: block; font-weight: 640; }
+.actionbar .info span { color: var(--muted); font-size: 13.5px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: 12px; font-weight: 640; transition: filter .15s, transform .1s, background .15s; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .14), 0 6px 16px -6px var(--accent); }
+.btn.primary:hover { filter: brightness(1.07); }
+.btn.primary:active { transform: translateY(1px); }
+.reset { display: block; margin: 26px auto 0; color: var(--faint); font-size: 12.5px; }
+.reset:hover { color: var(--muted); }
+
+/* ---------- Session ---------- */
+.session-bar { display: flex; align-items: center; gap: 18px; margin-bottom: 36px; }
+.exit { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 10px; color: var(--muted); font-weight: 520; }
+.exit:hover { color: var(--text); border-color: var(--border-strong); }
+.track { position: relative; flex: 1; height: 8px; border-radius: 4px; background: var(--border); overflow: hidden; }
+.track::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--p, 0%); min-width: 8px; border-radius: 4px; background: var(--accent); transition: width .4s cubic-bezier(.2, .8, .2, 1); }
+.count { min-width: 52px; text-align: right; color: var(--muted); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stage { max-width: 640px; margin: 0 auto; }
+.flashcard { perspective: 1600px; cursor: pointer; border-radius: 28px; user-select: none; }
+.flip { display: grid; min-height: 380px; transform-style: preserve-3d; transition: transform .6s cubic-bezier(.2, .8, .2, 1); }
+.is-flipped .flip { transform: rotateY(180deg); }
+.face { grid-area: 1 / 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 44px; border: 1px solid var(--border); border-radius: 28px; background: var(--panel); box-shadow: var(--shadow-lg); text-align: center; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+.face.back { transform: rotateY(180deg); }
+.front { background: linear-gradient(180deg, var(--panel), color-mix(in srgb, var(--accent-soft) 55%, var(--panel))); }
+.chip { padding: 4px 11px; border-radius: 999px; background: var(--sunken); color: var(--muted); font: 600 12px var(--mono); letter-spacing: 0; }
+.front .word { margin: 22px 0 0; font-size: clamp(48px, 9vw, 76px); font-weight: 700; line-height: 1.05; letter-spacing: -.04em; overflow-wrap: anywhere; }
+.front .hint { margin-top: 34px; color: var(--faint); font-size: 13px; }
+.back .word-sm { margin: 0 0 14px; color: var(--accent-strong); font-weight: 650; }
+.back .def { margin: 0; max-width: 28ch; font-size: clamp(22px, 3.4vw, 28px); font-weight: 560; line-height: 1.3; letter-spacing: -.02em; }
+.back .ex { margin: 26px 0 0; max-width: 44ch; padding: 14px 18px; border-radius: 14px; background: var(--sunken); color: var(--muted); font-size: 15.5px; text-align: left; }
+.back .ex::before { content: "\201C"; }
+.back .ex::after { content: "\201D"; }
+.answers { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; transition: opacity .25s, transform .25s; }
+.stage:not(.is-flipped) .answers { opacity: .35; transform: translateY(4px); pointer-events: none; }
+.answers button { padding: 16px; border: 1px solid var(--border); border-radius: 16px; background: var(--panel); font-weight: 650; font-size: 16px; box-shadow: var(--shadow); transition: transform .12s, border-color .15s, background .15s; }
+.answers button small { display: block; margin-top: 1px; color: var(--muted); font-size: 12.5px; font-weight: 500; }
+.answers button:hover { transform: translateY(-2px); }
+.answers .again:hover { border-color: var(--danger); background: var(--danger-soft); }
+.answers .again { color: var(--danger); }
+.answers .good { border-color: transparent; background: var(--accent); color: var(--accent-ink); }
+.answers .good small { color: inherit; opacity: .75; }
+.answers .good:hover { filter: brightness(1.07); }
+.kbd-row { display: flex; justify-content: center; gap: 22px; margin-top: 22px; color: var(--faint); font-size: 13px; }
+kbd { padding: 2px 7px; border: 1px solid var(--border-strong); border-bottom-width: 2px; border-radius: 6px; background: var(--panel); color: var(--muted); font: 600 12px var(--mono); }
+
+/* ---------- Browse ---------- */
+.search { position: relative; }
+.search svg { position: absolute; left: 16px; top: 50%; width: 19px; height: 19px; transform: translateY(-50%); color: var(--faint); }
+.search input { width: 100%; padding: 14px 70px 14px 46px; border: 1px solid var(--border); border-radius: 14px; background: var(--panel); color: var(--text); font: inherit; font-size: 16px; box-shadow: var(--shadow); outline: 0; transition: .15s; }
+.search input::placeholder { color: var(--faint); }
+.search input:focus { border-color: var(--accent); box-shadow: var(--ring); }
+.search .clear { position: absolute; right: 12px; top: 50%; padding: 5px 9px; transform: translateY(-50%); border-radius: 8px; background: var(--sunken); color: var(--muted); font-size: 12px; font-weight: 600; }
+.toolbar { display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding: 8px 2px; color: var(--muted); font-size: 13.5px; }
+.toolbar .left { display: flex; align-items: center; gap: 14px; }
+.toolbar b { color: var(--text); font-weight: 640; }
+.toolbar .actions { display: flex; align-items: center; gap: 14px; }
+.btn.small { padding: 8px 14px; border-radius: 10px; font-size: 13px; }
+.pager { display: flex; align-items: center; gap: 4px; }
+.pager button { padding: 6px 10px; border-radius: 8px; }
+.pager button:hover:not(:disabled) { background: var(--sunken); color: var(--text); }
+.pager button:disabled { opacity: .35; cursor: default; }
+.pager span { padding: 0 8px; font-variant-numeric: tabular-nums; color: var(--text); font-weight: 600; }
+
+.table { border: 1px solid var(--border); border-radius: 18px; background: var(--panel); box-shadow: var(--shadow); overflow: hidden; }
+.cols { display: grid; grid-template-columns: 22px 14px minmax(0, 1.2fr) 66px 86px minmax(0, 2.4fr) 104px; align-items: center; gap: 14px; }
+.thead { padding: 11px 18px; border-bottom: 1px solid var(--border); background: var(--sunken); color: var(--faint); font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.row + .row, .thead + div .row:first-child { border-top: 1px solid var(--border); }
+.row-head { padding: 13px 18px; cursor: pointer; transition: background .12s; }
+.row-head:hover { background: var(--sunken); }
+.row[data-selected] .row-head { background: var(--accent-soft); }
+.chev { width: 7px; height: 7px; border-right: 2px solid var(--faint); border-bottom: 2px solid var(--faint); transform: rotate(-45deg); transition: transform .2s; }
+.row[aria-expanded="true"] .chev { transform: rotate(45deg); }
+.hw { overflow: hidden; font-weight: 640; text-overflow: ellipsis; white-space: nowrap; }
+.pos-col { color: var(--muted); font: 500 12.5px var(--mono); }
+.type { justify-self: start; padding: 2px 9px; border-radius: 999px; background: var(--sunken); color: var(--muted); font-size: 12px; font-weight: 560; }
+.row[data-type="proper"] .type { background: color-mix(in srgb, #8b5cf6 16%, transparent); color: #7c4ddb; }
+[data-theme="dark"] .row[data-type="proper"] .type { color: #b9a2ff; }
+.def-col { overflow: hidden; color: var(--muted); text-overflow: ellipsis; white-space: nowrap; }
+.bk { display: inline-flex; align-items: center; gap: 7px; justify-self: start; color: var(--muted); font-size: 13px; font-weight: 520; }
+.bk::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+.row[data-bucket="0"] { --c: var(--b0); }
+.row[data-bucket="1"] { --c: var(--b1); }
+.row[data-bucket="2"] { --c: var(--b2); }
+.row[data-bucket="3"] { --c: var(--b3); }
+.row[data-bucket="4"] { --c: var(--b4); }
+.detail { display: none; grid-template-columns: 1.6fr 1fr; gap: 28px; margin: 0 18px 18px 50px; padding: 20px; border: 1px solid var(--border); border-radius: 14px; background: var(--sunken); }
+.row[aria-expanded="true"] .detail { display: grid; }
+.detail h4 { margin: 0 0 8px; color: var(--faint); font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.detail ol { margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.5; }
+.detail ul { margin: 14px 0 0; padding: 0; list-style: none; color: var(--muted); }
+.detail ul li { padding-left: 14px; border-left: 3px solid var(--accent); }
+.detail ul li::before { content: "\201C"; }
+.detail ul li::after { content: "\201D"; }
+.stats { display: grid; gap: 8px; }
+.stats div { display: flex; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 13.5px; }
+.stats b { color: var(--text); font-weight: 600; }
+.stats a { margin-top: 4px; color: var(--accent-strong); font-weight: 600; font-size: 13.5px; text-underline-offset: 3px; }
+.empty { padding: 56px 18px; text-align: center; color: var(--muted); }
+.empty code { display: inline-block; margin-top: 12px; padding: 6px 12px; border-radius: 8px; background: var(--sunken); color: var(--text); font: 13px var(--mono); }
+
+input[type="checkbox"] { appearance: none; -webkit-appearance: none; display: grid; place-content: center; width: 18px; height: 18px; margin: 0; border: 1.5px solid var(--border-strong); border-radius: 6px; background: var(--panel); cursor: pointer; transition: .12s; }
+input[type="checkbox"]:hover { border-color: var(--accent); }
+input[type="checkbox"]:checked { border-color: var(--accent); background: var(--accent); }
+input[type="checkbox"]:checked::after { content: ""; width: 9px; height: 5px; border-bottom: 2px solid var(--accent-ink); border-left: 2px solid var(--accent-ink); transform: rotate(-45deg) translate(1px, -1px); }
+
+@media (max-width: 900px) {
+  .app { grid-template-columns: 1fr; }
+  .sidebar { position: static; flex-direction: row; align-items: center; height: auto; padding: 12px 16px; border-right: 0; border-bottom: 1px solid var(--border); }
+  .side-foot { margin: 0 0 0 auto; display: flex; align-items: center; }
+  .mastery, .theme-btn span, .brand span { display: none; }
+  .theme-btn { width: auto; }
+  .nav { display: flex; }
+  .content { padding: 28px 18px 110px; }
+  .tiles { grid-template-columns: repeat(3, 1fr); }
+  .modes { grid-template-columns: 1fr; }
+  .cols { grid-template-columns: 22px 14px minmax(0, 1fr) 104px; }
+  .cols .pos-col, .cols .type, .cols .def-col { display: none; }
+  .detail { grid-template-columns: 1fr; margin-left: 18px; }
+  .answers { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><span class="logo">V</span><span>Vocab Builder</span></div>
+    <nav class="nav" aria-label="Primary">
+      <button type="button" data-nav="study session" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 8 12 13l9.5-5z"/><path d="m6 10.8V16c0 1.3 2.7 3 6 3s6-1.7 6-3v-5.2"/></svg>
+        Study <span class="badge">1,903</span>
+      </button>
+      <button type="button" data-nav="browse">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h10"/></svg>
+        Browse
+      </button>
+    </nav>
+    <div class="side-foot">
+      <div class="mastery">
+        <div class="ring">
+          <svg viewBox="0 0 54 54" aria-hidden="true"><circle class="track" cx="27" cy="27" r="22"/><circle class="fill" cx="27" cy="27" r="22" stroke-dasharray="138.2" stroke-dashoffset="136.4"/></svg>
+          <span>1%</span>
+        </div>
+        <div><b>28 mastered</b><small>of 2,105 words</small></div>
+      </div>
+      <button type="button" class="theme-btn" data-theme-toggle><span data-theme-label>Light mode</span></button>
+    </div>
+  </aside>
+
+  <div class="content">
+    <div class="inner">
+
+      <!-- STUDY -->
+      <section data-screen="study">
+        <div class="page-head">
+          <h1>Study</h1>
+          <p>Pick your words, a mode, and start a round.</p>
+        </div>
+
+        <div class="group">
+          <p class="label">Progress</p>
+          <div class="tiles" data-pick="multi" data-name="buckets">
+            <button type="button" class="tile" data-option data-label="New" data-count="1842" aria-pressed="false" style="--c:var(--b0)"><span class="top">New</span><b>1,842</b><span class="bar"><i style="width:87.5%"></i></span></button>
+            <button type="button" class="tile" data-option data-label="Learning" data-count="120" aria-pressed="false" style="--c:var(--b1)"><span class="top">Learning</span><b>120</b><span class="bar"><i style="width:5.7%"></i></span></button>
+            <button type="button" class="tile" data-option data-label="Familiar" data-count="74" aria-pressed="false" style="--c:var(--b2)"><span class="top">Familiar</span><b>74</b><span class="bar"><i style="width:3.5%"></i></span></button>
+            <button type="button" class="tile" data-option data-label="Known" data-count="41" aria-pressed="false" style="--c:var(--b3)"><span class="top">Known</span><b>41</b><span class="bar"><i style="width:1.9%"></i></span></button>
+            <button type="button" class="tile" data-option data-label="Mastered" data-count="28" aria-pressed="false" style="--c:var(--b4)"><span class="top">Mastered</span><b>28</b><span class="bar"><i style="width:1.3%"></i></span></button>
+          </div>
+          <div class="tiles-foot">
+            <span data-summary data-default="1,903 words due for review">1,903 words due for review</span>
+            <button type="button" class="text-btn" data-clear-buckets hidden>Clear filter</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <p class="label">Session size</p>
+          <div class="segmented" data-pick="single" data-name="size">
+            <button type="button" data-option data-value="1" aria-pressed="false">1</button>
+            <button type="button" data-option data-value="5" aria-pressed="false">5</button>
+            <button type="button" data-option data-value="10" aria-pressed="true">10</button>
+            <button type="button" data-option data-value="20" aria-pressed="false">20</button>
+            <button type="button" data-option data-value="50" aria-pressed="false">50</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <p class="label">Mode</p>
+          <div class="modes" data-pick="single" data-name="mode">
+            <button type="button" class="mode" data-option aria-pressed="true">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="14" height="12" rx="2.5"/><path d="M7 3h12a2 2 0 0 1 2 2v10"/></svg></span>
+              <span><b>Flashcards</b><small>Flip to reveal the definition</small></span>
+            </button>
+            <button type="button" class="mode" data-option aria-pressed="false">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="7" r="1.5"/><circle cx="5" cy="17" r="1.5"/><path d="M10 7h10M10 17h10M4.2 17l.9.9 1.7-1.8"/></svg></span>
+              <span><b>Multiple choice</b><small>Pick the correct definition</small></span>
+            </button>
+            <button type="button" class="mode" data-option aria-pressed="false">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7V5h12v2M10 5v12M7 17h6"/><path d="M4 21h16"/></svg></span>
+              <span><b>Fill in blank</b><small>Type the word, first letter shown</small></span>
+            </button>
+            <button type="button" class="mode" data-option aria-pressed="false">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="2"/><rect x="14" y="13" width="7" height="7" rx="2"/><path d="M10 7.5h2a2 2 0 0 1 2 2V13M14 16.5h-2a2 2 0 0 1-2-2V11"/></svg></span>
+              <span><b>Match pairs</b><small>Match words to definitions</small></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="actionbar">
+          <div class="info"><b>Ready when you are</b><span data-size-label>10 words</span> &middot; Flashcards</div>
+          <button type="button" class="btn primary" data-start><span data-start-label>Select 10 words &amp; start &rarr;</span></button>
+        </div>
+        <button type="button" class="reset">Reset all progress</button>
+      </section>
+
+      <!-- SESSION -->
+      <section data-screen="session" hidden>
+        <div class="session-bar">
+          <button type="button" class="exit" data-nav="study">&larr; Exit</button>
+          <div class="track" data-progress role="progressbar" aria-label="Session progress"></div>
+          <span class="count"><span data-field="count">1</span> / <span data-field="total">5</span></span>
+        </div>
+
+        <div class="stage" data-card>
+          <div class="flashcard" data-flip role="button" tabindex="0" aria-label="Flip card">
+            <div class="flip">
+              <div class="face front">
+                <span class="chip" data-field="pos">adj</span>
+                <h2 class="word" data-field="word" style="margin:22px 0 0">ephemeral</h2>
+                <span class="hint">Click the card to reveal</span>
+              </div>
+              <div class="face back">
+                <p class="word-sm" data-field="word">ephemeral</p>
+                <p class="def" data-field="def">Lasting for only a very short time.</p>
+                <p class="ex" data-field="ex"></p>
+              </div>
+            </div>
+          </div>
+          <div class="answers">
+            <button type="button" class="again" data-answer>Again<small>Back to New</small></button>
+            <button type="button" class="good" data-answer>Got it<small>Up one bucket</small></button>
+          </div>
+          <div class="kbd-row"><span><kbd>Space</kbd> flip</span><span><kbd>Esc</kbd> end session</span></div>
+        </div>
+      </section>
+
+      <!-- BROWSE -->
+      <section data-screen="browse" hidden>
+        <div class="page-head">
+          <h1>Browse</h1>
+          <p>Search every word, review its status, or build a custom set.</p>
+        </div>
+
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="text" data-search placeholder="Search 2,105 words and definitions" aria-label="Search words" autocomplete="off">
+          <button type="button" class="clear" data-search-clear hidden>Clear</button>
+        </div>
+
+        <div class="toolbar">
+          <div class="left">
+            <span><b data-result-count>2,105</b> results</span>
+            <button type="button" class="text-btn" data-select-all>Select all</button>
+          </div>
+          <div class="actions" data-selection hidden>
+            <span><b data-selected-count>0</b> selected</span>
+            <button type="button" class="btn primary small" data-study-selected>Study selected &rarr;</button>
+            <button type="button" class="text-btn" data-clear-selection>Clear</button>
+          </div>
+          <div class="pager" data-pagination>
+            <button type="button" disabled>&lsaquo; Prev</button>
+            <span>1 / 43</span>
+            <button type="button">Next &rsaquo;</button>
+          </div>
+        </div>
+
+        <div class="table">
+          <div class="cols thead"><span></span><span></span><span>Word</span><span class="pos-col" style="font-family:inherit">POS</span><span>Type</span><span>Definition</span><span>Status</span></div>
+          <div data-rows data-expand="0"></div>
+          <div class="empty" data-empty hidden>
+            Not in the vocabulary yet.<br>
+            <code>node scripts/add-word.js --add <span data-empty-query></span></code>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<template data-row-template>
+  <div class="row" data-row data-bucket="{{bi}}" data-type="{{type}}" aria-expanded="false">
+    <div class="cols row-head" data-row-head>
+      <input type="checkbox" data-check aria-label="Select {{word}}">
+      <span class="chev"></span>
+      <span class="hw">{{word}}</span>
+      <span class="pos-col">{{pos}}</span>
+      <span class="type">{{type}}</span>
+      <span class="def-col">{{def}}</span>
+      <span class="bk">{{bucket}}</span>
+    </div>
+    <div class="detail">
+      <div>
+        <h4>Definitions</h4>
+        <ol>{{defsHtml}}</ol>
+        <ul>{{exHtml}}</ul>
+      </div>
+      <div>
+        <h4>Review</h4>
+        <div class="stats">
+          <div>Status <b>{{bucket}}</b></div>
+          <div>Next review <b>{{next}}</b></div>
+          <div>Correct <b>{{attempts}}</b></div>
+          <a href="{{mw}}" target="_blank" rel="noopener noreferrer">Merriam-Webster &nearr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+</body>
+</html>

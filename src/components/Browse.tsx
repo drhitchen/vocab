@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { SRSCard, Word } from '../types';
+import { useAppearance } from '../appearance/appearance';
 import EntryCard from './EntryCard';
+import { SearchIcon } from './icons';
 
 interface BrowseProps {
   words: Word[];
@@ -11,6 +13,7 @@ interface BrowseProps {
 const PAGE_SIZE = 50;
 
 export default function Browse({ words, cards, onStudySelected }: BrowseProps) {
+  const { design } = useAppearance();
   const [query, setQuery] = useState('');
   const [debouncedQuery, setDebouncedQuery] = useState('');
   const [page, setPage] = useState(1);
@@ -71,71 +74,70 @@ export default function Browse({ words, cards, onStudySelected }: BrowseProps) {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-6">
+    <main className="screen screen-browse">
+      {design === 'focus' && (
+        <header className="page-head">
+          <h1 className="page-title">Browse</h1>
+          <p className="page-sub">Search every word, review its status, or build a custom set.</p>
+        </header>
+      )}
+      {design === 'playful' && (
+        <header className="page-head">
+          <h1 className="hero">Word <mark>library</mark></h1>
+          <p className="page-sub">Dig through every word and build your own set.</p>
+        </header>
+      )}
+
       {/* Search bar */}
-      <div className="relative mb-4">
+      <div className="searchbar">
+        <SearchIcon />
         <input
           ref={inputRef}
           type="text"
           value={query}
           onChange={e => setQuery(e.target.value)}
-          placeholder={`Search ${words.length} words…`}
-          className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-slate-500"
+          placeholder={`Search ${words.length.toLocaleString()} words…`}
+          aria-label="Search words"
         />
         {query.length > 0 && (
-          <button
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200"
-            onClick={() => setQuery('')}
-            aria-label="Clear search"
-          >
+          <button type="button" className="clear" onClick={() => setQuery('')} aria-label="Clear search">
             ✕
           </button>
         )}
       </div>
 
       {/* Results count + pagination */}
-      <div className="flex items-center justify-between mb-3 text-sm text-slate-400">
-        <div className="flex items-center gap-3">
-          <span>Results: {filtered.length}</span>
+      <div className="toolbar">
+        <div className="toolbar-left">
+          <span className="count"><b>{filtered.length.toLocaleString()}</b> results</span>
           {filtered.length > 0 && (
-            <button
-              className="hover:text-slate-200 text-slate-500"
-              onClick={handleSelectAll}
-            >
+            <button type="button" className="link" onClick={handleSelectAll}>
               Select all
             </button>
           )}
         </div>
         {selectedIds.size > 0 ? (
-          <div className="flex items-center gap-3">
-            <span className="text-indigo-300">✓ {selectedIds.size} selected</span>
-            <button
-              className="px-3 py-1 rounded bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium"
-              onClick={handleStudySelected}
-            >
+          <div className="toolbar-actions">
+            <span className="selected-count">✓ {selectedIds.size} selected</span>
+            <button type="button" className="btn-primary btn-small" onClick={handleStudySelected}>
               Study selected →
             </button>
-            <button
-              className="hover:text-slate-200"
-              onClick={() => setSelectedIds(new Set())}
-            >
+            <button type="button" className="link" onClick={() => setSelectedIds(new Set())}>
               Clear ✕
             </button>
           </div>
         ) : (
-          <div className="flex items-center gap-3">
+          <div className="pager">
             <button
-              className="hover:text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed"
+              type="button"
               onClick={() => setPage(p => Math.max(1, p - 1))}
               disabled={clampedPage === 1}
             >
               ‹ prev
             </button>
-            <span className="text-slate-300">
-              {clampedPage} / {totalPages}
-            </span>
+            <span>{clampedPage} / {totalPages}</span>
             <button
-              className="hover:text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed"
+              type="button"
               onClick={() => setPage(p => Math.min(totalPages, p + 1))}
               disabled={clampedPage === totalPages}
             >
@@ -146,23 +148,21 @@ export default function Browse({ words, cards, onStudySelected }: BrowseProps) {
       </div>
 
       {/* Grid */}
-      <div className="border border-slate-800 rounded-lg overflow-hidden">
-        {/* Header row */}
-        <div className="grid grid-cols-[1.5rem_1.5rem_1fr_auto_auto_2fr] gap-3 px-4 py-2 bg-slate-800 text-xs text-slate-400 uppercase tracking-wide">
+      <div className="entries">
+        <div className="cols thead">
           <span />
           <span />
           <span>Word</span>
-          <span>POS</span>
-          <span>Type</span>
-          <span>Definition</span>
+          <span className="pos-col">POS</span>
+          <span className="type">Type</span>
+          <span className="def-col">Definition</span>
+          <span className="bk">Status</span>
         </div>
 
         {pageWords.length === 0 ? (
-          <div className="px-4 py-8 text-center text-slate-400">
-            <p>Not in vocabulary — add it:</p>
-            <code className="mt-2 block text-slate-300 text-sm bg-slate-800 rounded px-3 py-1 inline-block">
-              node scripts/add-word.js {debouncedQuery}
-            </code>
+          <div className="empty">
+            <p>Not in vocabulary. Add it:</p>
+            <code>node scripts/add-word.js --add {debouncedQuery}</code>
           </div>
         ) : (
           pageWords.map(w => (
@@ -178,6 +178,6 @@ export default function Browse({ words, cards, onStudySelected }: BrowseProps) {
           ))
         )}
       </div>
-    </div>
+    </main>
   );
 }

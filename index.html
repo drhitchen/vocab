@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vocab Builder</title>
+    <script>
+      // Apply the saved design and theme before first paint to avoid a flash.
+      // Keys and defaults mirror src/appearance/appearance.tsx.
+      (function () {
+        try {
+          var root = document.documentElement;
+          var design = localStorage.getItem('vocab-builder-design');
+          if (design !== 'editorial' && design !== 'focus' && design !== 'playful') design = 'focus';
+          var theme = localStorage.getItem('vocab-builder-theme');
+          if (theme !== 'light' && theme !== 'dark') {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          root.dataset.design = design;
+          root.dataset.theme = theme;
+          root.style.colorScheme = theme;
+        } catch (e) { /* defaults are applied by the app once it loads */ }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
