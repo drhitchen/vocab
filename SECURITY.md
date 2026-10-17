@@ -2,7 +2,7 @@
 
 ## Reporting a Vulnerability
 
-Please use GitHub's private vulnerability reporting to report security issues — this keeps the disclosure confidential until a fix is available.
+Please use GitHub's private vulnerability reporting to report security issues, which keeps the disclosure confidential until a fix is available.
 
 **[Report a vulnerability](https://github.com/drhitchen/vocab/security/advisories/new)**
 
@@ -14,5 +14,5 @@ This is a static client-side vocabulary app with no backend, no user accounts, a
 
 ## Security Reviews
 
-- [Threat model](security-threat-model.md) — STRIDE + OWASP Top 10 analysis (2026-08-01)
-- [Code review](security-code-review.md) — full file:line audit (2026-08-01)
+- [Threat model](security-threat-model.md): STRIDE + OWASP Top 10 analysis (2026-10-17)
+- [Code review](security-code-review.md): full file:line audit (2026-10-17)
