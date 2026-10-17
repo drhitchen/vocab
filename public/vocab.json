@@ -197,6 +197,21 @@
     "reviewReason": ""
   },
   {
+    "id": "abomination",
+    "word": "abomination",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "Something that causes intense disgust or hatred, especially because it is morally offensive, wicked, or shockingly bad in quality."
+    ],
+    "examples": [
+      "The villagers considered the polluted river an abomination, a shameful insult to the land their ancestors had protected.",
+      "Critics called the remodeled lobby an abomination, with its clashing colors and cheap plastic columns."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "aboriginal",
     "word": "aboriginal",
     "type": "common",
@@ -1519,6 +1534,21 @@
     "reviewReason": ""
   },
   {
+    "id": "anathema",
+    "word": "anathema",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "Something or someone that is strongly disliked or detested, often because it goes against one's deeply held beliefs or values."
+    ],
+    "examples": [
+      "Compromise was anathema to the senator, who had never once voted against his party's platform.",
+      "For a lifelong vegetarian, the idea of spending an evening at a steakhouse was anathema."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "ancillary",
     "word": "ancillary",
     "type": "common",
@@ -1822,6 +1852,21 @@
     ],
     "examples": [
       "The vaccine contains a weakened antigen that trains the immune system to recognize the actual virus."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "antipathy",
+    "word": "antipathy",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A deep, settled dislike or feeling of opposition toward a person, thing, or idea, often without a clear reason."
+    ],
+    "examples": [
+      "Her antipathy toward crowded parties meant she always found an excuse to stay home.",
+      "The two rivals felt a mutual antipathy that made even a short conversation tense."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -2642,6 +2687,21 @@
     ],
     "examples": [
       "His aversion to spiders was so intense that he refused to enter the basement."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "avuncular",
+    "word": "avuncular",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Kind, warm, and gently protective toward younger people, in the way a caring uncle might be, often with a relaxed and jovial manner."
+    ],
+    "examples": [
+      "The old professor gave the nervous students an avuncular smile and told them not to worry about the exam.",
+      "He offered some avuncular advice about saving money, along with a pat on the shoulder and a second helping of dessert."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -3952,6 +4012,21 @@
     ],
     "examples": [
       "The company's byzantine bureaucracy made even simple requests take months to process."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "b-te-noire",
+    "word": "bête noire",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A person or thing that someone particularly dislikes, fears, or finds irritating, and tries to avoid whenever possible."
+    ],
+    "examples": [
+      "Public speaking has always been her bête noire, so she turned down every invitation to give a talk.",
+      "For the young goalkeeper, that one rival striker remained a bête noire who seemed to score against him every season."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -6727,6 +6802,22 @@
     ],
     "examples": [
       "She gave a cynical laugh when he promised to call, doubting his sincerity entirely."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "daemon",
+    "word": "daemon",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "In ancient Greek belief, a supernatural being or guiding spirit that stands between gods and humans and influences a person's character or fate.",
+      "A computer program that runs quietly in the background, handling tasks such as printing or network requests without direct user interaction."
+    ],
+    "examples": [
+      "Socrates claimed that an inner voice, a kind of personal guardian spirit, warned him whenever he was about to make a mistake.",
+      "The server stayed responsive because a background process started at boot and listened for incoming web requests all day."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -10445,6 +10536,22 @@
     ],
     "examples": [
       "The citizens gathered to execrate the dictator's brutal policies against dissidents."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "execration",
+    "word": "execration",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "An expression of intense hatred or loathing, or the act of angrily cursing someone or something as detestable.",
+      "A person or thing that is cursed or regarded with deep abhorrence."
+    ],
+    "examples": [
+      "The dictator's name was spoken with execration by the crowds who had suffered under his rule.",
+      "Shouts of execration rose from the stands when the referee reversed the call in the final seconds."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -14404,6 +14511,21 @@
     "reviewReason": ""
   },
   {
+    "id": "inhibition",
+    "word": "inhibition",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A feeling of self-consciousness or restraint that prevents a person from acting or expressing themselves freely and naturally."
+    ],
+    "examples": [
+      "With her inhibitions gone, she walked onto the dance floor and moved as if no one were watching.",
+      "His inhibition around strangers made even a simple introduction feel like a huge challenge."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "inimical",
     "word": "inimical",
     "type": "common",
@@ -15380,6 +15502,21 @@
     ],
     "examples": [
       "The team's lackluster performance in the first half disappointed the enthusiastic crowd."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "laconic",
+    "word": "laconic",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Using very few words to express something, often in a way that seems blunt, cool, or mildly mysterious."
+    ],
+    "examples": [
+      "When asked how the meeting went, she gave a laconic shrug and said only, \"Fine.\"",
+      "The old cowboy's laconic replies made every conversation feel like pulling teeth, yet people trusted his few words."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -16366,6 +16503,38 @@
     ],
     "examples": [
       "Political opponents often malign each other during heated campaigns."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "mania",
+    "word": "mania",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "An intense, overpowering enthusiasm or obsession, often shared by many people at once, such as a fad or craze.",
+      "A mental state of extreme excitement, elevated mood, racing thoughts, and unusually high energy, seen in some mood disorders."
+    ],
+    "examples": [
+      "When the band announced its reunion tour, ticket-buying fever swept the city and fans camped outside the arena for days.",
+      "During the episode, he slept only two hours a night, spoke rapidly, and launched five business ventures in a single week."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "manic",
+    "word": "manic",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Showing wild, frantic energy or excitement, often in a way that seems out of control or rushed.",
+      "Relating to or affected by a mental state of extreme elation, overactivity, and racing thoughts, seen in bipolar disorder."
+    ],
+    "examples": [
+      "She cleaned the whole house in a manic burst of energy, then started rearranging all the furniture at midnight.",
+      "During the episode, he slept only two hours a night and spoke so fast that his friends could barely follow his plans."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -18288,6 +18457,21 @@
     "reviewReason": ""
   },
   {
+    "id": "odium",
+    "word": "odium",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "Widespread hatred or strong disapproval directed at a person or action, often along with the disgrace that results from it."
+    ],
+    "examples": [
+      "The senator faced public odium after news of his dishonest dealings came out.",
+      "She bore the odium of her unpopular decision quietly, convinced it had been the right choice."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "oedipus-complex",
     "word": "Oedipus complex",
     "type": "phrase",
@@ -20173,6 +20357,21 @@
     ],
     "examples": [
       "He spent years studying ancient Greek philosophy to understand different perspectives on ethics and reality."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "phobia",
+    "word": "phobia",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "An intense, irrational fear of a particular object, animal, situation, or activity, often causing anxiety far out of proportion to any real danger."
+    ],
+    "examples": [
+      "Her fear of heights grew into such a strong condition that she couldn't even climb a stepladder without trembling.",
+      "After being stuck in an elevator as a child, he developed a lifelong dread of enclosed spaces and always takes the stairs."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
