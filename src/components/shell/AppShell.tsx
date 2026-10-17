@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 import { useAppearance } from '../../appearance/appearance';
 import EditorialHeader from './EditorialHeader';
 import FocusSidebar from './FocusSidebar';
-import PlayfulHeader from './PlayfulHeader';
 import type { ChromeProps } from './shared';
 
 // Only the chrome swaps when the design changes. The content wrapper sits at a fixed
@@ -14,7 +13,6 @@ export default function AppShell({ children, ...chrome }: ChromeProps & { childr
     <div className="shell">
       {design === 'editorial' && <EditorialHeader {...chrome} />}
       {design === 'focus' && <FocusSidebar {...chrome} />}
-      {design === 'playful' && <PlayfulHeader {...chrome} />}
       <div className="content">
         <div className="inner">{children}</div>
       </div>

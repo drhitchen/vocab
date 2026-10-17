@@ -102,12 +102,6 @@ export default function Home({ words, cards, lockedWords, onStartSession, onClea
           <p className="page-sub">Pick your words, a mode, and start a round.</p>
         </header>
       )}
-      {design === 'playful' && (
-        <header className="page-head">
-          <h1 className="hero">Ready to <mark>level up</mark>?</h1>
-          <p className="page-sub">Pick your words, choose a game, and go.</p>
-        </header>
-      )}
 
       {/* Progress stats: click a bucket to filter by it */}
       <section className="sec">

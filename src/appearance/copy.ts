@@ -42,17 +42,4 @@ export const COPY: Record<Design, DesignCopy> = {
     flipHint: 'Click the card to reveal',
     sessionKeys: '',
   },
-  playful: {
-    progressTitle: 'Your progress',
-    progressHint: '',
-    sizeTitle: 'How many words?',
-    sizeHint: '',
-    modeTitle: 'Choose your game',
-    modeHint: '',
-    againHint: 'Back to New',
-    goodLabel: 'Got it!',
-    goodHint: 'Level up',
-    flipHint: 'Tap to flip',
-    sessionKeys: 'Press Space to flip, Esc to quit',
-  },
 };

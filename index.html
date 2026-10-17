@@ -11,7 +11,7 @@
         try {
           var root = document.documentElement;
           var design = localStorage.getItem('vocab-builder-design');
-          if (design !== 'editorial' && design !== 'focus' && design !== 'playful') design = 'focus';
+          if (design !== 'editorial' && design !== 'focus') design = 'focus';
           var theme = localStorage.getItem('vocab-builder-theme');
           if (theme !== 'light' && theme !== 'dark') {
             theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';

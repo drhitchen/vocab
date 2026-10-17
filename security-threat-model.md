@@ -2,8 +2,8 @@
 
 **Date:** 2026-10-17 (supersedes 2026-08-01)  
 **Framework:** STRIDE + OWASP Top 10  
-**Scope:** React SPA, `public/vocab.json`, `scripts/add-word.js` (local CLI), `mockups/` (not deployed), GitHub Actions CI/CD  
-**Reviewed range:** `e020a78..7959687` (CLI rewrite, three selectable designs, light/dark themes, new Browse/Home/shell components)  
+**Scope:** React SPA, `public/vocab.json`, `scripts/add-word.js` (local CLI), GitHub Actions CI/CD  
+**Reviewed range:** `e020a78..7959687` (CLI rewrite, selectable designs, light/dark themes, new Browse/Home/shell components). Updated after the Playful design and `mockups/` were removed.  
 **Author:** AI-assisted threat model  
 **Follow-up:** `security-code-review.md` (file:line verification of the findings below)
 
@@ -13,7 +13,7 @@
 
 Vocab Builder is a client-side-only vocabulary app deployed as a static site on GitHub Pages. It has no backend, no accounts, and no sensitive data. The 2026-08-01 model flagged two High threats: unvalidated LLM output written to `vocab.json` (T-001) and floating GitHub Actions tags (T-002). Both have been remediated. `validateEntry()` now gates every save, and all four Actions are pinned to commit SHAs with Dependabot covering Actions and npm.
 
-The work since then added a rewritten CLI (provider selection for Anthropic and OpenAI, hidden API key prompt, add/update/delete), three UI designs with light/dark themes persisted in `localStorage`, and static HTML mockups. None of this introduced an exploitable vulnerability. Persisted design and theme values are checked against strict allowlists before touching the DOM. The SPA still has no HTML sinks (`dangerouslySetInnerHTML`, `innerHTML`, `eval`).
+The work since then added a rewritten CLI (provider selection for Anthropic and OpenAI, hidden API key prompt, add/update/delete), two UI designs (Editorial and Focus) with light/dark themes persisted in `localStorage`. None of this introduced an exploitable vulnerability. Persisted design and theme values are checked against strict allowlists before touching the DOM. The SPA still has no HTML sinks (`dangerouslySetInnerHTML`, `innerHTML`, `eval`).
 
 What remains is hardening: no CSP (now complicated by a new inline theme script), a shallow allowlist in the CLI validator, raw LLM text printed to the terminal, one CI job that holds deploy permissions while running `npm ci`, and nine dev-time npm advisories (zero in production dependencies).
 
@@ -55,8 +55,6 @@ Overall risk posture: **Low** (previously Medium). No Critical, High, or Medium 
           │     vocab-builder-design        │
           │     vocab-builder-theme         │
           └─────────────────────────────────┘
-
-mockups/*.html + mockup.js: local design prototypes, not part of dist/
 ```
 
 ### Data Flow
@@ -65,7 +63,7 @@ mockups/*.html + mockup.js: local design prototypes, not part of dist/
 [User Browser]
   ├─ GET <BASE_URL>vocab.json -> public vocabulary data
   ├─ localStorage 'vocab-builder-progress' (read/write): SRS card state
-  ├─ localStorage 'vocab-builder-design'   (read/write): editorial | focus | playful
+  ├─ localStorage 'vocab-builder-design'   (read/write): editorial | focus
   └─ localStorage 'vocab-builder-theme'    (read/write): light | dark
        (inline script in index.html and appearance.tsx validate both
         against allowlists, then set data-design / data-theme)
@@ -142,8 +140,8 @@ mockups/*.html + mockup.js: local design prototypes, not part of dist/
 | High | 0 |
 | Medium | 0 |
 | Low | 9 |
-| Informational / mitigated | 3 |
-| **Total** | **12** |
+| Informational / mitigated | 2 |
+| **Total** | **11** |
 
 ### Status of 2026-08-01 Threats
 
@@ -287,16 +285,6 @@ mockups/*.html + mockup.js: local design prototypes, not part of dist/
 - **CWE:** CWE-150
 - **Mitigation:** Strip control characters (`/[\x00-\x08\x0b-\x1f\x7f-\x9f]/`) before display and before save.
 - **Priority:** P3
-
-#### T-012: Static Mockups (new)
-
-- **Category:** Tampering / XSS
-- **Component:** `mockups/mockup.js`
-- **Description:** Uses `insertAdjacentHTML` and `innerHTML`, but only on hard-coded data passed through an `esc()` helper or static constants. `location.hash` is compared against an allowlist and only appended as a fragment. Mockups are not in `dist/` and are not deployed.
-- **Risk:** Informational
-- **CWE:** CWE-79
-- **Mitigation:** None required. Re-evaluate if mockups are ever published or fed dynamic data.
-- **Priority:** None
 
 ---
 

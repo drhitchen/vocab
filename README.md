@@ -24,19 +24,14 @@ Open [http://localhost:4173/vocab/](http://localhost:4173/vocab/), or the URL pr
 
 Opening `index.html` directly or serving the project root with `python -m http.server` will not run the app: the source entry point is TypeScript/JSX and needs Vite to compile it. The production build also uses `/vocab/` asset paths for GitHub Pages, which Vite preview handles automatically.
 
-### UI design mockups
-
-Standalone, interactive concepts for the three designs below (with light and dark themes) live in [`mockups/`](mockups/index.html). They are plain HTML, so you can open `mockups/index.html` directly in a browser. They are not part of the app build.
-
 ## Designs and themes
 
-The app ships three visual designs and a light/dark theme, all switchable at any time without losing your place (search text, selections, or a running session).
+The app ships two visual designs and a light/dark theme, all switchable at any time without losing your place (search text, selections, or a running session).
 
 | Design | Look | Where the design picker lives |
 |--------|------|-------------------------------|
 | **Focus** (default) | Clean app layout: sidebar, soft cards, green accent, 3D card flip | Sidebar, above the theme button |
 | **Editorial** | Dictionary-inspired: serif type, paper tones, hairline rules, terracotta accent | Right end of the masthead navigation row |
-| **Playful** | Bold and game-like: chunky outlines, hard shadows, vivid colour blocks | Emoji chips in the top bar |
 
 - The theme follows your system setting until you click the sun/moon button; after that your choice is kept.
 - Choices are stored in `localStorage` under `vocab-builder-design` and `vocab-builder-theme`. A small inline script in `index.html` applies them before first paint to avoid a flash.
@@ -45,8 +40,8 @@ The app ships three visual designs and a light/dark theme, all switchable at any
 
 ### Working on the designs
 
-- Each design is one self-contained stylesheet scoped by `data-design` and `data-theme` on `<html>`: [`editorial.css`](src/styles/editorial.css), [`focus.css`](src/styles/focus.css), [`playful.css`](src/styles/playful.css). Shared rules are in [`base.css`](src/styles/base.css).
-- Components share one markup and class-name contract, so a new screen needs styling in all three files. Only the page chrome (masthead, sidebar, top bar) is a separate component per design, in `src/components/shell/`.
+- Each design is one self-contained stylesheet scoped by `data-design` and `data-theme` on `<html>`: [`editorial.css`](src/styles/editorial.css) and [`focus.css`](src/styles/focus.css). Shared rules are in [`base.css`](src/styles/base.css).
+- Components share one markup and class-name contract, so a new screen needs styling in both files. Only the page chrome (masthead, sidebar, top bar) is a separate component per design, in `src/components/shell/`.
 - Wording that differs by design lives in [`src/appearance/copy.ts`](src/appearance/copy.ts). To add a design, add it to `DESIGNS` in [`appearance.tsx`](src/appearance/appearance.tsx), create a stylesheet and a chrome component, and import the stylesheet in `src/main.tsx`.
 - Tailwind is still installed, but only its base reset is used by the current screens.
 

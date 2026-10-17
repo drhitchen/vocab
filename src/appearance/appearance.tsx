@@ -1,12 +1,11 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 
-export type Design = 'editorial' | 'focus' | 'playful';
+export type Design = 'editorial' | 'focus';
 export type Theme = 'light' | 'dark';
 
 export const DESIGNS: { id: Design; label: string; glyph: string }[] = [
   { id: 'editorial', label: 'Editorial', glyph: '\u{1F4D6}' },
   { id: 'focus', label: 'Focus', glyph: '\u{1F9ED}' },
-  { id: 'playful', label: 'Playful', glyph: '\u{1F3AE}' },
 ];
 
 export const DEFAULT_DESIGN: Design = 'focus';

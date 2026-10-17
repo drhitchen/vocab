@@ -81,12 +81,6 @@ export default function Browse({ words, cards, onStudySelected }: BrowseProps) {
           <p className="page-sub">Search every word, review its status, or build a custom set.</p>
         </header>
       )}
-      {design === 'playful' && (
-        <header className="page-head">
-          <h1 className="hero">Word <mark>library</mark></h1>
-          <p className="page-sub">Dig through every word and build your own set.</p>
-        </header>
-      )}
 
       {/* Search bar */}
       <div className="searchbar">

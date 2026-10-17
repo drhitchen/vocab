@@ -5,7 +5,7 @@ import { DESIGNS, useAppearance, type Design } from '../../appearance/appearance
 // This flag lets the new instance take focus back so keyboard users keep their place.
 let restoreFocus = false;
 
-// Each design styles this group differently (text links, segmented control, emoji chips)
+// Each design styles this group differently (text links, segmented control)
 export default function DesignPicker() {
   const { design, setDesign } = useAppearance();
   const groupRef = useRef<HTMLDivElement>(null);

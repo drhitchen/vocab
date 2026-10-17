@@ -4,7 +4,6 @@ import './index.css'
 import './styles/base.css'
 import './styles/editorial.css'
 import './styles/focus.css'
-import './styles/playful.css'
 import App from './App.tsx'
 import { AppearanceProvider } from './appearance/appearance'
 

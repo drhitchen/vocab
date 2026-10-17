@@ -1,8 +1,8 @@
 # Security Code Review: Vocab Builder
 
 **Date:** 2026-10-17 (supersedes 2026-08-01)  
-**Scope:** `src/`, `scripts/add-word.js` and tests, `index.html`, `mockups/`, `.github/` (workflow, Dependabot), `package.json`, `vite.config.ts`, structure and content scan of `public/vocab.json`  
-**Reviewed range:** `e020a78..7959687`  
+**Scope:** `src/`, `scripts/add-word.js` and tests, `index.html`, `.github/` (workflow, Dependabot), `package.json`, `vite.config.ts`, structure and content scan of `public/vocab.json`  
+**Reviewed range:** `e020a78..7959687`, updated after the Playful design and `mockups/` were removed  
 **Companion:** `security-threat-model.md`  
 **Methodology:** OWASP Top 10, CWE, diff review, exploitability verification, `npm audit`
 
@@ -44,7 +44,7 @@ Six low-severity items remain, all hardening or hygiene:
 | Control | Status |
 |---|---|
 | React text escaping, no HTML sinks in `src/` | Present |
-| Allowlist validation of `vocab-builder-design` and `vocab-builder-theme` | Present (`index.html:11-23`, `src/appearance/appearance.tsx:21-72`) |
+| Allowlist validation of `vocab-builder-design` and `vocab-builder-theme` | Present (`index.html:11-23`, `src/appearance/appearance.tsx:20-71`) |
 | External link `rel="noopener noreferrer"`, `encodeURIComponent`, fixed host | Present (`EntryCard.tsx:89-91`) |
 | Entry validation before save | Present, shallow (F-001) |
 | Provider allowlist (`Object.hasOwn(PROVIDERS, ...)`), hard-coded hosts and paths | Present |
@@ -64,7 +64,7 @@ Six low-severity items remain, all hardening or hygiene:
 | `index.html` | Inline theme script | Low |
 | `src/appearance/appearance.tsx` | localStorage to DOM attributes | Low |
 | `src/hooks/useProgress.ts`, `src/data/vocab.ts` | Storage and data parsing | Low |
-| `mockups/mockup.js` | `innerHTML` on constants (not deployed) | Informational |
+
 
 ---
 
@@ -245,13 +245,9 @@ No `dangerouslySetInnerHTML`, `innerHTML`, `document.write`, `eval`, or `new Fun
 | Location | Source | Validation |
 |---|---|---|
 | `index.html:11-23` (pre-paint script) | `vocab-builder-design`, `vocab-builder-theme` | Strict equality against allowlists, fallback to defaults, try/catch |
-| `src/appearance/appearance.tsx:21-72` | same keys | Allowlist before `dataset.design`, `dataset.theme`, `colorScheme` |
+| `src/appearance/appearance.tsx:20-71` | same keys | Allowlist before `dataset.design`, `dataset.theme`, `colorScheme` |
 
 Nothing from storage reaches `className` or CSS selectors unvalidated.
-
-### Mockups
-
-`mockups/mockup.js` uses `insertAdjacentHTML` and `innerHTML` only with hard-coded `WORDS` passed through `esc()` (escapes `& < > " '`) or static switcher constants. `location.hash` is compared against an allowlist of screen names and used only as a fragment. Mockups are not in `dist/` (contains `assets/`, `index.html`, `vocab.json`).
 
 ### CLI: Keys, Network, Shell, Files
 
