@@ -9568,6 +9568,21 @@
     "reviewReason": ""
   },
   {
+    "id": "enigmatic",
+    "word": "enigmatic",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Mysterious and hard to understand or explain, often because of being puzzling, vague, or deliberately secretive about true thoughts or intentions."
+    ],
+    "examples": [
+      "The painter was known for her quiet, unreadable smile, and no one ever knew what she was really thinking.",
+      "He left behind a short, cryptic note that only deepened the puzzle of why he had disappeared."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "enmity",
     "word": "enmity",
     "type": "common",
