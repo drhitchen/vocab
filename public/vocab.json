@@ -169,6 +169,21 @@
     "reviewReason": ""
   },
   {
+    "id": "abliterate",
+    "word": "abliterate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To strip a language model of its built-in tendency to refuse requests by removing a specific internal direction from its activations."
+    ],
+    "examples": [
+      "The hobbyist chose to abliterate the chatbot so it would answer questions it had previously declined.",
+      "Researchers showed they could abliterate a model's safety training in minutes, without any costly retraining."
+    ],
+    "reviewNeeded": true,
+    "reviewReason": "Not a standard dictionary word. It is a recent technical coinage from AI circles (blend of ablate and obliterate), and it may be confused with the similar word obliterate."
+  },
+  {
     "id": "abolish",
     "word": "abolish",
     "type": "common",
@@ -5578,6 +5593,21 @@
     ],
     "reviewNeeded": false,
     "reviewReason": ""
+  },
+  {
+    "id": "config-toml",
+    "word": "config.toml",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A plain text file, written in a simple key-value markup format, that stores settings controlling how a program, tool, or project behaves when it runs."
+    ],
+    "examples": [
+      "Before launching the server, I changed the port number in config.toml and saved the file.",
+      "The build failed because a required setting was missing from the project's config.toml."
+    ],
+    "reviewNeeded": true,
+    "reviewReason": "This is a filename, not a standard dictionary word, so classification as a common noun is a judgment call; the definition avoids repeating its parts but is a technical term."
   },
   {
     "id": "conflagration",
@@ -11866,6 +11896,21 @@
     "reviewReason": ""
   },
   {
+    "id": "fungable",
+    "word": "fungable",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Able to be exchanged for another identical item of the same kind, with each unit equal in value to any other."
+    ],
+    "examples": [
+      "Because one ounce of pure gold is worth the same as any other, gold is a fungable commodity.",
+      "Unlike a signed painting, a dollar bill is fungable, so it doesn't matter which one you hand over."
+    ],
+    "reviewNeeded": true,
+    "reviewReason": "The standard spelling is 'fungible'. 'Fungable' appears to be a misspelling or rare variant, so the entry follows the meaning of 'fungible'."
+  },
+  {
     "id": "furlough",
     "word": "furlough",
     "type": "common",
@@ -13205,6 +13250,21 @@
     ],
     "examples": [
       "According to Freud, a young child's behavior is dominated by the id before developing ego and superego to regulate impulses."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "idempotent",
+    "word": "idempotent",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Describing an operation that gives the same result whether it is performed once or many times in a row, with no added effect after the first run."
+    ],
+    "examples": [
+      "Because the delete request is safe to repeat, the server treats it as one that can be sent twice without causing extra changes.",
+      "Multiplying a number by 1 or taking the absolute value of an already positive number leaves it unchanged no matter how many times you do it again."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -15378,6 +15438,21 @@
     ],
     "reviewNeeded": false,
     "reviewReason": ""
+  },
+  {
+    "id": "json",
+    "word": "json",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A lightweight text format for storing and exchanging structured data using readable pairs of names and values, widely used by web applications and programming tools."
+    ],
+    "examples": [
+      "The server sent back the user's profile as a small json file, which the app then displayed on screen.",
+      "She opened the config file and fixed a missing comma that had broken the json."
+    ],
+    "reviewNeeded": true,
+    "reviewReason": "Word is an acronym (JavaScript Object Notation) usually written in capitals, and it can also be a given name (Jason variant), so classification as common noun is a judgment call."
   },
   {
     "id": "jubilant",
@@ -17585,6 +17660,21 @@
     "reviewReason": ""
   },
   {
+    "id": "mutable",
+    "word": "mutable",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Able to be altered or modified over time, rather than staying fixed or constant in form, nature, or value."
+    ],
+    "examples": [
+      "Unlike a fixed law of physics, public opinion is highly mutable and can shift overnight after a single news story.",
+      "In many programming languages, a list is mutable, so you can add or remove items after creating it."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "myopic",
     "word": "myopic",
     "type": "common",
@@ -18315,6 +18405,21 @@
     "reviewReason": ""
   },
   {
+    "id": "obliterate",
+    "word": "obliterate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To destroy something so completely that almost nothing is left, or to wipe out every trace of it so it can no longer be seen or remembered."
+    ],
+    "examples": [
+      "The hurricane threatened to wipe out the entire coastal village, leaving only bare foundations behind.",
+      "She tried to scrub the graffiti off the wall, but the heavy rain finally washed away every last mark."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "oblivion",
     "word": "oblivion",
     "type": "common",
@@ -18636,6 +18741,21 @@
     ],
     "examples": [
       "The philosopher's ontology questioned whether abstract concepts like justice have real existence or are merely mental constructs."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "open-weight",
+    "word": "open weight",
+    "type": "phrase",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Describing an artificial intelligence model whose trained numerical parameters are published for anyone to download, run, and modify, even if the training data or code stays private."
+    ],
+    "examples": [
+      "The lab released an open weight language model, so developers could run it on their own servers and fine-tune it for their needs.",
+      "Because the model is open weight but not fully open source, researchers can use it freely yet still cannot see what data trained it."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -22360,6 +22480,21 @@
     "reviewReason": ""
   },
   {
+    "id": "purile",
+    "word": "purile",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Childish and silly in a way that seems immature and unworthy of a grown adult, especially in behavior or humor."
+    ],
+    "examples": [
+      "The senator's purile name-calling during the debate embarrassed even his closest supporters.",
+      "She rolled her eyes at the purile jokes the men kept trading at the back of the room."
+    ],
+    "reviewNeeded": true,
+    "reviewReason": "'purile' is not a standard English headword. It appears to be a misspelling of 'puerile', and the entry assumes that intended meaning."
+  },
+  {
     "id": "purview",
     "word": "purview",
     "type": "common",
@@ -22411,6 +22546,21 @@
     ],
     "examples": [
       "Stomach contents pass through the pylorus before entering the duodenum."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "pyproject-toml",
+    "word": "pyproject.toml",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A configuration file at the root of a Python project that lists build requirements, metadata, and tool settings in a simple, readable text format."
+    ],
+    "examples": [
+      "Before publishing the package, she added the dependencies and version number to the pyproject.toml so the build tool could read them.",
+      "The linter ignored my custom rules until I moved them from a separate config file into the pyproject.toml."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -29869,6 +30019,21 @@
     ],
     "examples": [
       "Cacti and succulents are xeric plants that thrive in desert climates with minimal rainfall."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "yaml",
+    "word": "yaml",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A human-readable text format for writing structured data and configuration settings, using indentation and simple punctuation instead of heavy markup or brackets."
+    ],
+    "examples": [
+      "She edited the yaml file to change the server port before restarting the application.",
+      "Because yaml relies on indentation, a single misplaced space in the deployment settings caused the build to fail."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
