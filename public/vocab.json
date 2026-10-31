@@ -5353,6 +5353,36 @@
     "reviewReason": ""
   },
   {
+    "id": "compensatory",
+    "word": "compensatory",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Serving to balance out a loss, shortage, or harm by providing something extra or offsetting its negative effect."
+    ],
+    "examples": [
+      "After the flight was canceled, the airline offered free hotel stays and meal vouchers as a gesture to make up for the trouble.",
+      "Her left hand grew stronger over the years to offset the weakness in her injured right arm."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "compensatory-damages",
+    "word": "compensatory damages",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "Money a court orders one party to pay another to cover the actual losses or injuries caused by the first party's wrongful actions."
+    ],
+    "examples": [
+      "After the car crash, the jury awarded her money for her hospital bills, lost wages, and months of pain.",
+      "The company was ordered to pay the farmer for his ruined harvest, an amount meant only to restore what he had lost."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "complacent",
     "word": "complacent",
     "type": "common",
@@ -5619,6 +5649,21 @@
     ],
     "examples": [
       "The warehouse conflagration burned for three days before firefighters could bring it under control."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "conflate",
+    "word": "conflate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To mix two or more separate ideas, things, or texts together so that they are wrongly treated as a single one."
+    ],
+    "examples": [
+      "Many people conflate being busy with being productive, even though the two are quite different.",
+      "The editor warned the writer not to conflate two unrelated events, since doing so confused the timeline of the story."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -6494,6 +6539,21 @@
     ],
     "examples": [
       "His stern countenance made it clear he disapproved of our plan."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "counter-intuitive",
+    "word": "counter-intuitive",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Contrary to what common sense or first instinct would lead you to expect, often seeming wrong even though it turns out to be true."
+    ],
+    "examples": [
+      "It seems odd, but cutting the meeting time in half actually raised the team's output, which surprised everyone.",
+      "Many people find it hard to accept that a heavy object and a light one fall at the same rate in a vacuum."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -7669,6 +7729,22 @@
     "reviewReason": ""
   },
   {
+    "id": "descriptive",
+    "word": "descriptive",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Giving a detailed account of what someone or something is like, so that a reader or listener can picture it clearly.",
+      "Relating to the study of how things actually are or how language is really used, rather than how they should be."
+    ],
+    "examples": [
+      "Her descriptive writing was so vivid that I could almost smell the salty air of the harbor.",
+      "Linguists take a descriptive approach, recording how people really speak instead of judging which grammar is correct."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "descry",
     "word": "descry",
     "type": "common",
@@ -8804,6 +8880,21 @@
     "reviewReason": ""
   },
   {
+    "id": "dystopian",
+    "word": "dystopian",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Describing an imagined society where life is miserable, oppressive, or frightening, often because of harsh government control, environmental ruin, or technology gone wrong."
+    ],
+    "examples": [
+      "The novel portrays a bleak city where cameras watch every citizen and speaking out of turn means disappearing overnight.",
+      "She avoided dystopian films because the crumbling, ash-covered worlds they showed left her feeling anxious for days."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "d-j-vu",
     "word": "déjà vu",
     "type": "phrase",
@@ -9565,6 +9656,21 @@
     ],
     "examples": [
       "The body produces endogenous opioids that naturally relieve pain during times of stress or injury."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "endorphin",
+    "word": "endorphin",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A natural chemical made in the brain and nervous system that reduces pain and can create feelings of pleasure or well-being."
+    ],
+    "examples": [
+      "After the long run, she felt a surge of happiness as the endorphins kicked in and her sore legs stopped bothering her.",
+      "Laughing with friends can release endorphins, which is one reason a good comedy night leaves people feeling so relaxed."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -10373,6 +10479,20 @@
     "reviewReason": ""
   },
   {
+    "id": "etymology",
+    "word": "etymology",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The study of where words come from and how their forms and meanings have changed over time, or the history of one particular word."
+    ],
+    "examples": [
+      "When she looked up the etymology of \"salary,\" she was surprised to learn it traces back to the Latin word for salt."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "euphemism",
     "word": "euphemism",
     "type": "common",
@@ -10644,6 +10764,21 @@
     "reviewReason": ""
   },
   {
+    "id": "exemplary-damages",
+    "word": "exemplary damages",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "Money a court orders a wrongdoer to pay beyond actual losses, meant to punish especially bad conduct and discourage others from doing likewise."
+    ],
+    "examples": [
+      "The jury found the company had hidden the safety defect for years, so the judge ordered it to pay extra money far above the victim's medical bills.",
+      "Because the landlord's cruelty was deliberate and outrageous, the court added a large sum to the repair costs to send a message to other property owners."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "exhort",
     "word": "exhort",
     "type": "common",
@@ -10853,6 +10988,22 @@
     ],
     "examples": [
       "She was a leading exponent of renewable energy, giving lectures across the country about solar power."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "exponential",
+    "word": "exponential",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Growing at a rate that becomes faster and faster as the amount grows, like doubling again and again over equal time periods.",
+      "Relating to a mathematical expression where a variable appears as a power, such as a number raised to the power of x."
+    ],
+    "examples": [
+      "After the video went viral, the number of people watching it saw an exponential jump, from hundreds to millions within a week.",
+      "In algebra class, we graphed an exponential curve that started out nearly flat and then shot sharply upward."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -12578,6 +12729,21 @@
     "reviewReason": ""
   },
   {
+    "id": "gross-negligence",
+    "word": "gross negligence",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A legal term for extreme carelessness, showing reckless disregard for the safety or rights of others, far worse than an ordinary mistake."
+    ],
+    "examples": [
+      "The lawsuit claimed the company's failure to repair the known gas leak amounted to gross negligence.",
+      "Because the pilot ignored every safety warning, prosecutors argued his actions went beyond a simple error and showed gross negligence."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "grovel",
     "word": "grovel",
     "type": "common",
@@ -12994,6 +13160,37 @@
     ],
     "examples": [
       "The exclusive resort was designed to keep out the hoi polloi, catering only to wealthy members."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "hokey",
+    "word": "hokey",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Corny, sentimental, or obviously fake in a way that feels contrived, old-fashioned, or unconvincing, often because of cheap or overdone effects."
+    ],
+    "examples": [
+      "The movie's special effects were so hokey that the audience laughed during the supposedly scary scenes.",
+      "He gave a hokey speech full of tired clichés and a forced folksy accent."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "hokum",
+    "word": "hokum",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "Nonsense or foolish claims presented as if true, often meant to impress or mislead people",
+      "Overly sentimental or predictable material in a film, play, or story, designed to win an easy audience response"
+    ],
+    "examples": [
+      "The salesman's promise that the pills would cure every illness was pure hokum, and nobody in the room believed him.",
+      "The movie was full of hokum, from the sudden thunderstorm at the funeral to the long-lost twin who appeared in the final scene."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -14797,6 +14994,21 @@
     "reviewReason": ""
   },
   {
+    "id": "insulin",
+    "word": "insulin",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A hormone made by the pancreas that controls how the body absorbs and uses sugar from food, also given as a medicine to people with diabetes."
+    ],
+    "examples": [
+      "After her diagnosis, she learned to check her blood sugar and inject herself with a dose before each meal.",
+      "The pancreas of a healthy person releases this hormone automatically whenever blood sugar rises after eating."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "insuperable",
     "word": "insuperable",
     "type": "common",
@@ -16083,6 +16295,21 @@
     ],
     "examples": [
       "Computer programmers use lingo that sounds like gibberish to outsiders unfamiliar with technology."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "linguistics",
+    "word": "linguistics",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The scientific study of human speech and written communication, including how sounds, word structures, grammar, and meanings work and change over time."
+    ],
+    "examples": [
+      "After taking an introductory course in linguistics, she began noticing patterns in how her friends shortened words when texting.",
+      "His research in linguistics explores why children everywhere pick up their first tongue so quickly without formal lessons."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -17929,6 +18156,21 @@
     "reviewReason": ""
   },
   {
+    "id": "negligence",
+    "word": "negligence",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "Failure to take proper care or attention in doing something, especially when this causes harm, damage, or loss to another person."
+    ],
+    "examples": [
+      "The hospital was sued after a patient was injured because staff failed to follow basic safety procedures, a clear case of negligence.",
+      "Years of carelessness and neglected repairs by the landlord led to the ceiling collapse."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "nemesis",
     "word": "nemesis",
     "type": "common",
@@ -18162,6 +18404,21 @@
     ],
     "examples": [
       "Samuel Clemens wrote under the nom de plume Mark Twain throughout his literary career."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "nomenclature",
+    "word": "nomenclature",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A system of established names and terms used in a particular science, art, or field to identify and classify things."
+    ],
+    "examples": [
+      "Botanists rely on a standard Latin naming system so that a plant has the same label in every country.",
+      "The new engineer struggled at first because the team's technical terms for each part were unfamiliar to her."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -18770,6 +19027,21 @@
     ],
     "examples": [
       "The totalitarian regime continued to oppress its citizens through censorship and imprisonment of dissenters."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "oppressive",
+    "word": "oppressive",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Harshly and unfairly controlling people through cruelty or heavy burdens, or so hot and heavy that it feels hard to bear."
+    ],
+    "examples": [
+      "Villagers whispered in secret because the oppressive government punished anyone who criticized it.",
+      "By noon the oppressive humidity made even a short walk to the store feel exhausting."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -19433,6 +19705,37 @@
     "reviewReason": ""
   },
   {
+    "id": "parabola",
+    "word": "parabola",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A smooth, symmetrical U-shaped curve, such as the path of a ball thrown through the air, formed by slicing a cone parallel to its side."
+    ],
+    "examples": [
+      "The fountain's water rose and fell in a perfect parabola before landing in the pool.",
+      "In algebra class, we graphed the equation and saw that its curve opened upward like a bowl."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "parabolic",
+    "word": "parabolic",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Shaped like a symmetrical open curve that arcs up or down, such as the path of a ball thrown through the air.",
+      "Expressing a moral or spiritual lesson through a short simple story with symbolic meaning."
+    ],
+    "examples": [
+      "The fountain sent water high into the air in a smooth arc, and each stream followed a perfectly parabolic path before splashing into the pool.",
+      "The teacher's parabolic tale about a farmer who shared his last seed taught the students more about generosity than any lecture could."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "paradigm",
     "word": "paradigm",
     "type": "common",
@@ -19456,6 +19759,21 @@
     ],
     "examples": [
       "It's a paradox that the more choices we have, the less satisfied we often feel with our decisions."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "paradoxical",
+    "word": "paradoxical",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Seeming to contradict itself or common sense, yet possibly true or containing some truth when examined more closely."
+    ],
+    "examples": [
+      "It is a curious fact that the more choices shoppers have, the less satisfied they often feel with what they pick.",
+      "The soldier's gentle nature seemed at odds with his fierce career, a combination his friends found endlessly intriguing."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -21416,6 +21734,21 @@
     "reviewReason": ""
   },
   {
+    "id": "prescriptive",
+    "word": "prescriptive",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Laying down firm rules or instructions about how something must be done, rather than simply describing how it is actually done."
+    ],
+    "examples": [
+      "The old grammar handbook was strongly prescriptive, insisting that no sentence should ever end with a preposition.",
+      "Critics said the new regulations were too prescriptive, leaving managers no room to adapt to local needs."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "prestige",
     "word": "prestige",
     "type": "common",
@@ -22130,6 +22463,21 @@
     "reviewReason": ""
   },
   {
+    "id": "proscriptive",
+    "word": "proscriptive",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Tending to forbid, ban, or condemn something, especially by laying down firm rules about what must not be done."
+    ],
+    "examples": [
+      "The club's proscriptive rules  ruled out phones, hats, and even casual conversation in the reading room.",
+      "Critics said the manual was too proscriptive, listing dozens of banned practices but offering little guidance on what teachers could actually try."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "proselyte",
     "word": "proselyte",
     "type": "common",
@@ -22475,6 +22823,36 @@
     ],
     "examples": [
       "The pungent aroma of blue cheese filled the kitchen as she unwrapped it."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "punitive",
+    "word": "punitive",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Meant to inflict a penalty or suffering on someone as retribution for wrongdoing, or so harsh that it feels like a penalty."
+    ],
+    "examples": [
+      "The court ordered the company to pay millions in damages to send a message that reckless behavior would not be tolerated.",
+      "Many parents argue that harsh measures at school teach fear rather than responsibility, and they prefer guidance over such approaches."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "punitive-damages",
+    "word": "punitive damages",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "Money a court orders a wrongdoer to pay, beyond covering the victim's losses, in order to penalize especially harmful behavior and discourage others from doing it."
+    ],
+    "examples": [
+      "The jury awarded the family millions on top of their medical costs after finding the company had knowingly hidden the product's dangers.",
+      "Because the driver's reckless behavior was so extreme, the judge allowed the plaintiff to seek money meant to send a message, not just repay her bills."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -23782,6 +24160,21 @@
     ],
     "examples": [
       "She tried to repress her laughter during the solemn ceremony."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "repressive",
+    "word": "repressive",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Controlling people harshly by limiting their freedom, silencing dissent, or denying them basic rights, usually through force or strict laws."
+    ],
+    "examples": [
+      "The government passed harsh new laws that silenced journalists and banned public protests, making daily life under the regime feel suffocating.",
+      "Many citizens fled the country to escape the cruel and restrictive policies of the ruling party."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -26373,6 +26766,21 @@
     "reviewReason": ""
   },
   {
+    "id": "stilted",
+    "word": "stilted",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Stiff, awkward, and unnaturally formal in manner or speech, as if lacking ease or spontaneity."
+    ],
+    "examples": [
+      "The actors delivered their lines in a stilted way, so the dialogue never sounded like real conversation.",
+      "After years apart, their talk was polite but stilted, with long pauses between each remark."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "stodgy",
     "word": "stodgy",
     "type": "common",
@@ -26599,6 +27007,21 @@
     "reviewReason": ""
   },
   {
+    "id": "subjugate",
+    "word": "subjugate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To defeat and bring a people or place under total control, forcing them to obey a ruler or stronger power."
+    ],
+    "examples": [
+      "The invading army sought to subjugate the neighboring kingdoms and make their rulers pay tribute.",
+      "Years of harsh laws were meant to subjugate the villagers and crush any hope of rebellion."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "sublimate",
     "word": "sublimate",
     "type": "common",
@@ -26652,6 +27075,21 @@
     ],
     "examples": [
       "Archaeologists excavated multiple substrata of ancient civilizations at the dig site."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "subversion",
+    "word": "subversion",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The secret effort to weaken or overthrow an established government, institution, or system from within, often through gradual and hidden means."
+    ],
+    "examples": [
+      "The regime jailed several writers on charges of political subversion after their pamphlets criticized the ruling party.",
+      "Her quiet undermining of the committee's authority amounted to a slow campaign of sabotage that no one noticed until it was too late."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -26905,6 +27343,21 @@
     ],
     "examples": [
       "The prisoners supplicated the governor for mercy on the eve of their execution."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "suppress",
+    "word": "suppress",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To forcibly put an end to something, or to hold back a feeling, impulse, or piece of information so it is not shown or spread."
+    ],
+    "examples": [
+      "The government tried to crush the protests and keep news of them from reaching the public.",
+      "She bit her lip to hold back a laugh during the serious meeting."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -27325,6 +27778,21 @@
     ],
     "examples": [
       "The hotel lobby was filled with tawdry gold-painted decorations and fake crystal chandeliers."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "taxonomy",
+    "word": "taxonomy",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A system for naming and sorting things, especially living organisms, into groups and ranked levels based on shared features or relationships."
+    ],
+    "examples": [
+      "The biologist updated the chart to match the latest classification of beetles, moving several species into a new family.",
+      "Our team built a clear hierarchy of tags and categories so that every article on the website would be easy to find."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
