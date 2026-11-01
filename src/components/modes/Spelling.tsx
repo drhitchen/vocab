@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Word } from '../../types';
+import { wordLabel } from '../../utils/wordLabel';
 
 interface Props {
   words: Word[];
@@ -40,6 +41,7 @@ export default function Spelling({ words, onAnswer, onSessionEnd }: Props) {
       <p className="text-slate-500 text-sm text-center">{index + 1} / {words.length}</p>
 
       <div className="rounded-2xl border border-slate-700 bg-slate-900 p-8">
+        {word.context && <p className="entry-context">Context: {word.context}</p>}
         <p className="text-slate-300 text-lg leading-relaxed">{word.definition}</p>
       </div>
 
@@ -55,7 +57,7 @@ export default function Spelling({ words, onAnswer, onSessionEnd }: Props) {
             ${feedback === 'correct' ? 'border-emerald-500' : feedback === 'wrong' ? 'border-red-500' : 'border-slate-700 focus:border-indigo-500'}`}
         />
         {feedback === 'wrong' && (
-          <p className="text-slate-400 text-sm">Answer: <span className="text-white font-medium">{word.word}</span></p>
+          <p className="text-slate-400 text-sm">Answer: <span className="text-white font-medium">{wordLabel(word)}</span></p>
         )}
         <button
           onClick={submit}

@@ -3,6 +3,7 @@ import { Word } from '../../types';
 import { useAppearance } from '../../appearance/appearance';
 import { COPY } from '../../appearance/copy';
 import SessionBar from '../SessionBar';
+import { wordLabel } from '../../utils/wordLabel';
 
 interface Props {
   words: Word[];
@@ -63,14 +64,15 @@ export default function Flashcard({ words, onAnswer, onSessionEnd, onExit }: Pro
           <div className="flip">
             <div className="face front" aria-hidden={flipped}>
               <span className="pos">{word.partOfSpeech}</span>
-              <h2 className="word">{word.word}</h2>
+              <h2 className="word">{wordLabel(word)}</h2>
               <span className="hint">{copy.flipHint}</span>
             </div>
             <div className="face back" aria-hidden={!flipped}>
               <span className="back-head">
-                <span>{word.word}</span>
+                <span>{wordLabel(word)}</span>
                 <span className="back-pos"> · {word.partOfSpeech}</span>
               </span>
+              {word.expansion && <p className="entry-expansion">{word.expansion}</p>}
               <p className="def">{word.definition}</p>
               {word.definitions[1] && <p className="def def-alt">{word.definitions[1]}</p>}
               {word.examples[0] && <p className="ex">{word.examples[0]}</p>}

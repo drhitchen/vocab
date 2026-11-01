@@ -2,6 +2,7 @@ import { Word } from '../types';
 
 type RawEntry = {
   id: string; word: string; type?: string; partOfSpeech?: string;
+  context?: string; expansion?: string;
   definitions: string[]; examples?: string[];
   reviewNeeded?: boolean; reviewReason?: string;
 };
@@ -15,6 +16,8 @@ export async function loadWords(): Promise<Word[]> {
     .map(e => ({
       id: e.id,
       word: e.word,
+      context: e.context,
+      expansion: e.expansion,
       type: (e.type ?? 'common') as Word['type'],
       partOfSpeech: e.partOfSpeech ?? '',
       definitions: [e.definitions[0], e.definitions[1]] as [string, string?],
