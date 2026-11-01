@@ -1578,6 +1578,21 @@
     "reviewReason": ""
   },
   {
+    "id": "anecdotal",
+    "word": "anecdotal",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Based on personal stories or individual observations rather than systematic research, and therefore not a reliable basis for firm conclusions."
+    ],
+    "examples": [
+      "She had plenty of evidence from friends that the diet worked, but it was only based on stories, not a controlled study.",
+      "The mayor's claim that crime was falling rested on a few neighborhood stories rather than real statistics."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "anecdote",
     "word": "anecdote",
     "type": "common",
@@ -2129,6 +2144,21 @@
     "reviewReason": ""
   },
   {
+    "id": "apriori",
+    "word": "apriori",
+    "type": "common",
+    "partOfSpeech": "adj/adv",
+    "definitions": [
+      "Based on reasoning from general principles or assumptions rather than from observation, experience, or tested evidence; known or argued beforehand."
+    ],
+    "examples": [
+      "She rejected the theory as an apriori claim, since its supporters had never actually tested it against real data.",
+      "Mathematicians often accept certain truths apriori, simply by thinking them through without running any experiments."
+    ],
+    "reviewNeeded": true,
+    "reviewReason": "Word is normally written as two words 'a priori' (Latin phrase); given as one word, so classification as common adj/adv versus phrase is uncertain."
+  },
+  {
     "id": "apropos",
     "word": "apropos",
     "type": "common",
@@ -2236,6 +2266,22 @@
     ],
     "examples": [
       "The arduous climb to the summit took eight hours of continuous hiking."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "articulate",
+    "word": "articulate",
+    "type": "common",
+    "partOfSpeech": "adj/v",
+    "definitions": [
+      "Able to express thoughts and ideas clearly and fluently in speech or writing, or to put such thoughts into words.",
+      "To connect two parts with a joint so that they can bend or move, as with bones or mechanical sections."
+    ],
+    "examples": [
+      "The young lawyer was so poised and well spoken that the jury easily followed her complicated argument.",
+      "The robot's arm is built so that the elbow and wrist segments move smoothly against each other."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -4553,6 +4599,36 @@
     "reviewReason": ""
   },
   {
+    "id": "caveat",
+    "word": "caveat",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A warning or condition that points out a limit or risk, advising people to be careful before accepting or agreeing to something."
+    ],
+    "examples": [
+      "The company agreed to the deal, with the caveat that the buyer must cover all shipping costs.",
+      "I recommend the restaurant, but here is one caveat: the service can be painfully slow on weekends."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "caveat-emptor",
+    "word": "caveat emptor",
+    "type": "phrase",
+    "partOfSpeech": "phrase",
+    "definitions": [
+      "A principle that a buyer alone is responsible for checking the quality and condition of goods or property before paying for them."
+    ],
+    "examples": [
+      "The used car was sold as is, so when it broke down the next day, the dealer simply shrugged and reminded him of the old rule.",
+      "Online marketplaces can be risky, and shoppers who ignore reviews and seller ratings often learn this lesson the hard way."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "cavort",
     "word": "cavort",
     "type": "common",
@@ -5834,6 +5910,21 @@
     ],
     "examples": [
       "As a wine connoisseur, she could identify the vineyard and vintage after just one sip."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "connotation",
+    "word": "connotation",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "An idea or feeling that a word suggests beyond its literal meaning, often carrying emotional or cultural associations."
+    ],
+    "examples": [
+      "The word \"cheap\" has a negative connotation, while \"affordable\" sounds much more appealing, even though both describe low prices.",
+      "For many people, the word \"home\" carries warm connotations of safety, family, and comfort."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -8316,6 +8407,21 @@
     ],
     "examples": [
       "The professor's discourse on climate change lasted nearly two hours."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "discrepancy",
+    "word": "discrepancy",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A noticeable difference between two things that should match or agree, such as figures, accounts, or statements"
+    ],
+    "examples": [
+      "The accountant found a large gap between the bank statement and the company's records and spent hours tracing its cause.",
+      "Police grew suspicious when the witness's story contained several conflicting details about the time of the robbery."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -11248,6 +11354,21 @@
     "reviewReason": ""
   },
   {
+    "id": "facilitate",
+    "word": "facilitate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To make a process, task, or goal easier or smoother to carry out by helping it along or removing obstacles."
+    ],
+    "examples": [
+      "The teacher used small group discussions to help students share ideas and learn from one another.",
+      "New software should speed up the approval process by letting departments send documents instantly."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "factotum",
     "word": "factotum",
     "type": "common",
@@ -11257,6 +11378,21 @@
     ],
     "examples": [
       "The office factotum managed everything from scheduling meetings to fixing the photocopier."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "fallacy",
+    "word": "fallacy",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A mistaken belief, or a flaw in reasoning that makes an argument seem sound when it is actually invalid or misleading."
+    ],
+    "examples": [
+      "It is a common error to assume that because two events happened together, one must have caused the other.",
+      "Her essay pointed out the flaw in the popular idea that expensive products are always better made."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -13425,6 +13561,21 @@
     "reviewReason": ""
   },
   {
+    "id": "hypothesis",
+    "word": "hypothesis",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A proposed explanation for something that can be tested through observation or experiment, often serving as the starting point for further investigation."
+    ],
+    "examples": [
+      "The biologist's hypothesis was that the plants would grow taller under blue light, so she set up an experiment to check.",
+      "Detectives built a hypothesis about the burglary from the muddy footprints, but they needed more evidence before naming a suspect."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "hystricomorpha",
     "word": "Hystricomorpha",
     "type": "proper",
@@ -13883,6 +14034,22 @@
     ],
     "examples": [
       "The recovered emails implicate several executives in the financial fraud scheme."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "implication",
+    "word": "implication",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A suggestion or meaning that is hinted at rather than stated outright, which a listener or reader must infer from what was said or done.",
+      "A likely effect or consequence of an action or decision, especially one that is not obvious at first."
+    ],
+    "examples": [
+      "She never said she was unhappy, but the long pause before her answer carried a clear implication that something was wrong.",
+      "Scientists are studying the long-term implications of rising sea levels for coastal towns and the people who live there."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -14723,6 +14890,21 @@
     ],
     "examples": [
       "From the muddy footprints in the hall, we could infer that someone had come in from the garden."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "inference",
+    "word": "inference",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A conclusion reached by reasoning from evidence or known facts rather than from direct statement or observation."
+    ],
+    "examples": [
+      "From the muddy boots by the door, she made the logical inference that her brother had been out in the garden.",
+      "The detective's careful inference from a single missing button led him to the real culprit."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -19202,6 +19384,21 @@
     "reviewReason": ""
   },
   {
+    "id": "ostensibly",
+    "word": "ostensibly",
+    "type": "common",
+    "partOfSpeech": "adv",
+    "definitions": [
+      "Appearing or claimed to be true or real on the surface, though the actual reason or situation may be different"
+    ],
+    "examples": [
+      "He left the meeting early, ostensibly to catch a flight, but everyone suspected he simply wanted to avoid the argument.",
+      "The company was ostensibly a charity, yet most of its money went toward paying its executives."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "ostentation",
     "word": "ostentation",
     "type": "common",
@@ -21057,6 +21254,21 @@
     "reviewReason": ""
   },
   {
+    "id": "plausible",
+    "word": "plausible",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Seeming reasonable, likely to be true, or believable, though not yet proven or confirmed by evidence."
+    ],
+    "examples": [
+      "Her explanation for being late sounded perfectly believable, so nobody questioned it.",
+      "The detective found the suspect's story convincing at first, but a closer look at the timeline revealed several gaps."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "pleistocene",
     "word": "Pleistocene",
     "type": "proper",
@@ -21700,6 +21912,21 @@
     ],
     "examples": [
       "Despite its thick walls, the fortress proved pregnable when attackers discovered a hidden entrance."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "premise",
+    "word": "premise",
+    "type": "common",
+    "partOfSpeech": "n/v",
+    "definitions": [
+      "A statement or idea accepted as true, used as the starting point for an argument, theory, or conclusion."
+    ],
+    "examples": [
+      "Her whole argument rested on the premise that people always act in their own interest, which few in the room accepted.",
+      "The show's central premise is simple: a man wakes up every day to relive the same morning."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -27081,6 +27308,21 @@
     "reviewReason": ""
   },
   {
+    "id": "substantiate",
+    "word": "substantiate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To prove that a claim, story, or idea is true by providing evidence or solid supporting facts."
+    ],
+    "examples": [
+      "The reporter could not find any documents to substantiate the rumor, so the story was never published.",
+      "Her lawyer presented receipts and emails that helped substantiate her version of events."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "substrata",
     "word": "substrata",
     "type": "common",
@@ -27597,6 +27839,21 @@
     ],
     "examples": [
       "A syndicate of investors pooled their money to purchase the commercial property."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "synthesis",
+    "word": "synthesis",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The act of combining separate ideas, parts, or elements to form a new, unified whole."
+    ],
+    "examples": [
+      "The final chapter offered a thoughtful synthesis of earlier theories, weaving them into one clear explanation of how languages change.",
+      "Plants rely on the synthesis of sugars from sunlight, water, and carbon dioxide."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
