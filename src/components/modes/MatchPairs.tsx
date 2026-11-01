@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Word } from '../../types';
 import { shuffle } from '../../utils/shuffle';
 import SessionBar from '../SessionBar';
+import { wordLabel } from '../../utils/wordLabel';
 
 interface Props {
   words: Word[];
@@ -36,8 +37,9 @@ export default function MatchPairs({ words, onAnswer, onSessionEnd, onExit }: Pr
   useEffect(() => {
     const newTiles: Tile[] = [];
     for (const w of roundWords) {
-      newTiles.push({ id: `${w.id}-word`, wordId: w.id, type: 'word', text: w.word });
-      newTiles.push({ id: `${w.id}-def`, wordId: w.id, type: 'definition', text: w.definition });
+      newTiles.push({ id: `${w.id}-word`, wordId: w.id, type: 'word', text: wordLabel(w) });
+      newTiles.push({ id: `${w.id}-def`, wordId: w.id, type: 'definition',
+        text: w.context ? `[${w.context}] ${w.definition}` : w.definition });
     }
     setTiles(shuffle(newTiles));
     setMatched(new Set());

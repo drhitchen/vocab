@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Word } from '../../types';
 import { shuffle } from '../../utils/shuffle';
 import SessionBar from '../SessionBar';
+import { wordLabel } from '../../utils/wordLabel';
 
 interface Props {
   words: Word[];
@@ -65,6 +66,7 @@ export default function MultipleChoice({ words, allWords, onAnswer, onSessionEnd
       <SessionBar label="Question" current={index + 1} total={words.length} onExit={onExit} />
 
       <div className="prompt-card">
+        {word.context && <p className="entry-context">Context: {word.context}</p>}
         <p className="prompt-text">{word.definition}</p>
       </div>
 
@@ -79,7 +81,7 @@ export default function MultipleChoice({ words, allWords, onAnswer, onSessionEnd
             disabled={selected !== null}
           >
             <span className="option-key">{i + 1}</span>
-            <span className="option-text">{opt.word}</span>
+            <span className="option-text">{wordLabel(opt)}</span>
           </button>
         ))}
       </div>

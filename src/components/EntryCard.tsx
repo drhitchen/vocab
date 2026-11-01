@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { SRSCard, Word } from '../types';
+import { wordLabel } from '../utils/wordLabel';
 
 interface EntryCardProps {
   word: Word;
@@ -14,6 +15,7 @@ const BUCKET_LABELS = ['New', 'Learning', 'Familiar', 'Known', 'Mastered'] as co
 
 export default function EntryCard({ word, card, isExpanded, isSelected, onToggle, onSelect }: EntryCardProps) {
   const [showJson, setShowJson] = useState(false);
+  const label = wordLabel(word);
 
   const truncDef = word.definitions[0].length > 80
     ? word.definitions[0].slice(0, 77) + '…'
@@ -39,13 +41,13 @@ export default function EntryCard({ word, card, isExpanded, isSelected, onToggle
           checked={isSelected}
           onChange={onSelect}
           onClick={e => e.stopPropagation()}
-          aria-label={`Select ${word.word}`}
+          aria-label={`Select ${label}`}
         />
         {/* Activating this button bubbles to the row's onToggle */}
-        <button type="button" className="chev-btn" aria-expanded={isExpanded} aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${word.word}`}>
+        <button type="button" className="chev-btn" aria-expanded={isExpanded} aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${label}`}>
           <span className="chev" aria-hidden="true" />
         </button>
-        <span className="hw">{word.word}</span>
+        <span className="hw" title={label}>{label}</span>
         <span className="pos-col">{word.partOfSpeech}</span>
         <span className="type">{word.type}</span>
         <span className="def-col">{truncDef}</span>
@@ -56,6 +58,8 @@ export default function EntryCard({ word, card, isExpanded, isSelected, onToggle
       {isExpanded && (
         <div className="detail">
           <div className="detail-main">
+            {word.context && <p className="entry-context">Context: {word.context}</p>}
+            {word.expansion && <p className="entry-expansion">Expansion: {word.expansion}</p>}
             <h4>Definitions</h4>
             <ol>
               {definitions.map((def, i) => (

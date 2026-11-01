@@ -97,7 +97,8 @@ Click any bucket card on the home screen to filter by that bucket (multi-select 
 - Vocabulary lives in `public/vocab.json` (~2,105 entries).
 - Progress is stored in `localStorage` under the key `vocab-builder-progress`.
 - Use **Reset all progress** at the bottom of the home screen to wipe everything (two-click confirmation required).
-- Manage words locally: `node scripts/add-word.js [--lookup|--add|--update|--del] <word>`. Defaults to lookup; missing words offer to add. Generation supports `--provider anthropic|openai` and `--model NAME`, defaulting to Anthropic `claude-sonnet-5.5`. The provider and model are displayed; missing API keys are prompted with hidden input. See [script documentation](scripts/README.md).
+- Manage words locally: `node scripts/add-word.js [--lookup|--add|--update|--del] <word>`. Defaults to lookup; missing words offer to add. Terminal confirmations accept a single y/n key and ignore Enter. Generation supports `--provider anthropic|openai` and `--model NAME`, defaulting to Anthropic `claude-sonnet-5.5`. The provider and model are displayed; missing API keys are prompted with hidden input. See [script documentation](scripts/README.md).
+- Use `--choose` to browse model-generated definition candidates, and `--context` / `--expansion` to guide technical meanings or acronyms. Contextual entries preserve general meanings and have independent progress; their labels are shown in Browse and study modes.
 
 ## Tech stack
 

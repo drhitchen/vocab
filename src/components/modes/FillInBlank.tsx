@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Word } from '../../types';
 import SessionBar from '../SessionBar';
+import { wordLabel } from '../../utils/wordLabel';
 
 interface Props {
   words: Word[];
@@ -81,6 +82,7 @@ export default function FillInBlank({ words, onAnswer, onSessionEnd, onExit }: P
       <SessionBar label="Word" current={index + 1} total={words.length} onExit={onExit} />
 
       <div className="prompt-card">
+        {word.context && <p className="entry-context">Context: {word.context}</p>}
         <p className="prompt-text">{word.definition}</p>
         <div className="hint-row">
           <p className="hint-text">{getHint(word.word, hintLevel)}</p>
@@ -112,7 +114,7 @@ export default function FillInBlank({ words, onAnswer, onSessionEnd, onExit }: P
           spellCheck={false}
         />
         {feedback === 'wrong' && (
-          <p className="answer-reveal">Answer: <b>{word.word}</b></p>
+          <p className="answer-reveal">Answer: <b>{wordLabel(word)}</b></p>
         )}
 
         {feedback === null ? (

@@ -1,6 +1,8 @@
 export interface Word {
   id: string;
   word: string;
+  context?: string;
+  expansion?: string;
   type: 'common' | 'proper' | 'phrase' | 'prefix';
   partOfSpeech: string;
   definitions: [string, string?]; // 1 or 2 definitions

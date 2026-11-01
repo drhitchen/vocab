@@ -355,6 +355,21 @@
     "reviewReason": ""
   },
   {
+    "id": "abstraction",
+    "word": "abstraction",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A general idea or concept considered apart from any concrete example, object, or real-life situation, such as justice or beauty."
+    ],
+    "examples": [
+      "Freedom can feel like a vague idea until you see someone lose it, and then it becomes painfully real.",
+      "The artist's later paintings moved away from realistic portraits toward bold shapes and color with no recognizable subject."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "abstruse",
     "word": "abstruse",
     "type": "common",
@@ -1110,6 +1125,21 @@
     ],
     "examples": [
       "She placed a reading chair in the sunny alcove by the window."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "algorithm",
+    "word": "algorithm",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A step-by-step set of rules or instructions followed to solve a problem or complete a task, especially by a computer."
+    ],
+    "examples": [
+      "The app uses a clever method to sort thousands of photos in just a few seconds.",
+      "Before writing any code, she listed each step the program would follow to find the shortest route."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -2483,6 +2513,21 @@
     "reviewReason": ""
   },
   {
+    "id": "asynchronous",
+    "word": "asynchronous",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Not happening at the same time or in step with each other; occurring without waiting for another process or event to finish."
+    ],
+    "examples": [
+      "Because the course is asynchronous, students can watch lectures and post replies whenever it suits their schedules.",
+      "The app sends data in an asynchronous way, so the screen keeps responding while files download in the background."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "athena",
     "word": "Athena",
     "type": "proper",
@@ -2520,6 +2565,21 @@
     ],
     "examples": [
       "Without regular exercise, muscles begin to atrophy and lose their strength."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "attack-surface",
+    "word": "attack surface",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The total of all points in a system, network, or application where an unauthorized person could try to get in or extract data."
+    ],
+    "examples": [
+      "Every new plugin we install widens our exposure, so the security team removes unused software to keep the attack surface small.",
+      "Opening those extra ports to the internet dramatically increased the company's attack surface overnight."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -2622,6 +2682,36 @@
     "examples": [
       "The monastery's austere rooms contained only a bed and a small wooden desk.",
       "The monks followed an austere lifestyle, eating only simple meals and rising before dawn."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "authentication",
+    "word": "authentication",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The process of proving that a person or thing is really who or what they claim to be, often before granting access."
+    ],
+    "examples": [
+      "The banking app requires fingerprint scanning as an extra step of security before you can view your balance.",
+      "Experts checked the signature and paper age to complete the painting's verification as a genuine work by the artist."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "authorization",
+    "word": "authorization",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "Official permission or approval to do something, often given by someone with the power to allow or forbid it."
+    ],
+    "examples": [
+      "The contractor could not enter the restricted lab without written permission from the director.",
+      "Your bank requires a signed form before it will let a family member handle your account."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -3281,6 +3371,22 @@
     ],
     "examples": [
       "He ordered a tailored suit from a Savile Row shop that took precise measurements."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "bias",
+    "word": "bias",
+    "type": "common",
+    "partOfSpeech": "n/v",
+    "definitions": [
+      "An unfair leaning for or against a person, group, or idea, often formed without good reason and affecting judgment.",
+      "A diagonal line across the weave of woven fabric, used for cutting cloth so it stretches and drapes smoothly."
+    ],
+    "examples": [
+      "The judge stepped aside from the case because of her friendship with the defendant, hoping to avoid any hint of bias.",
+      "She cut the silk on the bias so the skirt would swing gracefully around her legs."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -5656,6 +5762,21 @@
     "reviewReason": ""
   },
   {
+    "id": "concurrency",
+    "word": "concurrency",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The fact of two or more events, processes, or tasks happening or running during the same period of time."
+    ],
+    "examples": [
+      "Good concurrency lets the server handle thousands of users without making any of them wait in line.",
+      "The programmer struggled to avoid bugs when several threads changed the same data under heavy concurrency."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "condemn",
     "word": "condemn",
     "type": "common",
@@ -5958,6 +6079,21 @@
     "reviewReason": ""
   },
   {
+    "id": "consensus",
+    "word": "consensus",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A general agreement among all the people in a group, reached after discussion, especially when no one strongly objects to the final decision."
+    ],
+    "examples": [
+      "After hours of debate, the committee reached a consensus to postpone the vote until next month.",
+      "There is a growing scientific consensus that regular exercise improves long-term health."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "conservative",
     "word": "conservative",
     "type": "common",
@@ -6209,6 +6345,21 @@
     ],
     "examples": [
       "Abortion remains one of the most contentious political issues in America."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "context",
+    "word": "context",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The surrounding words, situation, or circumstances that help explain the meaning of something said, written, or done, and make it easier to understand."
+    ],
+    "examples": [
+      "Quoted on its own, the remark sounded rude, but in the full conversation it was clearly a joke.",
+      "To understand why the treaty failed, you need to look at the political climate of the time."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -6835,6 +6986,21 @@
     "reviewReason": ""
   },
   {
+    "id": "criterion",
+    "word": "criterion",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A standard or principle used as a basis for judging, evaluating, or deciding whether something is good, acceptable, or suitable."
+    ],
+    "examples": [
+      "The main factor for hiring was experience, but a willingness to learn was also an important consideration for the team.",
+      "Judges scored each dish on taste, presentation, and originality, and each of those was weighed carefully before the winner was named."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "crone",
     "word": "crone",
     "type": "common",
@@ -6844,6 +7010,36 @@
     ],
     "examples": [
       "The fairy tale depicted a crone living alone in the forest."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "cross-site-request-forgery",
+    "word": "cross-site request forgery",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A web attack that tricks a logged-in user's browser into sending an unwanted command to a trusted service without the user knowing."
+    ],
+    "examples": [
+      "The bank added a hidden token to every form so a malicious page could not secretly trigger a money transfer using a customer's active login.",
+      "After clicking a link in a strange email, she discovered her account settings had changed, a classic case of cross-site request forgery."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "cross-site-scripting",
+    "word": "cross-site scripting",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A web security attack where someone injects harmful code into a trusted web page so it runs in other visitors' browsers, often stealing data."
+    ],
+    "examples": [
+      "After testers showed that a malicious comment could run code in every reader's browser, the team fixed the form to block cross-site scripting.",
+      "The security report warned that cross-site scripting on the login page might let attackers steal session cookies from unsuspecting users."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -6872,6 +7068,21 @@
     ],
     "examples": [
       "The restaurant specialized in fresh crustaceans flown in daily from the coast."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "cryptography",
+    "word": "cryptography",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The science and practice of scrambling information into secret code so that only the intended people can read or understand it."
+    ],
+    "examples": [
+      "Online banking relies on strong cryptography to keep your account details hidden from hackers.",
+      "She studied math in college and later built a career designing the codes that protect private messages."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -7368,6 +7579,21 @@
     ],
     "examples": [
       "The politician tried to defame his opponent by circulating untrue rumors about corruption."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "defense-in-depth",
+    "word": "defense in depth",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A security strategy that stacks several independent protective layers, so if one barrier fails, the others still guard the valuable assets behind it."
+    ],
+    "examples": [
+      "The company used firewalls, encrypted files, and staff training together, relying on this approach so that one weak spot would not expose everything.",
+      "Castle builders applied the same idea with moats, outer walls, inner walls, and a final keep."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -9726,6 +9952,22 @@
     "reviewReason": ""
   },
   {
+    "id": "encapsulation",
+    "word": "encapsulation",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The act of enclosing something within a small protective shell or coating, or of condensing an idea into a brief summary.",
+      "In programming, the practice of bundling data with the code that uses it while hiding internal details from outside access."
+    ],
+    "examples": [
+      "The pharmacist explained that the pill's outer coating protects the medicine until it reaches the stomach, a process that depends on careful encapsulation.",
+      "Thanks to good encapsulation, other developers can use the bank account class without ever touching its private balance variable."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "enclave",
     "word": "enclave",
     "type": "common",
@@ -9749,6 +9991,21 @@
     ],
     "examples": [
       "Urban development began to encroach on the wildlife preserve, threatening the habitat of endangered species."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "encryption",
+    "word": "encryption",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The process of scrambling information into a secret code so that only people with the right key can read it."
+    ],
+    "examples": [
+      "The messaging app uses strong encryption, so even the company cannot read what users send to each other.",
+      "After the laptop was stolen, the bank was relieved to learn that all the customer files had been protected by a secure code."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -11079,6 +11336,22 @@
     ],
     "examples": [
       "The sudden drop in temperature was explicable by the cold front moving through the region."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "explicit",
+    "word": "explicit",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Stated so clearly and fully that nothing is left unclear or open to guessing, with every detail spelled out directly.",
+      "Showing or describing sex or violence in graphic, unrestrained detail, often with a warning for mature audiences."
+    ],
+    "examples": [
+      "The landlord gave us explicit instructions: no pets, no smoking, and rent due on the first of every month.",
+      "The album carries a warning label because several songs contain explicit lyrics that are unsuitable for young children."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -13106,6 +13379,22 @@
     "reviewReason": ""
   },
   {
+    "id": "hashing",
+    "word": "hashing",
+    "type": "common",
+    "partOfSpeech": "n/v",
+    "definitions": [
+      "The process of running data through a mathematical function to produce a short, fixed-length code that represents the original input.",
+      "Chopping food, especially meat and potatoes, into small pieces to cook as a mixed dish."
+    ],
+    "examples": [
+      "The website stores passwords by hashing them, so even the developers cannot read the originals.",
+      "She spent the morning hashing leftover roast beef and boiled potatoes for the diner's breakfast special."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "haughty",
     "word": "haughty",
     "type": "common",
@@ -13213,6 +13502,22 @@
     ],
     "examples": [
       "Galileo was condemned as a heretic by church authorities for supporting the theory that Earth revolves around the sun."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "heuristic",
+    "word": "heuristic",
+    "type": "common",
+    "partOfSpeech": "adj/n",
+    "definitions": [
+      "Describing a practical method of solving problems or learning through trial, experience, and rough rules of thumb rather than strict, guaranteed formulas.",
+      "A mental shortcut or rule of thumb that helps people reach a decision or solution quickly, though not always perfectly."
+    ],
+    "examples": [
+      "The chess program used a simple shortcut to skip unpromising moves, which saved time but occasionally missed a brilliant play.",
+      "When I'm short on time, my go-to rule is to choose the option that worked well last time, even though it isn't foolproof."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -14055,6 +14360,22 @@
     "reviewReason": ""
   },
   {
+    "id": "implicit",
+    "word": "implicit",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Suggested or understood without being directly stated, so that the meaning is clear from context rather than from plain words.",
+      "Complete and unquestioning, with no doubts or reservations, as in trust or faith placed in someone."
+    ],
+    "examples": [
+      "Although she never said so, her silence carried an implicit warning that the topic was off limits.",
+      "The soldiers followed their captain with implicit trust, never questioning a single order."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "implore",
     "word": "implore",
     "type": "common",
@@ -14330,6 +14651,21 @@
     ],
     "examples": [
       "The company's decision to cut benefits without warning incense the workers, leading to a strike."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "incentive",
+    "word": "incentive",
+    "type": "common",
+    "partOfSpeech": "n/adj",
+    "definitions": [
+      "Something, such as a reward or benefit, that motivates a person to take action or work harder toward a goal."
+    ],
+    "examples": [
+      "The company offered a cash bonus as an extra push for employees to finish the project early.",
+      "Lower taxes gave families a strong reason to install solar panels on their roofs."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -14783,6 +15119,21 @@
     "reviewReason": ""
   },
   {
+    "id": "inevitable",
+    "word": "inevitable",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Certain to happen and impossible to avoid or prevent, no matter what anyone does to try to stop it."
+    ],
+    "examples": [
+      "After months of falling sales and mounting debt, the store's closing felt like a sad but unavoidable outcome.",
+      "Growing older brings changes that no one can escape, and with them comes the need to adapt."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "inexorable",
     "word": "inexorable",
     "type": "common",
@@ -15079,6 +15430,21 @@
     "reviewReason": ""
   },
   {
+    "id": "input-validation",
+    "word": "input validation",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The process of checking that data entered into a program is correct, safe, and in the expected format before the program uses it."
+    ],
+    "examples": [
+      "The login form lacked proper input validation, so attackers could submit harmful code through the username field.",
+      "Good input validation will reject a birth date like 'banana' and ask the user to enter a real date."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "inscrutable",
     "word": "inscrutable",
     "type": "common",
@@ -15088,6 +15454,21 @@
     ],
     "examples": [
       "The sphinx's inscrutable smile has puzzled scholars for centuries."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "insecure-deserialization",
+    "word": "insecure deserialization",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A software flaw where a program rebuilds objects from untrusted data without checking it, letting attackers run harmful code or tamper with logic."
+    ],
+    "examples": [
+      "The penetration tester crafted a malicious cookie that the server blindly turned back into an object, giving her remote control of the application.",
+      "After the breach, developers learned that trusting user-supplied session data without validation had left their API open to insecure deserialization."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -15316,6 +15697,22 @@
     ],
     "examples": [
       "The editor decided to interpolate a new paragraph to clarify the author's argument."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "interpret",
+    "word": "interpret",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To explain or work out what something means, especially when it is unclear, hard to understand, or open to different readings.",
+      "To translate spoken words from one language into another as a person speaks."
+    ],
+    "examples": [
+      "Scientists had to carefully study the data before they could determine what the strange readings actually meant.",
+      "At the meeting, a hired specialist stood beside the speaker and quietly relayed every sentence in Spanish for the guests."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -16147,6 +16544,22 @@
     "reviewReason": ""
   },
   {
+    "id": "latency",
+    "word": "latency",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The delay between a request or action and the response or result, especially in computer networks and electronic systems.",
+      "The state of being present but hidden, inactive, or not yet developed or visible."
+    ],
+    "examples": [
+      "Players complained that the high latency of the server made the game feel sluggish and unresponsive.",
+      "After a long period of latency, the virus became active again and the patient developed symptoms."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "laud",
     "word": "laud",
     "type": "common",
@@ -16198,6 +16611,21 @@
     ],
     "examples": [
       "The school's lax attendance policy allowed students to skip classes without consequences."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "least-privilege",
+    "word": "least privilege",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A security principle stating that people, programs, or systems should receive only the minimum access rights needed to perform their specific tasks, and nothing more."
+    ],
+    "examples": [
+      "The company followed this rule by giving interns read-only access to the files, so a stolen password could not erase anything important.",
+      "By applying it to every service account, the engineers limited how much damage an attacker could do after breaking in."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -17022,6 +17450,21 @@
     "reviewReason": ""
   },
   {
+    "id": "malware",
+    "word": "malware",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "Harmful computer code designed to secretly damage a device, steal information, or give an attacker unauthorized control over a system or network."
+    ],
+    "examples": [
+      "After he opened the strange email attachment, his laptop slowed down and began sending spam to his contacts.",
+      "The company hired security experts to scan every server and remove the hidden code that had been stealing customer passwords."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "mania",
     "word": "mania",
     "type": "common",
@@ -17415,6 +17858,21 @@
     "examples": [
       "The concept of democracy is a powerful meme that has spread across many societies.",
       "The cat photo became a viral meme with hundreds of humorous captions."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "memory-safety",
+    "word": "memory safety",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A property of a programming language or program that prevents bugs like reading or writing outside allocated storage, or using data after it has been freed."
+    ],
+    "examples": [
+      "Rust is popular for systems work because its compiler enforces strict ownership rules that prevent many crashes and security holes.",
+      "Many serious security flaws in older software came from buffer overflows, which a language with built-in guarantees against such errors would have blocked."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -18845,6 +19303,22 @@
     "reviewReason": ""
   },
   {
+    "id": "objective",
+    "word": "objective",
+    "type": "common",
+    "partOfSpeech": "n/adj",
+    "definitions": [
+      "A specific goal or target that a person, team, or organization is trying to reach or achieve.",
+      "Based on facts rather than personal feelings or opinions, and therefore fair and not influenced by bias."
+    ],
+    "examples": [
+      "Our main objective this quarter is to cut delivery times in half without raising prices.",
+      "A good judge weighs the evidence in a calm, impartial way and ignores any personal feelings about the people in court."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "oblique",
     "word": "oblique",
     "type": "common",
@@ -19436,6 +19910,21 @@
     ],
     "examples": [
       "The committee's recommendations proved otiose since the decision had already been made by upper management."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "output-encoding",
+    "word": "output encoding",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The practice of converting data into a safe format before displaying or sending it, so special characters are treated as plain text rather than executable code."
+    ],
+    "examples": [
+      "The developer added output encoding to the comment section so a user could not slip a malicious script into the page.",
+      "Without proper output encoding, a name containing angle brackets might be run as code by the browser instead of being shown as text."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -20695,6 +21184,21 @@
     "reviewReason": ""
   },
   {
+    "id": "perspective",
+    "word": "perspective",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A particular way of viewing things that depends on one's experience, position, or beliefs, shaping how situations and events are understood."
+    ],
+    "examples": [
+      "Living abroad for a year gave her a fresh outlook on her own country's problems.",
+      "From the manager's standpoint the delay was minor, but the customers saw it very differently."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "perspicacious",
     "word": "perspicacious",
     "type": "common",
@@ -21022,6 +21526,21 @@
     ],
     "examples": [
       "He spent years studying ancient Greek philosophy to understand different perspectives on ethics and reality."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "phishing",
+    "word": "phishing",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The fraudulent practice of sending deceptive emails or messages that appear to come from trusted sources, tricking people into revealing passwords, bank details, or other private information."
+    ],
+    "examples": [
+      "She almost entered her bank password on the fake site, but the odd web address made her realize it was a scam message designed to steal her login details.",
+      "Our company trains employees to spot suspicious emails so they do not fall victim to attacks that impersonate the IT department."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -21460,6 +21979,22 @@
     ],
     "examples": [
       "Leonardo da Vinci was a true polymath, excelling in art, science, and engineering."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "polymorphism",
+    "word": "polymorphism",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The occurrence of several distinct forms or appearances within a single species, such as different color patterns among individuals of the same population.",
+      "In programming, the ability for different kinds of objects to be used through one shared interface, each responding in its own way."
+    ],
+    "examples": [
+      "Snail shells in the same meadow can be yellow, pink, or brown, a classic case of polymorphism in nature.",
+      "Because of polymorphism, the program could call the same draw method on a circle or a square and get the correct shape each time."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -22280,6 +22815,21 @@
     ],
     "examples": [
       "The refugees endured extreme privation during their long journey to safety."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "privilege-escalation",
+    "word": "privilege escalation",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A security exploit in which a user or program gains higher access rights on a computer system than originally allowed."
+    ],
+    "examples": [
+      "The attacker logged in with a basic guest account, then used a software bug to take full administrator control, a textbook case of privilege escalation.",
+      "After the audit revealed a privilege escalation flaw, the company rushed out a patch to stop ordinary employees from reaching confidential payroll files."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -23580,6 +24130,21 @@
     "reviewReason": ""
   },
   {
+    "id": "race-condition",
+    "word": "race condition",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A software or hardware flaw where the result depends on the unpredictable timing of events, such as two processes accessing shared data at once."
+    ],
+    "examples": [
+      "The app sometimes crashed at startup because two threads tried to update the same file at once, a classic race condition.",
+      "We fixed the bug by adding a lock, since the unpredictable order of operations had created a race condition in the payment system."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "ramification",
     "word": "ramification",
     "type": "common",
@@ -23744,6 +24309,21 @@
     "examples": [
       "The little rascal hid his sister's homework just to tease her.",
       "That rascal cheated investors out of millions with his fraudulent scheme."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "rate-limiting",
+    "word": "rate limiting",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A technique that caps how many requests a user or program can send to a server within a set period of time."
+    ],
+    "examples": [
+      "The API uses rate limiting, so after one hundred requests in a minute, your app gets an error until the clock resets.",
+      "Without rate limiting, a single bot could flood the website and make it crawl for everyone else."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -24998,6 +25578,21 @@
     "reviewReason": ""
   },
   {
+    "id": "rigorous",
+    "word": "rigorous",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Done with great care, thoroughness, and strict attention to detail, leaving no room for error or shortcuts, often in a demanding way."
+    ],
+    "examples": [
+      "The lab followed a demanding testing process, checking every result three times before publishing the findings.",
+      "Her training schedule was so tough that even experienced athletes struggled to keep up with it."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "rogue",
     "word": "rogue",
     "type": "common",
@@ -25324,6 +25919,22 @@
     "reviewReason": ""
   },
   {
+    "id": "sandbox",
+    "word": "sandbox",
+    "type": "common",
+    "partOfSpeech": "n/v",
+    "definitions": [
+      "A low open container or area filled with sand where young children play and dig.",
+      "A secure, isolated computer environment where programs or code can be run and tested without affecting the main system."
+    ],
+    "examples": [
+      "The toddlers spent the whole afternoon building castles in the backyard sandbox while their parents watched from the porch.",
+      "Before releasing the update, the developers ran the suspicious file in a sandbox to see what damage it might cause."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "sanguinary",
     "word": "sanguinary",
     "type": "common",
@@ -25560,6 +26171,37 @@
     ],
     "reviewNeeded": false,
     "reviewReason": ""
+  },
+  {
+    "id": "sbom",
+    "word": "SBOM",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A detailed inventory listing every component, library, and dependency inside a piece of software, used to track origins, versions, and security risks."
+    ],
+    "examples": [
+      "After the vulnerability was announced, the security team checked the SBOM to see whether any of their products included the affected library.",
+      "The government contract requires vendors to deliver an SBOM with every release so buyers can audit what code is running."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "sca--appsec",
+    "word": "SCA",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "Automated scanning of an application's open source libraries and dependencies to find known vulnerabilities, outdated versions, and risky license terms before they reach production."
+    ],
+    "examples": [
+      "The pipeline runs SCA on every pull request, so a vulnerable logging library gets flagged before the code is merged.",
+      "After the SCA report showed a critical flaw in a nested dependency, the team upgraded the package and rebuilt the release."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": "",
+    "context": "appsec"
   },
   {
     "id": "scamp",
@@ -25800,6 +26442,21 @@
     "reviewReason": ""
   },
   {
+    "id": "scrutinize",
+    "word": "scrutinize",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To examine something very closely and carefully, looking at every detail to find mistakes, hidden meaning, or important information."
+    ],
+    "examples": [
+      "The accountant spent hours going over the receipts, hoping to catch any error before the audit.",
+      "Before buying the used car, she walked around it twice and checked every dent and scratch."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "scurrilous",
     "word": "scurrilous",
     "type": "common",
@@ -25814,6 +26471,21 @@
     "reviewReason": ""
   },
   {
+    "id": "secret-rotation",
+    "word": "secret rotation",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The practice of regularly replacing passwords, API keys, tokens, or certificates with new values so that stolen or leaked credentials stop working after a short time."
+    ],
+    "examples": [
+      "Our security team automated secret rotation so database passwords change every thirty days without anyone editing config files by hand.",
+      "After the leaked key was discovered in a public repository, the engineers realized that regular secret rotation would have limited the damage."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "secular",
     "word": "secular",
     "type": "common",
@@ -25823,6 +26495,21 @@
     ],
     "examples": [
       "The country maintains a secular government that separates church and state."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "secure-defaults",
+    "word": "secure defaults",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The safest possible settings a product ships with, so users are protected from common threats without having to change or configure anything themselves."
+    ],
+    "examples": [
+      "The new router follows the principle of secure defaults, so remote administration is turned off and a unique password is already set when you plug it in.",
+      "Because the framework favors secure defaults, developers must deliberately loosen restrictions rather than remember to lock things down."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -26052,6 +26739,37 @@
     "reviewReason": ""
   },
   {
+    "id": "serialization",
+    "word": "serialization",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The process of converting data structures or objects into a format that can be stored or sent over a network.",
+      "The act of publishing or broadcasting a story in a series of regular installments over time."
+    ],
+    "examples": [
+      "JSON serialization lets the app save the user's settings to a file and restore them the next time it opens.",
+      "The novel's serialization in a weekly magazine kept readers eagerly waiting for each new chapter."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "server-side-request-forgery",
+    "word": "server-side request forgery",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A web security attack where an intruder tricks an application into sending unintended network calls to internal or third-party systems, often exposing protected data."
+    ],
+    "examples": [
+      "By submitting a crafted image URL, the attacker got the app to fetch metadata from the cloud provider's private endpoint, a classic case of server-side request forgery.",
+      "After the audit revealed server-side request forgery in the file import feature, the team restricted which internal addresses the application could contact."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "servile",
     "word": "servile",
     "type": "common",
@@ -26201,6 +26919,37 @@
     ],
     "examples": [
       "The athlete's sinew stood out visibly as he lifted the heavy weight."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "sink--appsec",
+    "word": "sink",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A point in program code where untrusted data ends up and can cause harm, such as running a database query or system command."
+    ],
+    "examples": [
+      "The scanner traced user input from the search box to a SQL query, flagging the database call as a dangerous sink.",
+      "To stop injection attacks, the team sanitized any data before it reached a sink like an HTML renderer or shell command."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": "",
+    "context": "appsec"
+  },
+  {
+    "id": "skepticism",
+    "word": "skepticism",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "An attitude of doubt toward claims or beliefs, with a habit of asking for solid evidence before accepting them as true."
+    ],
+    "examples": [
+      "Her friends greeted the miracle diet with open doubt, and she demanded to see real studies before trying it.",
+      "The detective listened to the witness with a healthy dose of skepticism, checking every detail against the records."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -26383,6 +27132,21 @@
     ],
     "examples": [
       "The documentary examined how a sociopath can charm victims while planning harmful acts."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "software-composition-analysis",
+    "word": "software composition analysis",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "An automated process that scans a program to identify the open-source and third-party components it relies on, then checks them for security flaws and license problems."
+    ],
+    "examples": [
+      "Our team runs this scan on every build, and it flagged an outdated library with a known security hole before we shipped.",
+      "After the audit, the company used automated scanning of its dependencies to confirm that no package carried a license that conflicted with its commercial product."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -26642,6 +27406,22 @@
     "reviewReason": ""
   },
   {
+    "id": "source--appsec",
+    "word": "source",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "In application security, the place where untrusted data first enters a program, such as a form field, URL parameter, or network request, which can carry malicious input."
+    ],
+    "examples": [
+      "The scanner flagged the query string as a taint origin, tracing how it flowed unchecked into a database call.",
+      "Analysts mark every user-controlled input, like cookies and uploaded files, as a risky entry point when mapping data flow through the app."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": "",
+    "context": "appsec"
+  },
+  {
     "id": "sovereign",
     "word": "sovereign",
     "type": "common",
@@ -26835,6 +27615,21 @@
     ],
     "examples": [
       "The art dealer was arrested for selling spurious paintings claimed to be original Picassos."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "sql-injection",
+    "word": "SQL injection",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A cyberattack in which an attacker inserts malicious database commands into a web form or input field to read, change, or destroy stored data."
+    ],
+    "examples": [
+      "The login page was vulnerable, so an attacker typed a crafted string into the password box and dumped the entire customer table.",
+      "Using parameterized queries instead of building commands from raw user text is the best defense against this kind of attack."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -27137,6 +27932,22 @@
     "reviewReason": ""
   },
   {
+    "id": "stride--appsec",
+    "word": "STRIDE",
+    "type": "proper",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A threat modeling framework from Microsoft that sorts security risks into six groups: spoofing, tampering, repudiation, information disclosure, denial of service, and elevation of privilege."
+    ],
+    "examples": [
+      "During design review, the team walked through each component of the payment service using STRIDE to uncover what could go wrong.",
+      "Applying STRIDE to the login flow helped her spot that attackers could impersonate users and gain higher access than intended."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": "",
+    "context": "appsec"
+  },
+  {
     "id": "strident",
     "word": "strident",
     "type": "common",
@@ -27244,6 +28055,21 @@
     ],
     "examples": [
       "The committee met sub rosa to discuss the controversial proposal before the public hearing."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "subjective",
+    "word": "subjective",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Based on personal feelings, tastes, or opinions rather than on outside facts, so that it can differ from one person to another."
+    ],
+    "examples": [
+      "Choosing the best painting is a matter of personal taste, since beauty is largely a matter of how each viewer feels.",
+      "The critic admitted her review was influenced by her own mood and memories, so it should not be read as the final word."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -27943,6 +28769,21 @@
     "reviewReason": ""
   },
   {
+    "id": "taint-analysis",
+    "word": "taint analysis",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A security technique that tracks how untrusted input flows through a program to find places where it could reach sensitive operations without being checked."
+    ],
+    "examples": [
+      "The team ran taint analysis on the web app and discovered that a form field flowed straight into a database query without cleaning.",
+      "Because the scanner relies on taint analysis, it flagged every spot where user-supplied data could end up in a system command."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "tantalize",
     "word": "tantalize",
     "type": "common",
@@ -28408,6 +29249,21 @@
     "reviewReason": ""
   },
   {
+    "id": "threat-modeling",
+    "word": "threat modeling",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A structured process of identifying what could go wrong with a system, who might attack it, and how to defend against those risks before they happen."
+    ],
+    "examples": [
+      "Before writing any code for the payment app, the team spent a week on threat modeling to map out how attackers might steal customer data.",
+      "Her habit of sketching data flows and listing possible attackers turned out to be a useful way to catch design flaws early."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "throng",
     "word": "throng",
     "type": "common",
@@ -28417,6 +29273,21 @@
     ],
     "examples": [
       "A throng of protesters filled the city square, chanting and waving signs."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "throughput",
+    "word": "throughput",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The amount of work, data, or material that a machine, system, or process can handle or complete in a given period of time."
+    ],
+    "examples": [
+      "The new server upgrade doubled our network's capacity, so more files can move between offices every second.",
+      "Adding a second assembly line raised the factory's output from 200 to 350 units per hour."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -29458,6 +30329,37 @@
     ],
     "examples": [
       "She was so vain that she checked her reflection in every mirror and window she passed."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "valid",
+    "word": "valid",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Based on sound reasoning or facts, so that it can be accepted as true, reasonable, or logically sound.",
+      "Legally acceptable or officially usable, especially because it meets requirements and has not expired."
+    ],
+    "examples": [
+      "She raised a good point, and no one could deny that her concerns about the budget were completely reasonable and well founded.",
+      "You need a passport that has not expired before the airline will let you board the flight."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "validate",
+    "word": "validate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To prove or confirm that something is true, accurate, or legitimate, often by checking it against facts, rules, or evidence."
+    ],
+    "examples": [
+      "The lab ran several more trials to confirm the first results were accurate before publishing the findings.",
+      "She felt that her feelings were finally acknowledged when her manager listened and agreed that her concerns were fair."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -30535,6 +31437,21 @@
     ],
     "examples": [
       "The neighbors suspected him of being a voyeur after finding him peering through windows at night."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "vulnerability",
+    "word": "vulnerability",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The state of being open to harm, attack, or emotional hurt because of a lack of protection or defense."
+    ],
+    "examples": [
+      "Hackers exploited a weakness in the bank's software, exposing millions of customer records.",
+      "She spoke openly about her fears, and that willingness to be exposed made her friends trust her even more."
     ],
     "reviewNeeded": false,
     "reviewReason": ""

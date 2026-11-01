@@ -43,6 +43,8 @@ export default function Browse({ words, cards, onStudySelected }: BrowseProps) {
         const q = debouncedQuery.toLowerCase();
         return words.filter(w =>
           w.word.toLowerCase().includes(q) ||
+          w.context?.toLowerCase().includes(q) ||
+          w.expansion?.toLowerCase().includes(q) ||
           w.definitions.some(d => d !== undefined && d.toLowerCase().includes(q))
         );
       })();
