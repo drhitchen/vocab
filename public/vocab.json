@@ -5169,6 +5169,21 @@
     "reviewReason": ""
   },
   {
+    "id": "cognitive-overload",
+    "word": "cognitive overload",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A state in which too much information or too many tasks at once exceed the mind's capacity to process, remember, or decide well."
+    ],
+    "examples": [
+      "After the training session crammed in fifty new procedures, the staff felt mentally fried and could barely recall the first ten.",
+      "Endless notifications, open tabs, and conflicting instructions left her unable to make even a simple choice about dinner."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "cognizance",
     "word": "cognizance",
     "type": "common",
