@@ -4367,6 +4367,21 @@
     "reviewReason": ""
   },
   {
+    "id": "capiche",
+    "word": "capiche",
+    "type": "common",
+    "partOfSpeech": "interj/v",
+    "definitions": [
+      "An informal way of asking whether someone has understood, often after giving a warning, order, or firm explanation, borrowed from Italian slang."
+    ],
+    "examples": [
+      "You finish your homework before any video games, capiche?",
+      "He told the new guy to keep quiet about the plan and asked if he capiche."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "caprice",
     "word": "caprice",
     "type": "common",
@@ -13465,6 +13480,21 @@
     "reviewReason": ""
   },
   {
+    "id": "hedon",
+    "word": "hedon",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A hypothetical unit for measuring an amount of pleasure or happiness, used in utilitarian philosophy and economics."
+    ],
+    "examples": [
+      "The philosopher joked that a perfect slice of cake was worth about five hedons, while a stubbed toe cost three dolors.",
+      "Utilitarians sometimes imagine adding up hedons across a whole population to decide which policy produces the most happiness."
+    ],
+    "reviewNeeded": true,
+    "reviewReason": "Rare technical term; the word also exists as the name of a town in England, and no context was given to confirm the intended meaning."
+  },
+  {
     "id": "hedonism",
     "word": "hedonism",
     "type": "common",
@@ -13474,6 +13504,21 @@
     ],
     "examples": [
       "Critics accused the wealthy socialite of hedonism, pointing to his endless parties and refusal to engage in meaningful work."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "hedonistic",
+    "word": "hedonistic",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Devoted to chasing pleasure and enjoying luxury or physical comforts as the main goal in life, often without restraint."
+    ],
+    "examples": [
+      "After years of strict saving, he spent the summer on a hedonistic tour of beach resorts, fine restaurants, and late-night parties.",
+      "The film portrays the royal court as a hedonistic world where feasts and entertainment never stopped."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -22462,6 +22507,21 @@
     "examples": [
       "Her whole argument rested on the premise that people always act in their own interest, which few in the room accepted.",
       "The show's central premise is simple: a man wakes up every day to relive the same morning."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "prerequisite",
+    "word": "prerequisite",
+    "type": "common",
+    "partOfSpeech": "n/adj",
+    "definitions": [
+      "Something that must be done, learned, or obtained first before a further step, course, or goal can be started or achieved."
+    ],
+    "examples": [
+      "Basic algebra is a requirement you must complete before you can sign up for the advanced calculus class.",
+      "Trust is an essential foundation for any lasting friendship, since without it the relationship cannot grow."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
