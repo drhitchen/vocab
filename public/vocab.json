@@ -974,6 +974,22 @@
     "reviewReason": ""
   },
   {
+    "id": "affect",
+    "word": "affect",
+    "type": "common",
+    "partOfSpeech": "v/n",
+    "definitions": [
+      "To influence or change something or someone, often by producing a noticeable result or emotional response.",
+      "In psychology, the outward display of a person's feelings or emotional state, as seen in expression and tone."
+    ],
+    "examples": [
+      "The sudden drop in temperature will affect how well the crops grow this season.",
+      "The patient's flat affect worried the doctor, since he showed almost no emotion while discussing the news."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "affinity",
     "word": "affinity",
     "type": "common",
@@ -983,6 +999,21 @@
     ],
     "examples": [
       "She felt an immediate affinity with her new colleague, who shared her passion for environmental causes."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "afflict",
+    "word": "afflict",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To cause someone or something to suffer ongoing pain, illness, or trouble, often over a long period of time."
+    ],
+    "examples": [
+      "A severe drought has long plagued the region, and hunger continues to hit its farming families hard.",
+      "Chronic back pain began to trouble him in his thirties and never fully went away."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -1537,6 +1568,22 @@
     "reviewReason": ""
   },
   {
+    "id": "amplitude",
+    "word": "amplitude",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The greatest distance a wave or vibration moves from its resting point, indicating how strong or intense the wave is.",
+      "Great size, breadth, or fullness, especially in range or extent."
+    ],
+    "examples": [
+      "When the guitarist plucked the string harder, the sound wave's amplitude grew and the note came out much louder.",
+      "The speech impressed everyone with its amplitude, covering history, economics, and culture in remarkable detail."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "analgesic",
     "word": "analgesic",
     "type": "common",
@@ -1772,6 +1819,21 @@
     ],
     "examples": [
       "The warm weather in January was an anomaly that confused both residents and weather forecasters."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "anosognosia",
+    "word": "anosognosia",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A neurological condition in which a person with an illness or disability, often after brain injury or stroke, cannot recognize or accept that anything is wrong with them."
+    ],
+    "examples": [
+      "After the stroke paralyzed his left arm, his anosognosia led him to insist that he could lift it perfectly well.",
+      "Doctors explained that her refusal to take medication came from anosognosia, not stubbornness, since her brain could not register her illness."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -3068,6 +3130,21 @@
     "reviewReason": ""
   },
   {
+    "id": "bebop",
+    "word": "bebop",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A fast, complex style of jazz from the 1940s, featuring improvised solos, intricate melodies, and unusual harmonies, popularized by Charlie Parker and Dizzy Gillespie."
+    ],
+    "examples": [
+      "The saxophonist stunned the small club with a blistering solo that raced through the chord changes in true bebop fashion.",
+      "Her father collected old records, and the house was always full of the quick, twisting rhythms of bebop."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "bedlam",
     "word": "bedlam",
     "type": "common",
@@ -3091,6 +3168,21 @@
     ],
     "examples": [
       "After walking through the storm, she arrived at the interview with wet hair and muddy clothes."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "befuddle",
+    "word": "befuddle",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To confuse someone so thoroughly that they cannot think clearly, often by presenting something puzzling, complicated, or surprising."
+    ],
+    "examples": [
+      "The tax form's endless footnotes and contradictory instructions completely befuddled her, so she set it aside and called an accountant.",
+      "A few glasses of strong cider had begun to befuddle his memory, and he could not recall where he had parked."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -3443,6 +3535,21 @@
     ],
     "examples": [
       "The sailors anchored in the protected bight to escape the storm."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "bimbo",
+    "word": "bimbo",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A derogatory term for an attractive but unintelligent or shallow young woman, often implying she cares mostly about appearance."
+    ],
+    "examples": [
+      "The movie's director was criticized for casting every female lead as a giggling bimbo with no ambitions.",
+      "She played up the dim, glamorous image on screen, but off camera she ran her own successful company."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -4283,6 +4390,21 @@
     "reviewReason": ""
   },
   {
+    "id": "calibrate",
+    "word": "calibrate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To adjust an instrument or device by comparing it with a known standard so its readings or results are accurate."
+    ],
+    "examples": [
+      "Before each experiment, the technician had to calibrate the scale using a set of certified weights.",
+      "The teacher tried to calibrate the test so it was challenging without being discouraging for beginners."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "callous",
     "word": "callous",
     "type": "common",
@@ -4382,6 +4504,21 @@
     "reviewReason": ""
   },
   {
+    "id": "capitulate",
+    "word": "capitulate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To stop resisting and give in to an opponent or demand, usually after realizing further struggle is pointless."
+    ],
+    "examples": [
+      "After weeks of siege and dwindling supplies, the city finally had to capitulate to the invading army.",
+      "The company refused to capitulate to the union's demands, even as the strike dragged on."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "caprice",
     "word": "caprice",
     "type": "common",
@@ -4433,6 +4570,21 @@
     ],
     "examples": [
       "The waiter placed a carafe of ice water on our table before taking our order."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "caramelize",
+    "word": "caramelize",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To cook sugar, or food containing sugar, with heat until it turns golden brown and develops a sweet, nutty flavor."
+    ],
+    "examples": [
+      "She let the onions caramelize slowly over low heat until they turned soft, sweet, and deep brown.",
+      "The chef sprinkled sugar on top of the custard and used a torch to caramelize it into a crisp, glassy layer."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -5352,6 +5504,21 @@
     "reviewReason": ""
   },
   {
+    "id": "cognitive",
+    "word": "cognitive",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Relating to the mental processes of thinking, understanding, learning, remembering, and reasoning, rather than emotions or physical actions."
+    ],
+    "examples": [
+      "Regular puzzles and reading can help older adults keep their memory and other mental abilities sharp.",
+      "The study found that children who slept well performed better on tests of attention and problem solving."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "cognitive-dissonance",
     "word": "cognitive dissonance",
     "type": "phrase",
@@ -5537,6 +5704,22 @@
     "reviewReason": ""
   },
   {
+    "id": "commit",
+    "word": "commit",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To pledge yourself firmly to a person, plan, or course of action, promising to follow through on it.",
+      "To carry out or perform something wrong or illegal, such as a crime or an error."
+    ],
+    "examples": [
+      "After months of hesitation, she finally decided to commit to the training program and showed up every morning at six.",
+      "Police believe the same group of thieves committed several burglaries across the neighborhood last winter."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "compel",
     "word": "compel",
     "type": "common",
@@ -5665,6 +5848,21 @@
     "reviewReason": ""
   },
   {
+    "id": "concatenate",
+    "word": "concatenate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To link or join things together in a connected series or chain, especially pieces of text or data placed end to end."
+    ],
+    "examples": [
+      "The script will concatenate the first and last names into a single line for each customer.",
+      "She decided to concatenate the three short audio clips into one continuous recording."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "concave",
     "word": "concave",
     "type": "common",
@@ -5702,6 +5900,66 @@
     ],
     "examples": [
       "The manager tried to conciliate the upset customer by offering a full refund and an apology."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "concise",
+    "word": "concise",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Giving a lot of information using few words, so that nothing unnecessary is said and the point is clear."
+    ],
+    "examples": [
+      "Her email was short and to the point, covering every key detail in just three sentences.",
+      "The editor asked him to trim the report into a tighter summary that busy readers could finish in a minute."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "concision",
+    "word": "concision",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The quality of expressing a lot in very few words, without wasting any language on unnecessary detail."
+    ],
+    "examples": [
+      "The editor praised her essay for its concision, noting that every sentence carried real weight.",
+      "Good instructions depend on concision, since readers quickly lose patience with long, rambling explanations."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "concoct",
+    "word": "concoct",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To create something by mixing different ingredients or parts together, or to invent a story, plan, or excuse, often a clever or dishonest one."
+    ],
+    "examples": [
+      "The chef managed to concoct a delicious sauce from leftover herbs and a splash of lemon juice.",
+      "He tried to concoct an excuse for missing the meeting, but nobody believed his story about the runaway goat."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "concoction",
+    "word": "concoction",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A mixture of different ingredients, often unusual, made by blending or preparing them together, such as a drink, medicine, or dish."
+    ],
+    "examples": [
+      "The bartender surprised us with a bright green concoction that tasted like mint and pineapple.",
+      "Grandma's cough remedy was a strange concoction of honey, ginger, and lemon juice."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -7201,6 +7459,36 @@
     "reviewReason": ""
   },
   {
+    "id": "cve-common-vulnerabilities-and-exposures",
+    "word": "CVE Common Vulnerabilities and Exposures",
+    "type": "proper",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A public catalog that assigns unique identifier numbers to known security flaws in software and hardware, so people can track and discuss each flaw consistently."
+    ],
+    "examples": [
+      "The security team looked up the CVE number in the advisory to check whether their servers needed the latest patch.",
+      "Each newly disclosed flaw in the browser received its own CVE entry, which made it easy for different vendors to refer to the same problem."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "cwe-common-weakness-enumeration",
+    "word": "CWE Common Weakness Enumeration",
+    "type": "proper",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A community-maintained catalog of software and hardware flaw types, each with a numbered identifier, used to classify and discuss security vulnerabilities in code and design."
+    ],
+    "examples": [
+      "The security report labeled the bug as CWE-79 because attackers could inject malicious scripts into the web page.",
+      "Our developers use the CWE list as a checklist to avoid repeating common coding mistakes."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "cynic",
     "word": "cynic",
     "type": "common",
@@ -8540,6 +8828,21 @@
     "reviewReason": ""
   },
   {
+    "id": "dilly-dally",
+    "word": "dilly-dally",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To waste time by moving slowly or being unable to decide, instead of getting on with what needs to be done."
+    ],
+    "examples": [
+      "If we dilly-dally at the store any longer, we will miss the start of the movie.",
+      "She told the kids not to dilly-dally on their way to the bus stop."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "dionysian",
     "word": "dionysian",
     "type": "common",
@@ -9441,6 +9744,22 @@
     "reviewReason": ""
   },
   {
+    "id": "effect",
+    "word": "effect",
+    "type": "common",
+    "partOfSpeech": "n/v",
+    "definitions": [
+      "A change or result produced by an action, event, or cause, especially one that follows directly from it.",
+      "To cause something to happen or bring it about, especially a change or an outcome."
+    ],
+    "examples": [
+      "The new law had an immediate effect on how small businesses handled their taxes.",
+      "The mayor hoped to effect real change by bringing neighbors and city officials together."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "effectuate",
     "word": "effectuate",
     "type": "common",
@@ -9729,6 +10048,22 @@
     "reviewReason": ""
   },
   {
+    "id": "emasculate",
+    "word": "emasculate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To rob a person, group, or idea of strength, force, or effectiveness, leaving it weak and powerless.",
+      "To deprive a male of his masculine identity or role, or, in the literal sense, to castrate him."
+    ],
+    "examples": [
+      "Years of budget cuts have emasculated the agency, and it can no longer enforce its own rules.",
+      "He felt emasculated when his boss mocked him in front of the whole team."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "embargo",
     "word": "embargo",
     "type": "common",
@@ -9920,6 +10255,37 @@
     ],
     "examples": [
       "The researchers demanded empirical evidence before accepting the controversial hypothesis about climate patterns."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "emulsification",
+    "word": "emulsification",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The process of blending two liquids that normally separate, like oil and water, so tiny droplets of one spread evenly through the other."
+    ],
+    "examples": [
+      "Egg yolk helps the vinaigrette stay creamy because it promotes the blending of oil and vinegar into a smooth mixture.",
+      "Bile salts aid the digestion of fats by breaking large globules into tiny droplets, a step that makes them easier for enzymes to handle."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "emulsion",
+    "word": "emulsion",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A mixture of two liquids that normally do not blend, such as oil and water, with one spread in tiny droplets through the other.",
+      "A light-sensitive coating on photographic film or paper that records an image when exposed to light."
+    ],
+    "examples": [
+      "Shaking the vinaigrette hard created a temporary emulsion, but the oil and vinegar began separating within minutes.",
+      "The photographer carefully handled the film so the delicate emulsion would not get scratched before developing."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -12066,6 +12432,21 @@
     "reviewReason": ""
   },
   {
+    "id": "finagle",
+    "word": "finagle",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To get or achieve something through clever, sneaky, or dishonest tricks, usually by bending the rules or manipulating people."
+    ],
+    "examples": [
+      "He managed to finagle a free upgrade to first class by chatting up the gate agent.",
+      "She finagled her way into the sold-out concert without a ticket."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "fixate",
     "word": "fixate",
     "type": "common",
@@ -12173,6 +12554,21 @@
     ],
     "examples": [
       "The performer made a flamboyant entrance wearing a sequined cape and feathered hat."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "flamb",
+    "word": "flambé",
+    "type": "common",
+    "partOfSpeech": "v/adj",
+    "definitions": [
+      "To pour alcohol over food and set it alight briefly, creating flames that add flavor and dramatic presentation; also describes food prepared this way."
+    ],
+    "examples": [
+      "The waiter carefully tipped the brandy into the pan and flambéed the bananas at our table, sending a column of fire toward the ceiling.",
+      "For dessert, she ordered the cherries flambé and watched the blue flames die down before taking her first bite."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -12430,6 +12826,36 @@
     "reviewReason": ""
   },
   {
+    "id": "frolick",
+    "word": "frolick",
+    "type": "common",
+    "partOfSpeech": "v/n",
+    "definitions": [
+      "To play about in a lively, carefree, and cheerful way; also, a playful outing or lighthearted bout of merrymaking."
+    ],
+    "examples": [
+      "The puppies began to frolick in the fresh snow, tumbling over each other and barking with delight.",
+      "After the exams ended, the students spent the afternoon on a happy frolick by the lake."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "frolicking",
+    "word": "frolicking",
+    "type": "common",
+    "partOfSpeech": "v/adj",
+    "definitions": [
+      "Playing about in a lively, carefree, and cheerful way, often outdoors and with a lot of energy and joy."
+    ],
+    "examples": [
+      "The puppies were frolicking in the tall grass while their owners watched and laughed.",
+      "After the final exam, the students spent the afternoon frolicking by the lake without a worry in the world."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "fructify",
     "word": "fructify",
     "type": "common",
@@ -12456,6 +12882,22 @@
     ],
     "reviewNeeded": false,
     "reviewReason": ""
+  },
+  {
+    "id": "ftl",
+    "word": "FTL",
+    "type": "common",
+    "partOfSpeech": "adj/n",
+    "definitions": [
+      "Describes travel or communication that moves quicker than light does, a staple of science fiction that breaks known physical limits.",
+      "Software inside a solid-state drive that maps logical storage addresses to physical flash memory locations and manages wear and data placement."
+    ],
+    "examples": [
+      "The captain engaged the FTL drive, and the stars outside the window stretched into long bright streaks.",
+      "Because the drive's FTL spreads writes evenly across the memory chips, the device lasts much longer under heavy use."
+    ],
+    "reviewNeeded": true,
+    "reviewReason": "No context or expansion was given, and the abbreviation has several meanings; the two most common are covered here."
   },
   {
     "id": "fulminate",
@@ -13825,6 +14267,21 @@
     "reviewReason": ""
   },
   {
+    "id": "hullaballoo",
+    "word": "hullaballoo",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A loud, confused uproar caused by excitement, anger, or commotion, usually involving many people making noise at once."
+    ],
+    "examples": [
+      "When the mayor's dog escaped during the parade, a great hullaballoo broke out as children shrieked and chased it down the street.",
+      "The new policy caused quite a hullaballoo at the office, with everyone talking at once in the hallway."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "humbug",
     "word": "humbug",
     "type": "common",
@@ -13892,6 +14349,22 @@
     ],
     "examples": [
       "When she said she'd waited a million years for the bus, everyone knew it was hyperbole."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "hyperspace",
+    "word": "hyperspace",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "In science fiction, an imagined dimension through which spaceships travel faster than light to cross enormous distances in very little time.",
+      "In mathematics, a space with more than three dimensions."
+    ],
+    "examples": [
+      "The captain punched in the coordinates, and the ship leapt into hyperspace, stretching the stars into streaks of light.",
+      "The physicist drew a simple diagram to help students picture how a point moves through a four-dimensional hyperspace."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -16320,6 +16793,37 @@
     "reviewReason": ""
   },
   {
+    "id": "julian",
+    "word": "Julian",
+    "type": "proper",
+    "partOfSpeech": "n/adj",
+    "definitions": [
+      "A male first name of Latin origin, linked to an ancient Roman family name.",
+      "Relating to the calendar reform made by a famous Roman dictator in 45 BC, with a leap day every fourth year."
+    ],
+    "examples": [
+      "Julian waved from the platform as the train pulled out of the station.",
+      "Some Orthodox churches still set their holy days by the Julian calendar, so their Christmas falls in January."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "julienne",
+    "word": "julienne",
+    "type": "common",
+    "partOfSpeech": "v/adj/n",
+    "definitions": [
+      "To cut vegetables or other food into thin, matchstick-sized strips, or describing food prepared in this way."
+    ],
+    "examples": [
+      "The chef showed us how to julienne carrots so they would cook quickly and look elegant in the salad.",
+      "She topped the stir-fry with julienne peppers and a handful of fresh herbs."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "jurassic",
     "word": "Jurassic",
     "type": "proper",
@@ -17965,6 +18469,21 @@
     "reviewReason": ""
   },
   {
+    "id": "mental-masterbation",
+    "word": "mental masterbation",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "Intellectual activity or discussion that feels clever and self-indulgent but produces no practical result or useful outcome for anyone."
+    ],
+    "examples": [
+      "The three-hour meeting about the logo's philosophical meaning was pure mental masterbation, and we still had no actual design.",
+      "He loves debating hypothetical puzzles all night, but his friends see it as mental masterbation that never solves anything real."
+    ],
+    "reviewNeeded": true,
+    "reviewReason": "The input spelling 'masterbation' is a misspelling of 'masturbation'. The word field is kept as given, but the standard idiom is 'mental masturbation'. The phrase is also informal and slightly vulgar."
+  },
+  {
     "id": "mentor",
     "word": "mentor",
     "type": "common",
@@ -18284,6 +18803,36 @@
     ],
     "examples": [
       "If you had even a modicum of sense, you wouldn't have made such a reckless decision."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "modulate",
+    "word": "modulate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To adjust or vary the strength, tone, pitch, or degree of something so that it becomes more suitable or controlled."
+    ],
+    "examples": [
+      "The singer learned to modulate her voice, moving from a soft whisper to a powerful belt.",
+      "Doctors can modulate the dose of the medicine depending on how the patient responds."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "modus-operandi",
+    "word": "modus operandi",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A person's or group's characteristic way of working or doing things, especially a recognizable pattern of behavior, such as in solving problems or committing crimes."
+    ],
+    "examples": [
+      "The detectives noticed that the burglaries all shared the same modus operandi: a broken back window and nothing taken but cash.",
+      "Her modus operandi in meetings was to listen quietly first and then offer a single, well-considered suggestion."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -18786,6 +19335,21 @@
     "reviewReason": ""
   },
   {
+    "id": "nebulize",
+    "word": "nebulize",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To turn a liquid, especially medicine, into a fine mist or spray so it can be inhaled or sprayed over a surface."
+    ],
+    "examples": [
+      "The nurse used a small machine to nebulize the medication so the child could breathe it in gently.",
+      "Before the experiment, the technician had to nebulize the solution into a cloud of tiny droplets."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "nebulous",
     "word": "nebulous",
     "type": "common",
@@ -19147,6 +19711,21 @@
     ],
     "examples": [
       "His argument was full of non sequiturs, jumping from discussing taxes to complaining about the weather."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "non-repudiation",
+    "word": "non-repudiation",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A guarantee in security and law that someone cannot credibly deny having sent a message, signed a document, or carried out an action."
+    ],
+    "examples": [
+      "Digital signatures give the bank proof of who approved the transfer, so the customer cannot later claim they never authorized it.",
+      "The contract platform logs every signature with a timestamp and certificate, which provides strong evidence that no signer can disown their agreement."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -21047,6 +21626,22 @@
     "reviewReason": ""
   },
   {
+    "id": "percolate",
+    "word": "percolate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To filter slowly through a porous material, as liquid passing through grounds, soil, or small holes",
+      "To spread gradually through a group or system, as news, ideas, or feelings"
+    ],
+    "examples": [
+      "Rainwater began to percolate through the layers of sand and gravel, eventually reaching the underground spring.",
+      "It took weeks for the rumor to percolate through the office, but soon everyone was whispering about the merger."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "perennial",
     "word": "perennial",
     "type": "common",
@@ -21056,6 +21651,22 @@
     ],
     "examples": [
       "Traffic congestion is a perennial problem in major cities during rush hour."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "performative",
+    "word": "performative",
+    "type": "common",
+    "partOfSpeech": "adj/n",
+    "definitions": [
+      "Describing a spoken statement that carries out an action by being said, such as 'I promise' or 'I now pronounce you married'.",
+      "Done mainly to be seen and win approval, rather than from real belief or commitment, especially regarding social or moral values."
+    ],
+    "examples": [
+      "When the judge said 'I sentence you to five years,' her words were performative, because saying them made the sentence official.",
+      "His public apology felt performative, since he posted it for attention and changed nothing about how he treated his staff."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -22369,6 +22980,21 @@
     "reviewReason": ""
   },
   {
+    "id": "pre-cognition",
+    "word": "pre-cognition",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The supposed ability to know about an event or situation before it happens, through some mysterious sense rather than through evidence or reasoning."
+    ],
+    "examples": [
+      "She claimed her sudden dread that morning was a form of pre-cognition, since the accident occurred just hours later.",
+      "In the novel, the detective's pre-cognition lets her see crimes before they happen, though no one believes her warnings."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "precarious",
     "word": "precarious",
     "type": "common",
@@ -22581,6 +23207,21 @@
     "examples": [
       "The old grammar handbook was strongly prescriptive, insisting that no sentence should ever end with a preposition.",
       "Critics said the new regulations were too prescriptive, leaving managers no room to adapt to local needs."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "prestidigitate",
+    "word": "prestidigitate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To perform magic tricks using quick, skilled hand movements, especially to fool the audience with sleight of hand."
+    ],
+    "examples": [
+      "At the birthday party, the uncle liked to prestidigitate, pulling coins from behind the children's ears.",
+      "She could prestidigitate so smoothly that no one at the table saw the card slip into her sleeve."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -23161,6 +23802,21 @@
     "reviewReason": ""
   },
   {
+    "id": "progressive-disclosure",
+    "word": "progressive disclosure",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A design approach that shows only the essential options at first and reveals more advanced features or details as the user needs them."
+    ],
+    "examples": [
+      "The settings screen uses progressive disclosure, so casual users see a few simple toggles while an Advanced link opens the rarely needed controls.",
+      "By relying on progressive disclosure, the tutorial introduced one new concept per lesson instead of overwhelming beginners with everything at once."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "proliferate",
     "word": "proliferate",
     "type": "common",
@@ -23245,6 +23901,36 @@
     "reviewReason": ""
   },
   {
+    "id": "propagate",
+    "word": "propagate",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To spread an idea, belief, or piece of information widely among many people, often through repeated communication."
+    ],
+    "examples": [
+      "The group used social media to propagate its message far beyond the local community.",
+      "Gardeners can grow new plants from cuttings, which is an easy way to propagate herbs like mint and basil."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "propagation-delay",
+    "word": "propagation delay",
+    "type": "phrase",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The time a signal takes to travel from its source to its destination through a wire, network, or electronic component."
+    ],
+    "examples": [
+      "Because the servers were on opposite sides of the planet, the unavoidable propagation delay made real-time gaming feel sluggish.",
+      "Engineers shortened the circuit paths to reduce the propagation delay between the two chips."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "propensity",
     "word": "propensity",
     "type": "common",
@@ -23268,6 +23954,21 @@
     ],
     "examples": [
       "Victorian society placed great emphasis on propriety, especially regarding interactions between unmarried men and women."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "propulsion",
+    "word": "propulsion",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The force or process that pushes something, especially a vehicle, aircraft, or spacecraft, forward through air, water, or space."
+    ],
+    "examples": [
+      "The ship's engines provided enough thrust for steady movement across the ocean.",
+      "Engineers tested a new form of rocket power designed to carry astronauts to Mars."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -24459,6 +25160,21 @@
     "reviewReason": ""
   },
   {
+    "id": "razzmatazz",
+    "word": "razzmatazz",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "Flashy, noisy, showy activity or display meant to impress, excite, or attract attention, often with little real substance behind it."
+    ],
+    "examples": [
+      "The game show opened with spinning lights, loud music, and all the razzmatazz you would expect from prime time television.",
+      "I prefer a quiet dinner to the razzmatazz of a big Las Vegas show."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "rear-guard",
     "word": "rear guard",
     "type": "common",
@@ -25160,6 +25876,21 @@
     "reviewReason": ""
   },
   {
+    "id": "repudiation",
+    "word": "repudiation",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The act of firmly rejecting something as untrue, invalid, or unworthy of acceptance, or of refusing to honor an obligation or relationship."
+    ],
+    "examples": [
+      "The senator issued a public repudiation of the rumors, calling them baseless and malicious.",
+      "His repudiation of the contract left the company facing a lengthy legal battle."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "repugnant",
     "word": "repugnant",
     "type": "common",
@@ -25197,6 +25928,22 @@
     ],
     "examples": [
       "The smell from the garbage dump was absolutely repulsive."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "repute",
+    "word": "repute",
+    "type": "common",
+    "partOfSpeech": "n/v",
+    "definitions": [
+      "The general opinion people hold about someone or something, especially a good standing in the eyes of others.",
+      "To consider or regard someone or something in a certain way, usually used in the passive."
+    ],
+    "examples": [
+      "The restaurant is a place of high repute, and tables are booked weeks in advance.",
+      "She is reputed to have memorized every street in the city, though no one has ever tested her."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -26189,6 +26936,21 @@
     ],
     "reviewNeeded": false,
     "reviewReason": ""
+  },
+  {
+    "id": "saut-e",
+    "word": "sautée",
+    "type": "common",
+    "partOfSpeech": "v/adj",
+    "definitions": [
+      "To fry food quickly in a small amount of hot fat, stirring or tossing it so it browns evenly; also describes food cooked this way."
+    ],
+    "examples": [
+      "She sautéed the mushrooms with garlic until they turned golden and fragrant.",
+      "The restaurant served a sautéed spinach side dish alongside the roasted chicken."
+    ],
+    "reviewNeeded": true,
+    "reviewReason": "The input spelling 'sautée' is a feminine French form; standard English uses 'sauté' or 'sautéed', so the entry follows the English culinary usage."
   },
   {
     "id": "savant",
@@ -28223,6 +28985,22 @@
     "reviewReason": ""
   },
   {
+    "id": "substrate",
+    "word": "substrate",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The underlying layer or base material on which something grows, lives, is coated, or is built.",
+      "The specific substance that an enzyme acts upon to cause a chemical reaction."
+    ],
+    "examples": [
+      "The moss clung to the rocky surface, which provided a stable base for its roots to grip.",
+      "The enzyme binds to its target molecule and breaks it into two smaller pieces during digestion."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "subversion",
     "word": "subversion",
     "type": "common",
@@ -28458,6 +29236,21 @@
     ],
     "examples": [
       "The chef's superlative skills earned the restaurant three Michelin stars."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "supersede",
+    "word": "supersede",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To take the place of something older or less current, making it obsolete, outdated, or no longer valid or in force."
+    ],
+    "examples": [
+      "The new safety regulations will replace and supersede the guidelines that were issued five years ago.",
+      "Many people once used landline phones at home, but mobile phones have largely come to supersede them."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -29304,6 +30097,21 @@
     ],
     "examples": [
       "Theravada monasteries in Southeast Asia maintain strict adherence to the original monastic code."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "thingamajig",
+    "word": "thingamajig",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A casual placeholder name for an object whose real name is forgotten, unknown, or not worth stating."
+    ],
+    "examples": [
+      "Hand me that little thingamajig next to the toolbox, the one with the red handle.",
+      "She waved a strange thingamajig at the waiter and asked if he knew how to fix it."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -31615,6 +32423,21 @@
     "reviewReason": ""
   },
   {
+    "id": "whatchamacallit",
+    "word": "whatchamacallit",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A stand-in name for a thing whose proper name you cannot remember, do not know, or find too trivial to bother mentioning."
+    ],
+    "examples": [
+      "Hand me that whatchamacallit on the workbench, the one with the long metal handle.",
+      "She rummaged through the drawer looking for the whatchamacallit that opens bottles of wine."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "wheedle",
     "word": "wheedle",
     "type": "common",
@@ -31652,6 +32475,22 @@
     ],
     "examples": [
       "Her whimsical decorating style featured mismatched furniture and colorful artwork in unexpected places."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "whisk",
+    "word": "whisk",
+    "type": "common",
+    "partOfSpeech": "n/v",
+    "definitions": [
+      "To beat eggs, cream, or batter quickly with a light, circular motion to mix them or add air; also, the wire kitchen tool used for this.",
+      "To carry or move someone or something away very quickly and suddenly."
+    ],
+    "examples": [
+      "She grabbed a fork to whisk the eggs until they turned pale and frothy.",
+      "The driver whisked the actress through the back door before the crowd could notice her."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -31821,6 +32660,21 @@
     ],
     "examples": [
       "After years of studying Zen, he found clarity through daily sitting meditation at the monastery."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "zesting",
+    "word": "zesting",
+    "type": "common",
+    "partOfSpeech": "n/v",
+    "definitions": [
+      "Scraping or peeling the thin, colorful outer skin from a lemon, orange, or other citrus fruit to add flavor to food or drinks."
+    ],
+    "examples": [
+      "After an hour of zesting limes for the pie filling, her knuckles were sore from the grater.",
+      "Zesting the orange right over the batter lets the fragrant oils fall straight into the bowl."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
