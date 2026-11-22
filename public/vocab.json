@@ -4504,6 +4504,21 @@
     "reviewReason": ""
   },
   {
+    "id": "capitalism",
+    "word": "capitalism",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "An economic system in which private owners, rather than the state, control trade and industry and run them to earn profit."
+    ],
+    "examples": [
+      "Under this system, entrepreneurs compete to sell goods, and prices are shaped mostly by what buyers are willing to pay.",
+      "Critics argue that unchecked free markets widen the gap between rich and poor, while supporters say they reward innovation and hard work."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "capitulate",
     "word": "capitulate",
     "type": "common",
@@ -5715,6 +5730,21 @@
     "examples": [
       "After months of hesitation, she finally decided to commit to the training program and showed up every morning at six.",
       "Police believe the same group of thieves committed several burglaries across the neighborhood last winter."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "communism",
+    "word": "communism",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A political and economic system in which property and resources are owned collectively by the community or state, aiming to remove social classes and private wealth."
+    ],
+    "examples": [
+      "Under communism, the government controlled the farms and factories, and workers were promised an equal share of what they produced.",
+      "Her grandfather grew up in a country that abandoned communism after the political upheavals of 1989."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -8113,6 +8143,21 @@
     "reviewReason": ""
   },
   {
+    "id": "democracy",
+    "word": "democracy",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A system of government in which citizens hold power, either by voting directly on decisions or by electing representatives to act for them."
+    ],
+    "examples": [
+      "In a healthy democracy, people can criticize their leaders openly and vote them out of office.",
+      "The small town practiced direct democracy, with every resident invited to vote on the budget at the annual meeting."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "democratic",
     "word": "democratic",
     "type": "common",
@@ -8740,6 +8785,22 @@
     ],
     "examples": [
       "There's a false dichotomy between being practical and being creative—you can be both."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "dictatorship",
+    "word": "dictatorship",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A form of government where one person or a small group holds complete power, usually without fair elections or limits on their authority.",
+      "A country ruled by a single leader who holds absolute power and does not answer to voters or courts."
+    ],
+    "examples": [
+      "Under the dictatorship, newspapers were shut down and anyone who criticized the leader risked imprisonment.",
+      "After decades of living under a harsh dictatorship, the citizens finally voted in their first free election."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
@@ -25909,6 +25970,36 @@
     "reviewReason": ""
   },
   {
+    "id": "republic",
+    "word": "republic",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "A country where power rests with the citizens, who elect representatives to govern, and where the head of state is not a monarch."
+    ],
+    "examples": [
+      "After the king was overthrown, the nation became a republic and held its first national election.",
+      "Citizens of the young republic argued fiercely over how much authority the central government should have."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "republican",
+    "word": "republican",
+    "type": "common",
+    "partOfSpeech": "adj/n",
+    "definitions": [
+      "Supporting or favoring a system of government where citizens elect leaders and the head of state is not a king or queen."
+    ],
+    "examples": [
+      "As a committed republican, she argued that the country should replace its monarch with an elected president.",
+      "Many early American colonists became republicans, rejecting inherited rule in favor of government by elected representatives."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "repudiate",
     "word": "repudiate",
     "type": "common",
@@ -27988,6 +28079,21 @@
     ],
     "examples": [
       "The candidate's platform advocated for socialism with universal healthcare and free education."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "socialistic",
+    "word": "socialistic",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Having qualities of or leaning toward a system where the community or government collectively owns and controls major industries and resources."
+    ],
+    "examples": [
+      "Critics called the new housing plan socialistic because it put land and rents under public control.",
+      "The town's shared tools, communal farm, and equal pay gave it a distinctly socialistic character."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
