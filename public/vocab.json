@@ -26150,6 +26150,21 @@
     "reviewReason": ""
   },
   {
+    "id": "reticulating",
+    "word": "reticulating",
+    "type": "common",
+    "partOfSpeech": "v/adj",
+    "definitions": [
+      "Forming, or being arranged in, a network of crossing lines, branches, or channels, like the pattern of a net."
+    ],
+    "examples": [
+      "The reticulating veins on the leaf formed a delicate web visible against the light.",
+      "Engineers spent months reticulating water pipes throughout the new neighborhood so every home could connect to the main supply."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "retinue",
     "word": "retinue",
     "type": "common",
