@@ -5905,6 +5905,21 @@
     "reviewReason": ""
   },
   {
+    "id": "conciliatory",
+    "word": "conciliatory",
+    "type": "common",
+    "partOfSpeech": "adj",
+    "definitions": [
+      "Intended to calm anger or hostility and make peace, often by showing willingness to compromise or meet the other side halfway."
+    ],
+    "examples": [
+      "After the heated argument, she sent a warm, conciliatory email offering to share the blame and start fresh.",
+      "The union leader struck a conciliatory tone at the meeting, hinting that both sides might give up some demands."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
     "id": "concise",
     "word": "concise",
     "type": "common",
@@ -25310,6 +25325,38 @@
     ],
     "examples": [
       "The company offered financial recompense to customers affected by the data breach."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "reconcile",
+    "word": "reconcile",
+    "type": "common",
+    "partOfSpeech": "v",
+    "definitions": [
+      "To restore friendly relations between people or groups after a disagreement or conflict has driven them apart.",
+      "To make two seemingly opposed ideas, facts, or sets of figures fit together or agree with each other."
+    ],
+    "examples": [
+      "After years of not speaking, the two brothers finally sat down over coffee and managed to reconcile.",
+      "She had to reconcile her bank statement with her own records to find the missing twenty dollars."
+    ],
+    "reviewNeeded": false,
+    "reviewReason": ""
+  },
+  {
+    "id": "reconciliation",
+    "word": "reconciliation",
+    "type": "common",
+    "partOfSpeech": "n",
+    "definitions": [
+      "The restoring of friendly relations between people or groups after a quarrel or conflict has divided them.",
+      "The process of checking two sets of records, such as bank statements and accounts, to confirm they match and explaining any differences."
+    ],
+    "examples": [
+      "After years of silence, the brothers finally found reconciliation at their mother's bedside.",
+      "Her monthly reconciliation of the company's ledger caught a duplicate payment of two thousand dollars."
     ],
     "reviewNeeded": false,
     "reviewReason": ""
